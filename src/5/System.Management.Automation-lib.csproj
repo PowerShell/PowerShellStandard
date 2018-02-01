@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\signing\visualstudiopublic.snk</AssemblyOriginatorKeyFile>
+    <AssemblyName>System.Management.Automation</AssemblyName>
+    <AssemblyVersion>5.1.0</AssemblyVersion>
+    <DelaySign>True</DelaySign>
+    <DefineConstants>RUNTIME_SERIALIZATION</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.IO.FileSystem.AccessControl" Version="4.3.0" />
+    <PackageReference Include="System.Security.AccessControl" Version="4.4.0" />
+    <PackageReference Include="System.Security.Permissions" Version="4.4.0" />
+    <PackageReference Include="System.Security.SecureString" Version="4.3.0" />
+  </ItemGroup>
+</Project>
