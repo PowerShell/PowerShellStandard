@@ -22,6 +22,8 @@ WORKFLOW - missing apis, probably remove
 WSMAN - Windows only
 XML_SERIALIZATION - missing apis
 
+PREVIEW2 - Remove from preview 2
+
 */
 
 namespace Microsoft.PowerShell {
@@ -208,6 +210,7 @@ namespace Microsoft.PowerShell.Commands {
     public System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } set { } }
      
   }
+#if PREVIEW2
   public class AlternateStreamData {
     public AlternateStreamData() { }
      
@@ -216,6 +219,7 @@ namespace Microsoft.PowerShell.Commands {
     public string Stream { [System.Runtime.CompilerServices.CompilerGeneratedAttribute]get { return default(string); } [System.Runtime.CompilerServices.CompilerGeneratedAttribute]set { } }
      
   }
+#endif
   [System.Management.Automation.CmdletAttribute("Clear", "History", SupportsShouldProcess=true, DefaultParameterSetName="IDParameter", HelpUri="http://go.microsoft.com/fwlink/?LinkID=135199")]
   public class ClearHistoryCommand : System.Management.Automation.PSCmdlet {
     public ClearHistoryCommand() { }
@@ -318,9 +322,11 @@ namespace Microsoft.PowerShell.Commands {
     protected override void ProcessRecord() { }
     protected override void StopProcessing() { }
   }
+#if PREVIEW2
   public abstract class ConsoleCmdletsBase : System.Management.Automation.PSCmdlet {
     protected ConsoleCmdletsBase() { }
   }
+#endif
   [System.Management.Automation.CmdletAttribute("Disable", "PSRemoting", SupportsShouldProcess=true, ConfirmImpact=(System.Management.Automation.ConfirmImpact)(3), HelpUri="http://go.microsoft.com/fwlink/?LinkID=144298")]
   public sealed class DisablePSRemotingCommand : System.Management.Automation.PSCmdlet {
     public DisablePSRemotingCommand() { }
@@ -453,6 +459,7 @@ namespace Microsoft.PowerShell.Commands {
      
     protected override void ProcessRecord() { }
   }
+#if PREVIEW2
   [System.Management.Automation.CmdletAttribute("Export", "Console", SupportsShouldProcess=true, HelpUri="http://go.microsoft.com/fwlink/?LinkID=113298")]
   public sealed class ExportConsoleCommand : Microsoft.PowerShell.Commands.ConsoleCmdletsBase {
     public ExportConsoleCommand() { }
@@ -468,6 +475,7 @@ namespace Microsoft.PowerShell.Commands {
      
     protected override void ProcessRecord() { }
   }
+#endif
   [System.Management.Automation.CmdletAttribute("Export", "ModuleMember", HelpUri="http://go.microsoft.com/fwlink/?LinkID=141551")]
   public sealed class ExportModuleMemberCommand : System.Management.Automation.PSCmdlet {
     public ExportModuleMemberCommand() { }
@@ -494,6 +502,7 @@ namespace Microsoft.PowerShell.Commands {
     public string Stream { [System.Runtime.CompilerServices.CompilerGeneratedAttribute]get { return default(string); } [System.Runtime.CompilerServices.CompilerGeneratedAttribute]set { } }
      
   }
+#if PREVIEW2
   public enum FileSystemCmdletProviderEncoding {
     Ascii = 8,
     BigEndianUnicode = 4,
@@ -507,11 +516,14 @@ namespace Microsoft.PowerShell.Commands {
     UTF7 = 6,
     UTF8 = 5,
   }
+#endif
   public class FileSystemContentDynamicParametersBase {
     public FileSystemContentDynamicParametersBase() { }
      
+#if PREVIEW2
     [System.Management.Automation.ParameterAttribute]
     public Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding Encoding { get { return default(Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding); } set { } }
+#endif
     public System.Text.Encoding EncodingType { get { return default(System.Text.Encoding); } }
     [System.Management.Automation.ParameterAttribute]
     public string Stream { [System.Runtime.CompilerServices.CompilerGeneratedAttribute]get { return default(string); } [System.Runtime.CompilerServices.CompilerGeneratedAttribute]set { } }
@@ -3427,12 +3439,14 @@ namespace System.Management.Automation {
     public HaltCommandException(string message) { }
     public HaltCommandException(string message, System.Exception innerException) { }
   }
+#if PREVIEW2
   public partial interface IBackgroundDispatcher {
     System.IAsyncResult BeginInvoke(System.Threading.WaitCallback callback, object state, System.AsyncCallback completionCallback, object asyncState);
     void EndInvoke(System.IAsyncResult asyncResult);
     bool QueueUserWorkItem(System.Threading.WaitCallback callback);
     bool QueueUserWorkItem(System.Threading.WaitCallback callback, object state);
   }
+#endif
   public partial interface ICommandRuntime {
 #if TRANSACTIONS
     System.Management.Automation.PSTransactionContext CurrentPSTransaction { get; }
@@ -5545,11 +5559,13 @@ namespace System.Management.Automation {
     public string ItemName { get { return default(string); } }
     public System.Management.Automation.SessionStateCategory SessionStateCategory { get { return default(System.Management.Automation.SessionStateCategory); } }
   }
+#if PREVIEW2
   public class SessionStateOverflowException : System.Management.Automation.SessionStateException {
     public SessionStateOverflowException() { }
     public SessionStateOverflowException(string message) { }
     public SessionStateOverflowException(string message, System.Exception innerException) { }
   }
+#endif
   public class SessionStateUnauthorizedAccessException : System.Management.Automation.SessionStateException {
     public SessionStateUnauthorizedAccessException() { }
     public SessionStateUnauthorizedAccessException(string message) { }
@@ -6189,8 +6205,10 @@ namespace System.Management.Automation.Host {
   }
 }
 namespace System.Management.Automation.Internal {
+#if PREVIEW2
   public static class AlternateDataStreamUtilities {
   }
+#endif
   public static class AutomationNull {
     public static System.Management.Automation.PSObject Value { get { return default(System.Management.Automation.PSObject); } }
      
@@ -8496,6 +8514,7 @@ namespace System.Management.Automation.Runspaces {
      
     public override System.Management.Automation.Runspaces.InitialSessionStateEntry Clone() { return default(System.Management.Automation.Runspaces.InitialSessionStateEntry); }
   }
+#if PREVIEW2
   public sealed class SessionStateWorkflowEntry : System.Management.Automation.Runspaces.SessionStateCommandEntry {
     public SessionStateWorkflowEntry(string name, string definition) : base (default(string)) { }
     public SessionStateWorkflowEntry(string name, string definition, System.Management.Automation.ScopedItemOptions options, string helpFile) : base (default(string)) { }
@@ -8507,6 +8526,7 @@ namespace System.Management.Automation.Runspaces {
      
     public override System.Management.Automation.Runspaces.InitialSessionStateEntry Clone() { return default(System.Management.Automation.Runspaces.InitialSessionStateEntry); }
   }
+#endif
 #if V1_PIPELINE_API
   public sealed class TypeConfigurationEntry : System.Management.Automation.Runspaces.RunspaceConfigurationEntry {
     public TypeConfigurationEntry(System.Management.Automation.Runspaces.TypeData typeData, bool isRemove) : base (default(string)) { }
@@ -8607,6 +8627,7 @@ namespace System.Management.Automation.Runspaces {
   }
 #endif
 }
+#if PREVIEW2
 namespace System.Management.Automation.Security {
   public enum SystemEnforcementMode {
     Audit = 1,
@@ -8619,3 +8640,4 @@ namespace System.Management.Automation.Security {
     public static System.Management.Automation.Security.SystemEnforcementMode GetSystemLockdownPolicy() { return default(System.Management.Automation.Security.SystemEnforcementMode); }
   }
 }
+#endif
