@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>PowerShellStandard.Library</id>
+    <version>3.0.0-preview-02</version>
+    <title>PowerShellStandard.Library</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft,PowerShellTeam</owners>
+    <projectUrl>https://msdn.microsoft.com/en-us/mt173057.aspx</projectUrl>
+    <iconUrl>https://secure.gravatar.com/avatar/cfba7016de8e12d5b3017130f75ef8ed</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Contains the reference assemblies for PowerShell Standard 3</description>
+    <copyright>Copyright Microsoft Corporation 2018. All rights reserved.</copyright>
+    <tags>PowerShell, netstandard2, netstandard2.0</tags>
+    <references>
+      <reference file="System.Management.Automation.dll" />
+    </references>
+  </metadata>
+  <files>
+    <file src="obj/Debug/netstandard2.0/System.Management.Automation.dll" target="lib/netstandard2.0" />
+  </files>
+</package>
+
