@@ -3140,7 +3140,6 @@ namespace System.Management.Automation {
 
     public System.Management.Automation.ICommandRuntime CommandRuntime { get { return default(System.Management.Automation.ICommandRuntime); } set { } }
     public System.Collections.Generic.HashSet<string> CommonParameters { get { return default(System.Collections.Generic.HashSet<string>); } }
-    public System.Management.Automation.PSTransactionContext CurrentPSTransaction { get { return default(System.Management.Automation.PSTransactionContext); } }
     public System.Collections.Generic.HashSet<string> OptionalCommonParameters { get { return default(System.Collections.Generic.HashSet<string>); } }
     public bool Stopping { get { return default(bool); } }
     protected virtual void BeginProcessing (  ) { }
@@ -3210,7 +3209,6 @@ namespace System.Management.Automation {
     public string Noun { get { return default(string); } }
     public System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } set { } }
     public override System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName> OutputType { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName>); } }
-    public System.Management.Automation.PSSnapInInfo PSSnapIn { get { return default(System.Management.Automation.PSSnapInInfo); } }
     public string Verb { get { return default(string); } }
     public override System.Version Version { get { return default(System.Version); } }
   }
@@ -3961,8 +3959,6 @@ namespace System.Management.Automation {
 
   }
 
-  public delegate bool GetSymmetricEncryptionKey(System.Runtime.Serialization.StreamingContext context, out byte[] key, out byte[] iv);
-
   public class GettingValueExceptionEventArgs : System.EventArgs {
     internal GettingValueExceptionEventArgs() { }
     public System.Exception Exception { get { return default(System.Exception); } }
@@ -4073,8 +4069,6 @@ namespace System.Management.Automation {
   }
 
   public partial interface ICommandRuntime {
-    System.Management.Automation.PSTransactionContext CurrentPSTransaction { get; }
-
     System.Management.Automation.Host.PSHost Host { get; }
 
      bool ShouldContinue ( string query, string caption, ref bool yesToAll, ref bool noToAll );
@@ -4985,7 +4979,6 @@ namespace System.Management.Automation {
     public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } set { } }
     public string ModuleName { get { return default(string); } }
     public string Name { get { return default(string); } }
-    public System.Management.Automation.PSSnapInInfo PSSnapIn { get { return default(System.Management.Automation.PSSnapInInfo); } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -5240,7 +5233,6 @@ namespace System.Management.Automation {
     public PSCredential(System.Management.Automation.PSObject pso) { }
 
     public System.Management.Automation.PSCredential Empty { get { return default(System.Management.Automation.PSCredential); } }
-    public System.Management.Automation.GetSymmetricEncryptionKey GetSymmetricEncryptionKeyDelegate { get { return default(System.Management.Automation.GetSymmetricEncryptionKey); } set { } }
     public System.Security.SecureString Password { get { return default(System.Security.SecureString); } }
     public string UserName { get { return default(string); } }
     public System.Net.NetworkCredential GetNetworkCredential (  ) { return default(System.Net.NetworkCredential); }
@@ -5884,6 +5876,21 @@ namespace System.Management.Automation {
 
   }
 
+  public class PSObjectPropertyDescriptor : System.ComponentModel.PropertyDescriptor {
+    internal PSObjectPropertyDescriptor() : base ( default(string), default(System.Attribute[])) { }
+    public override System.ComponentModel.AttributeCollection Attributes { get { return default(System.ComponentModel.AttributeCollection); } }
+    public override System.Type ComponentType { get { return default(System.Type); } }
+    public override bool IsReadOnly { get { return default(bool); } }
+    public override System.Type PropertyType { get { return default(System.Type); } }
+    public override bool CanResetValue ( object component ) { return default(bool); }
+    public override object GetValue ( object component ) { return default(object); }
+    public override void ResetValue ( object component ) { }
+    public override void SetValue ( object component, object value ) { }
+    public override bool ShouldSerializeValue ( object component ) { return default(bool); }
+
+  }
+
+
   public class PSObjectTypeDescriptionProvider : System.ComponentModel.TypeDescriptionProvider {
     public PSObjectTypeDescriptionProvider() { }
 
@@ -5930,18 +5937,6 @@ namespace System.Management.Automation {
     public void InvokeSet ( object valueToSet, object[] arguments ) { }
     public override string ToString (  ) { return default(string); }
 
-  }
-
-  public sealed class PSParseError {
-    internal PSParseError() { }
-    public string Message { get { return default(string); } }
-    public System.Management.Automation.PSToken Token { get { return default(System.Management.Automation.PSToken); } }
-     
-  }
-  public sealed class PSParser {
-    internal PSParser() { }
-    public static System.Collections.ObjectModel.Collection<System.Management.Automation.PSToken> Tokenize(object[] script, out System.Collections.ObjectModel.Collection<System.Management.Automation.PSParseError> errors) { errors = default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSParseError>); return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSToken>); }
-    public static System.Collections.ObjectModel.Collection<System.Management.Automation.PSToken> Tokenize(string script, out System.Collections.ObjectModel.Collection<System.Management.Automation.PSParseError> errors) { errors = default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSParseError>); return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSToken>); }
   }
 
     [System.SerializableAttribute]
@@ -6103,29 +6098,6 @@ namespace System.Management.Automation {
 
   }
 
-  public class PSSnapInInfo {
-    public string ApplicationBase { get { return default(string); } }
-    public string AssemblyName { get { return default(string); } }
-    public string Description { get { return default(string); } }
-    public System.Collections.ObjectModel.Collection<string> Formats { get { return default(System.Collections.ObjectModel.Collection<string>); } }
-    public bool IsDefault { get { return default(bool); } }
-    public bool LogPipelineExecutionDetails { get { return default(bool); } set { } }
-    public string ModuleName { get { return default(string); } }
-    public string Name { get { return default(string); } }
-    public System.Version PSVersion { get { return default(System.Version); } }
-    public System.Collections.ObjectModel.Collection<string> Types { get { return default(System.Collections.ObjectModel.Collection<string>); } }
-    public string Vendor { get { return default(string); } }
-    public System.Version Version { get { return default(System.Version); } }
-    public override string ToString (  ) { return default(string); }
-
-  }
-
-    [System.SerializableAttribute]
-   public class PSSnapInSpecification {
-    public string Name { get { return default(string); } set { } }
-    public System.Version Version { get { return default(System.Version); } set { } }
-  }
-
   public sealed class PSToken {
     internal PSToken() { }
     public string Content { get { return default(string); } }
@@ -6195,12 +6167,6 @@ namespace System.Management.Automation {
     Verbose = 2048,
     Warning = 1024,
     WriteLine = 4096,
-  }
-
-  public sealed class PSTransactionContext : System.IDisposable {
-    internal PSTransactionContext() { }
-    public void Dispose (  ) { }
-
   }
 
   public abstract class PSTransportOption {
@@ -7151,7 +7117,6 @@ namespace System.Management.Automation.Provider {
     protected CmdletProvider() { }
 
     public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
-    public System.Management.Automation.PSTransactionContext CurrentPSTransaction { get { return default(System.Management.Automation.PSTransactionContext); } }
     public System.Collections.ObjectModel.Collection<string> Exclude { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public string Filter { get { return default(string); } }
     public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } }
@@ -7519,20 +7484,7 @@ namespace System.Management.Automation.Remoting {
   }
 
 }
-namespace System.Management.Automation.Remoting.WSMan {
-  public sealed class ActiveSessionsChangedEventArgs : System.EventArgs {
-    public ActiveSessionsChangedEventArgs(int activeSessionsCount) { }
 
-    public int ActiveSessionsCount { get { return default(int); } set { } }
-  }
-
-  public static class WSManServerChannelEvents {
-    public static event System.EventHandler<System.Management.Automation.Remoting.WSMan.ActiveSessionsChangedEventArgs> ActiveSessionsChanged { add { } remove { } }
-    public static event System.EventHandler ShuttingDown { add { } remove { } }
-
-  }
-
-}
 namespace System.Management.Automation.Remoting.Internal {
   public class PSStreamObject {
     public PSStreamObject(System.Management.Automation.Remoting.Internal.PSStreamObjectType objectType, object value) { }
@@ -7942,8 +7894,6 @@ namespace System.Management.Automation.Runspaces {
     public void ImportPSModule ( System.Collections.Generic.IEnumerable<Microsoft.PowerShell.Commands.ModuleSpecification> modules ) { }
     public void ImportPSModule ( string[] name ) { }
     public void ImportPSModulesFromPath ( string path ) { }
-    public System.Management.Automation.PSSnapInInfo ImportPSSnapIn ( string name, out System.Management.Automation.Runspaces.PSSnapInException warning ) { warning = default(System.Management.Automation.Runspaces.PSSnapInException); return default(System.Management.Automation.PSSnapInInfo); }
-
   }
 
   public abstract class InitialSessionStateEntry {
@@ -7951,7 +7901,6 @@ namespace System.Management.Automation.Runspaces {
 
     public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } set { } }
     public string Name { get { return default(string); } set { } }
-    public System.Management.Automation.PSSnapInInfo PSSnapIn { get { return default(System.Management.Automation.PSSnapInInfo); } set { } }
     public virtual System.Management.Automation.Runspaces.InitialSessionStateEntry Clone (  ) { return default(System.Management.Automation.Runspaces.InitialSessionStateEntry); }
 
   }
@@ -8044,53 +7993,6 @@ namespace System.Management.Automation.Runspaces {
     None = 0,
   }
 
-  public abstract class Pipeline : System.IDisposable {
-    internal Pipeline() { }
-    public abstract event System.EventHandler<System.Management.Automation.Runspaces.PipelineStateEventArgs> StateChanged;
-
-    public System.Management.Automation.Runspaces.CommandCollection Commands { get { return default(System.Management.Automation.Runspaces.CommandCollection); } set { } }
-    public abstract System.Management.Automation.Runspaces.PipelineReader<object> Error { get; }
-    public bool HadErrors { get { return default(bool); } }
-    public abstract System.Management.Automation.Runspaces.PipelineWriter Input { get; }
-    public System.Int64 InstanceId { get { return default(System.Int64); } }
-    public abstract bool IsNested { get; }
-    public abstract System.Management.Automation.Runspaces.PipelineReader<System.Management.Automation.PSObject> Output { get; }
-    public abstract System.Management.Automation.Runspaces.PipelineStateInfo PipelineStateInfo { get; }
-    public abstract System.Management.Automation.Runspaces.Runspace Runspace { get; }
-    public bool SetPipelineSessionState { get { return default(bool); } set { } }
-    public virtual System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> Connect (  ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public virtual void ConnectAsync (  ) { }
-    public virtual System.Management.Automation.Runspaces.Pipeline Copy (  ) { return default(System.Management.Automation.Runspaces.Pipeline); }
-    protected virtual void Dispose ( bool disposing ) { }
-    public virtual void Dispose (  ) { }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> Invoke (  ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public virtual System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> Invoke ( System.Collections.IEnumerable input ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public virtual void InvokeAsync (  ) { }
-    public virtual void Stop (  ) { }
-    public virtual void StopAsync (  ) { }
-
-  }
-
-  public abstract class PipelineReader<T> {
-    protected PipelineReader() { }
-
-    public abstract event System.EventHandler DataReady;
-
-    public abstract int Count { get; }
-    public abstract bool EndOfPipeline { get; }
-    public abstract bool IsOpen { get; }
-    public abstract int MaxCapacity { get; }
-    public abstract System.Threading.WaitHandle WaitHandle { get; }
-    public virtual void Close (  ) { }
-    public virtual System.Collections.ObjectModel.Collection<T> NonBlockingRead (  ) { return default(System.Collections.ObjectModel.Collection<T>); }
-    public virtual System.Collections.ObjectModel.Collection<T> NonBlockingRead ( int maxRequested ) { return default(System.Collections.ObjectModel.Collection<T>); }
-    public virtual T Peek (  ) { return default(T); }
-    public virtual System.Collections.ObjectModel.Collection<T> Read ( int count ) { return default(System.Collections.ObjectModel.Collection<T>); }
-    public virtual T Read (  ) { return default(T); }
-    public virtual System.Collections.ObjectModel.Collection<T> ReadToEnd (  ) { return default(System.Collections.ObjectModel.Collection<T>); }
-
-  }
-
     [System.FlagsAttribute]
    public enum PipelineResultTypes {
     All = 7,
@@ -8114,40 +8016,6 @@ namespace System.Management.Automation.Runspaces {
     Stopping = 2,
   }
 
-  public sealed class PipelineStateEventArgs : System.EventArgs {
-    internal PipelineStateEventArgs() { }
-    public System.Management.Automation.Runspaces.PipelineStateInfo PipelineStateInfo { get { return default(System.Management.Automation.Runspaces.PipelineStateInfo); } }
-  }
-
-  public sealed class PipelineStateInfo {
-    internal PipelineStateInfo() { }
-    public System.Exception Reason { get { return default(System.Exception); } }
-    public System.Management.Automation.Runspaces.PipelineState State { get { return default(System.Management.Automation.Runspaces.PipelineState); } }
-  }
-
-  public abstract class PipelineWriter {
-    protected PipelineWriter() { }
-
-    public abstract int Count { get; }
-    public abstract bool IsOpen { get; }
-    public abstract int MaxCapacity { get; }
-    public abstract System.Threading.WaitHandle WaitHandle { get; }
-    public virtual void Close (  ) { }
-    public virtual void Flush (  ) { }
-    public virtual int Write ( object obj ) { return default(int); }
-    public virtual int Write ( object obj, bool enumerateCollection ) { return default(int); }
-
-  }
-
-  public sealed class PowerShellProcessInstance : System.IDisposable {
-    public PowerShellProcessInstance(System.Version powerShellVersion, System.Management.Automation.PSCredential credential, System.Management.Automation.ScriptBlock initializationScript, bool useWow64) { }
-    public PowerShellProcessInstance() { }
-
-    public bool HasExited { get { return default(bool); } }
-    public System.Diagnostics.Process Process { get { return default(System.Diagnostics.Process); } }
-    public void Dispose (  ) { }
-
-  }
 
    [System.Diagnostics.DebuggerDisplayAttribute("PropertySet: {Name,nq}")]
    public sealed class PropertySetData : System.Management.Automation.Runspaces.TypeMemberData {
@@ -8196,18 +8064,6 @@ namespace System.Management.Automation.Runspaces {
     Workflow = 1,
   }
 
-    [System.SerializableAttribute]
-   public class PSSnapInException : System.Management.Automation.RuntimeException {
-    public PSSnapInException() { }
-    public PSSnapInException(string message) { }
-    public PSSnapInException(string message, System.Exception innerException) { }
-    protected PSSnapInException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
-
-    public override System.Management.Automation.ErrorRecord ErrorRecord { get { return default(System.Management.Automation.ErrorRecord); } }
-    public override string Message { get { return default(string); } }
-    public override void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
-
-  }
 
   public enum PSThreadOptions {
     Default = 0,
@@ -8289,13 +8145,6 @@ namespace System.Management.Automation.Runspaces {
     public virtual void CloseAsync (  ) { }
     public virtual void Connect (  ) { }
     public virtual void ConnectAsync (  ) { }
-    public virtual System.Management.Automation.Runspaces.Pipeline CreateDisconnectedPipeline (  ) { return default(System.Management.Automation.Runspaces.Pipeline); }
-    public virtual System.Management.Automation.PowerShell CreateDisconnectedPowerShell (  ) { return default(System.Management.Automation.PowerShell); }
-    public virtual System.Management.Automation.Runspaces.Pipeline CreateNestedPipeline ( string command, bool addToHistory ) { return default(System.Management.Automation.Runspaces.Pipeline); }
-    public virtual System.Management.Automation.Runspaces.Pipeline CreateNestedPipeline (  ) { return default(System.Management.Automation.Runspaces.Pipeline); }
-    public virtual System.Management.Automation.Runspaces.Pipeline CreatePipeline ( string command, bool addToHistory ) { return default(System.Management.Automation.Runspaces.Pipeline); }
-    public virtual System.Management.Automation.Runspaces.Pipeline CreatePipeline ( string command ) { return default(System.Management.Automation.Runspaces.Pipeline); }
-    public virtual System.Management.Automation.Runspaces.Pipeline CreatePipeline (  ) { return default(System.Management.Automation.Runspaces.Pipeline); }
     public virtual void Disconnect (  ) { }
     public virtual void DisconnectAsync (  ) { }
     protected virtual void Dispose ( bool disposing ) { }
@@ -8353,7 +8202,6 @@ namespace System.Management.Automation.Runspaces {
   }
 
   public static class RunspaceFactory {
-    public static System.Management.Automation.Runspaces.Runspace CreateOutOfProcessRunspace ( System.Management.Automation.Runspaces.TypeTable typeTable, System.Management.Automation.Runspaces.PowerShellProcessInstance processInstance ) { return default(System.Management.Automation.Runspaces.Runspace); }
     public static System.Management.Automation.Runspaces.Runspace CreateOutOfProcessRunspace ( System.Management.Automation.Runspaces.TypeTable typeTable ) { return default(System.Management.Automation.Runspaces.Runspace); }
     public static System.Management.Automation.Runspaces.Runspace CreateRunspace ( System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo ) { return default(System.Management.Automation.Runspaces.Runspace); }
     public static System.Management.Automation.Runspaces.Runspace CreateRunspace ( System.Management.Automation.Host.PSHost host, System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo ) { return default(System.Management.Automation.Runspaces.Runspace); }
@@ -9856,7 +9704,6 @@ namespace System.Management.Automation.Language {
     public System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification> RequiredModules { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification>); } set { } }
     public System.Collections.ObjectModel.ReadOnlyCollection<string> RequiredPSEditions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
     public System.Version RequiredPSVersion { get { return default(System.Version); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSSnapInSpecification> RequiresPSSnapIns { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSSnapInSpecification>); } set { } }
   }
 
   public abstract class StatementAst : System.Management.Automation.Language.Ast {
@@ -10305,79 +10152,7 @@ namespace System.Management.Automation.Language {
   }
 
 }
-namespace System.Management.Automation.Tracing {
-  public abstract class EtwActivity {
-    protected EtwActivity() { }
 
-    public static System.Guid CreateActivityId (  ) { return default(System.Guid); }
-    public static System.Guid GetActivityId (  ) { return default(System.Guid); }
-    public static bool SetActivityId ( System.Guid activityId ) { return default(bool); }
-
-  }
-
-    [System.FlagsAttribute]
-   public enum PowerShellTraceKeywords : ulong {
-    Cmdlets = 32,
-    Host = 16,
-    ManagedPlugIn = 256,
-    None = 0,
-    Pipeline = 2,
-    Protocol = 4,
-    Runspace = 1,
-    Serializer = 64,
-    Session = 128,
-    Transport = 8,
-    UseAlwaysAnalytic = 4611686018427387904,
-    UseAlwaysDebug = 2305843009213693952,
-    UseAlwaysOperational = 9223372036854775808,
-  }
-
-  public sealed class PowerShellTraceSource : System.IDisposable {
-    public void Dispose (  ) { }
-    public bool TraceException ( System.Exception exception ) { return default(bool); }
-    public bool WriteMessage ( string message ) { return default(bool); }
-    public bool WriteMessage ( string message1, string message2 ) { return default(bool); }
-    public bool WriteMessage ( string message, System.Guid instanceId ) { return default(bool); }
-    public void WriteMessage ( string className, string methodName, System.Guid workflowId, string message, string[] parameters ) { }
-    public void WriteMessage ( string className, string methodName, System.Guid workflowId, System.Management.Automation.Job job, string message, string[] parameters ) { }
-
-  }
-
-  public static class PowerShellTraceSourceFactory {
-    public static System.Management.Automation.Tracing.PowerShellTraceSource GetTraceSource (  ) { return default(System.Management.Automation.Tracing.PowerShellTraceSource); }
-    public static System.Management.Automation.Tracing.PowerShellTraceSource GetTraceSource ( System.Management.Automation.Tracing.PowerShellTraceTask task ) { return default(System.Management.Automation.Tracing.PowerShellTraceSource); }
-    public static System.Management.Automation.Tracing.PowerShellTraceSource GetTraceSource ( System.Management.Automation.Tracing.PowerShellTraceTask task, System.Management.Automation.Tracing.PowerShellTraceKeywords keywords ) { return default(System.Management.Automation.Tracing.PowerShellTraceSource); }
-
-  }
-
-  public enum PowerShellTraceTask {
-    CreateRunspace = 1,
-    ExecuteCommand = 2,
-    None = 0,
-    PowerShellConsoleStartup = 4,
-    Serialization = 3,
-  }
-
-  public sealed class Tracer : System.Management.Automation.Tracing.EtwActivity {
-    public Tracer() { }
-
-    public void BeginContainerParentJobExecution ( System.Guid containerParentJobInstanceId ) { }
-    public void BeginProxyChildJobEventHandler ( System.Guid proxyChildJobInstanceId ) { }
-    public void BeginProxyJobEventHandler ( System.Guid proxyJobInstanceId ) { }
-    public void BeginProxyJobExecution ( System.Guid proxyJobInstanceId ) { }
-    public void EndContainerParentJobExecution ( System.Guid containerParentJobInstanceId ) { }
-    public void EndpointDisabled ( string endpointName, string disabledBy ) { }
-    public void EndpointEnabled ( string endpointName, string enabledBy ) { }
-    public void EndpointModified ( string endpointName, string modifiedBy ) { }
-    public void EndpointRegistered ( string endpointName, string endpointType, string registeredBy ) { }
-    public void EndpointUnregistered ( string endpointName, string unregisteredBy ) { }
-    public void EndProxyJobEventHandler ( System.Guid proxyJobInstanceId ) { }
-    public void EndProxyJobExecution ( System.Guid proxyJobInstanceId ) { }
-    public void ProxyJobRemoteJobAssociation ( System.Guid proxyJobInstanceId, System.Guid containerParentJobInstanceId ) { }
-
-  }
-
-}
 namespace System.Management.Automation.Internal {
   public static class AutomationNull {
     public static System.Management.Automation.PSObject Value { get { return default(System.Management.Automation.PSObject); } }
