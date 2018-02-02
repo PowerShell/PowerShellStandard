@@ -6098,43 +6098,6 @@ namespace System.Management.Automation {
 
   }
 
-  public sealed class PSToken {
-    internal PSToken() { }
-    public string Content { get { return default(string); } }
-    public int EndColumn { get { return default(int); } }
-    public int EndLine { get { return default(int); } }
-    public int Length { get { return default(int); } }
-    public int Start { get { return default(int); } }
-    public int StartColumn { get { return default(int); } }
-    public int StartLine { get { return default(int); } }
-    public System.Management.Automation.PSTokenType Type { get { return default(System.Management.Automation.PSTokenType); } }
-    public static System.Management.Automation.PSTokenType GetPSTokenType ( System.Management.Automation.Language.Token token ) { return default(System.Management.Automation.PSTokenType); }
-
-  }
-
-  public enum PSTokenType {
-    Attribute = 9,
-    Command = 1,
-    CommandArgument = 3,
-    CommandParameter = 2,
-    Comment = 15,
-    GroupEnd = 13,
-    GroupStart = 12,
-    Keyword = 14,
-    LineContinuation = 18,
-    LoopLabel = 8,
-    Member = 7,
-    NewLine = 17,
-    Number = 4,
-    Operator = 11,
-    Position = 19,
-    StatementSeparator = 16,
-    String = 5,
-    Type = 10,
-    Unknown = 0,
-    Variable = 6,
-  }
-
   public class PSTraceSource {
     internal PSTraceSource() { }
     public System.Collections.Specialized.StringDictionary Attributes { get { return default(System.Collections.Specialized.StringDictionary); } }
@@ -6434,7 +6397,6 @@ namespace System.Management.Automation {
     public bool IsConfiguration { get { return default(bool); } set { } }
     public bool IsFilter { get { return default(bool); } set { } }
     public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } }
-    public System.Management.Automation.PSToken StartPosition { get { return default(System.Management.Automation.PSToken); } }
     public void CheckRestrictedLanguage ( System.Collections.Generic.IEnumerable<string> allowedCommands, System.Collections.Generic.IEnumerable<string> allowedVariables, bool allowEnvironmentVariables ) { }
     public static System.Management.Automation.ScriptBlock Create ( string script ) { return default(System.Management.Automation.ScriptBlock); }
     public System.Management.Automation.ScriptBlock GetNewClosure (  ) { return default(System.Management.Automation.ScriptBlock); }
