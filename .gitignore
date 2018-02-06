@@ -1,0 +1,70 @@
+bin/
+obj/
+project.lock.json
+*-tests.xml
+/debug/
+/staging/
+/Packages/
+*.nuget.props
+
+# dotnet cli install/uninstall scripts
+dotnet-install.ps1
+dotnet-install.sh
+dotnet-uninstall-pkgs.sh
+dotnet-uninstall-debian-packages.sh
+
+# VIM tmp files
+*.swp
+
+# VS auto-generated solution files for project.json solutions
+*.xproj
+*.xproj.user
+*.suo
+
+# VS auto-generated files for csproj files
+*.csproj.user
+
+# Visual Studio IDE directory
+.vs/
+
+# Project Rider IDE files
+.idea.powershell/
+
+# Ignore executables
+*.exe
+*.msi
+*.appx
+
+# Ignore binaries and symbols
+*.pdb
+*.dll
+
+# Ignore packages
+*.deb
+*.tar.gz
+*.zip
+*.rpm
+*.pkg
+*.nupkg
+*.AppImage
+
+# ignore the telemetry semaphore file
+DELETE_ME_TO_DISABLE_CONSOLEHOST_TELEMETRY
+
+# default location for produced nuget packages
+/nuget-artifacts
+
+# resgen output
+gen
+
+# Per repo profile
+.profile.ps1
+
+# macOS
+.DS_Store
+
+# TestsResults
+TestsResults*.xml
+
+# Resharper settings
+PowerShell.sln.DotSettings.user
