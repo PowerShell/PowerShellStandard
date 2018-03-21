@@ -387,7 +387,7 @@ namespace Microsoft.PowerShell.Commands {
     [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "Session", ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
     [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
     public new System.Management.Automation.Runspaces.PSSession Session { get { return default(System.Management.Automation.Runspaces.PSSession); } set { } }
-    public override System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
+    // public override System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
     public new int ThrottleLimit { get { return default(int); } set { } }
     [System.Management.Automation.AliasAttribute(new string[] {"VMGuid"})]
     [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "VMId", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
@@ -1272,14 +1272,14 @@ namespace Microsoft.PowerShell.Commands {
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilePathComputerName")]
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilePathUri")]
     public override System.Management.Automation.Remoting.PSSessionOption SessionOption { get { return default(System.Management.Automation.Remoting.PSSessionOption); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHostHashParam", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilePathSSHHostHash", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public override System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilePathSSHHost")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHost")]
-    [System.Management.Automation.ValidateSetAttribute(new string[] {"true"})]
-    public override System.Management.Automation.SwitchParameter SSHTransport { get { return default(System.Management.Automation.SwitchParameter); } set { } }
+    // [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHostHashParam", Mandatory=true)]
+    // [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilePathSSHHostHash", Mandatory=true)]
+    // [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
+    // public override System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
+    // [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilePathSSHHost")]
+    // [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHost")]
+    // [System.Management.Automation.ValidateSetAttribute(new string[] {"true"})]
+    // public override System.Management.Automation.SwitchParameter SSHTransport { get { return default(System.Management.Automation.SwitchParameter); } set { } }
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "VMId")]
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "Uri")]
@@ -1927,6 +1927,7 @@ namespace Microsoft.PowerShell.Commands {
   }
 
   public sealed class PSHostProcessInfo {
+    internal PSHostProcessInfo() { }
     public string AppDomainName { get { return default(string); } set { } }
     public int ProcessId { get { return default(int); } set { } }
     public string ProcessName { get { return default(string); } set { } }
@@ -1981,12 +1982,12 @@ namespace Microsoft.PowerShell.Commands {
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
     [System.Management.Automation.ValidateNotNullAttribute]
     public virtual System.Management.Automation.Remoting.PSSessionOption SessionOption { get { return default(System.Management.Automation.Remoting.PSSessionOption); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHostHashParam", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public virtual System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHost")]
-    [System.Management.Automation.ValidateSetAttribute(new string[] {"true"})]
-    public virtual System.Management.Automation.SwitchParameter SSHTransport { get { return default(System.Management.Automation.SwitchParameter); } set { } }
+    // [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHostHashParam", Mandatory=true)]
+    // [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
+    // public virtual System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
+    // [System.Management.Automation.ParameterAttribute(ParameterSetName = "SSHHost")]
+    // [System.Management.Automation.ValidateSetAttribute(new string[] {"true"})]
+    // public virtual System.Management.Automation.SwitchParameter SSHTransport { get { return default(System.Management.Automation.SwitchParameter); } set { } }
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "Uri")]
@@ -2518,8 +2519,8 @@ namespace Microsoft.PowerShell.Commands {
     public override System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } set { } }
     public override System.Management.Automation.Runspaces.PSSession[] Session { get { return default(System.Management.Automation.Runspaces.PSSession[]); } set { } }
     public override System.Management.Automation.Remoting.PSSessionOption SessionOption { get { return default(System.Management.Automation.Remoting.PSSessionOption); } set { } }
-    public override System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
-    public override System.Management.Automation.SwitchParameter SSHTransport { get { return default(System.Management.Automation.SwitchParameter); } set { } }
+    // public override System.Collections.Hashtable[] SSHConnection { get { return default(System.Collections.Hashtable[]); } set { } }
+    // public override System.Management.Automation.SwitchParameter SSHTransport { get { return default(System.Management.Automation.SwitchParameter); } set { } }
     public override int ThrottleLimit { get { return default(int); } set { } }
     [System.Management.Automation.ParameterAttribute(Position = 2, ParameterSetName = "DefinitionName")]
     [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
@@ -2961,9 +2962,12 @@ namespace Microsoft.PowerShell.Cim {
 
 }
 namespace System.Management.Automation {
-    internal class OutputProcessingStateEventArgs { }
-    internal class PSRemotingJob { }
-
+    internal class OutputProcessingStateEventArgs { 
+      internal OutputProcessingStateEventArgs() { }
+    }
+    internal class PSRemotingJob { 
+      internal PSRemotingJob() { }
+    }
 
   public enum ActionPreference {
     Continue = 2,
@@ -2988,7 +2992,7 @@ namespace System.Management.Automation {
 
    [System.AttributeUsageAttribute((System.AttributeTargets)388, AllowMultiple = false)]
    public sealed class AliasAttribute : System.Management.Automation.Internal.ParsingBaseAttribute {
-    public AliasAttribute(string[] aliasNames) { }
+    public AliasAttribute(params string[] aliasNames) { }
 
     public System.Collections.Generic.IList<string> AliasNames { get { return default(System.Collections.Generic.IList<string>); } }
   }
@@ -3083,6 +3087,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class BreakException : System.Management.Automation.LoopFlowException {
+    internal BreakException() { }
   }
 
   public abstract class Breakpoint {
@@ -3139,14 +3144,14 @@ namespace System.Management.Automation {
     protected Cmdlet() { }
 
     public System.Management.Automation.ICommandRuntime CommandRuntime { get { return default(System.Management.Automation.ICommandRuntime); } set { } }
-    public System.Collections.Generic.HashSet<string> CommonParameters { get { return default(System.Collections.Generic.HashSet<string>); } }
-    public System.Collections.Generic.HashSet<string> OptionalCommonParameters { get { return default(System.Collections.Generic.HashSet<string>); } }
+    public static System.Collections.Generic.HashSet<string> CommonParameters { get { return default(System.Collections.Generic.HashSet<string>); } }
+    public static System.Collections.Generic.HashSet<string> OptionalCommonParameters { get { return default(System.Collections.Generic.HashSet<string>); } }
     public bool Stopping { get { return default(bool); } }
     protected virtual void BeginProcessing (  ) { }
     protected virtual void EndProcessing (  ) { }
     public virtual string GetResourceString ( string baseName, string resourceId ) { return default(string); }
     public System.Collections.IEnumerable Invoke (  ) { return default(System.Collections.IEnumerable); }
-    public IEnumerable Invoke<IEnumerable> (  ) { return default(IEnumerable); }
+    public System.Collections.Generic.IEnumerable<T> Invoke<T> (  ) { return default(System.Collections.Generic.IEnumerable<T>); }
     protected virtual void ProcessRecord (  ) { }
     public bool ShouldContinue ( string query, string caption, bool hasSecurityImpact, ref bool yesToAll, ref bool noToAll ) { return default(bool); }
     public bool ShouldContinue ( string query, string caption, ref bool yesToAll, ref bool noToAll ) { return default(bool); }
@@ -3254,6 +3259,7 @@ namespace System.Management.Automation {
   }
 
   public class CommandBreakpoint : System.Management.Automation.Breakpoint {
+    internal CommandBreakpoint() { }
     public string Command { get { return default(string); } set { } }
     public override string ToString (  ) { return default(string); }
 
@@ -3311,10 +3317,10 @@ namespace System.Management.Automation {
     public System.Collections.Generic.List<System.String> GetCommandName ( string name, bool nameIsPattern, bool returnFullName ) { return default(System.Collections.Generic.List<System.String>); }
     public System.Collections.Generic.IEnumerable<System.Management.Automation.CommandInfo> GetCommands ( string name, System.Management.Automation.CommandTypes commandTypes, bool nameIsPattern ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CommandInfo>); }
     public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( string script ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( string script, object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( System.Management.Automation.SessionState sessionState, System.Management.Automation.ScriptBlock scriptBlock, object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( bool useLocalScope, System.Management.Automation.ScriptBlock scriptBlock, System.Collections.IList input, object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( string script, bool useNewScope, System.Management.Automation.Runspaces.PipelineResultTypes writeToPipeline, System.Collections.IList input, object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( string script, params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( System.Management.Automation.SessionState sessionState, System.Management.Automation.ScriptBlock scriptBlock, params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( bool useLocalScope, System.Management.Automation.ScriptBlock scriptBlock, System.Collections.IList input, params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeScript ( string script, bool useNewScope, System.Management.Automation.Runspaces.PipelineResultTypes writeToPipeline, System.Collections.IList input, params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
     public System.Management.Automation.ScriptBlock NewScriptBlock ( string scriptText ) { return default(System.Management.Automation.ScriptBlock); }
 
   }
@@ -3445,6 +3451,7 @@ namespace System.Management.Automation {
   }
 
   public class ConfigurationInfo : System.Management.Automation.FunctionInfo {
+    internal ConfigurationInfo() { }
     public bool IsMetaConfiguration { get { return default(bool); } set { } }
   }
 
@@ -3498,6 +3505,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class ContinueException : System.Management.Automation.LoopFlowException {
+    internal ContinueException() { }
   }
 
   public class ConvertThroughString : System.Management.Automation.PSTypeConverter {
@@ -3525,12 +3533,14 @@ namespace System.Management.Automation {
   }
 
   public sealed class CustomControl : System.Management.Automation.PSControl {
+    internal CustomControl() { }
     public System.Collections.Generic.List<System.Management.Automation.CustomControlEntry> Entries { get { return default(System.Collections.Generic.List<System.Management.Automation.CustomControlEntry>); } set { } }
     public static System.Management.Automation.CustomControlBuilder Create ( bool outOfBand ) { return default(System.Management.Automation.CustomControlBuilder); }
 
   }
 
   public sealed class CustomControlBuilder {
+    internal CustomControlBuilder() { }
     public System.Management.Automation.CustomControl EndControl (  ) { return default(System.Management.Automation.CustomControl); }
     public System.Management.Automation.CustomControlBuilder GroupByProperty ( string property, System.Management.Automation.CustomControl customControl, string label ) { return default(System.Management.Automation.CustomControlBuilder); }
     public System.Management.Automation.CustomControlBuilder GroupByScriptBlock ( string scriptBlock, System.Management.Automation.CustomControl customControl, string label ) { return default(System.Management.Automation.CustomControlBuilder); }
@@ -3539,11 +3549,13 @@ namespace System.Management.Automation {
   }
 
   public sealed class CustomControlEntry {
+    internal CustomControlEntry() { }
     public System.Collections.Generic.List<System.Management.Automation.CustomItemBase> CustomItems { get { return default(System.Collections.Generic.List<System.Management.Automation.CustomItemBase>); } set { } }
     public System.Management.Automation.EntrySelectedBy SelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } set { } }
   }
 
   public sealed class CustomEntryBuilder {
+    internal CustomEntryBuilder() { }
     public System.Management.Automation.CustomEntryBuilder AddCustomControlExpressionBinding ( System.Management.Automation.CustomControl customControl, bool enumerateCollection, string selectedByType, string selectedByScript ) { return default(System.Management.Automation.CustomEntryBuilder); }
     public System.Management.Automation.CustomEntryBuilder AddNewline ( int count ) { return default(System.Management.Automation.CustomEntryBuilder); }
     public System.Management.Automation.CustomEntryBuilder AddPropertyExpressionBinding ( string property, bool enumerateCollection, string selectedByType, string selectedByScript, System.Management.Automation.CustomControl customControl ) { return default(System.Management.Automation.CustomEntryBuilder); }
@@ -3561,6 +3573,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class CustomItemExpression : System.Management.Automation.CustomItemBase {
+    internal CustomItemExpression() { }
     public System.Management.Automation.CustomControl CustomControl { get { return default(System.Management.Automation.CustomControl); } set { } }
     public bool EnumerateCollection { get { return default(bool); } set { } }
     public System.Management.Automation.DisplayEntry Expression { get { return default(System.Management.Automation.DisplayEntry); } set { } }
@@ -3568,6 +3581,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class CustomItemFrame : System.Management.Automation.CustomItemBase {
+    internal CustomItemFrame() { }
     public System.Collections.Generic.List<System.Management.Automation.CustomItemBase> CustomItems { get { return default(System.Collections.Generic.List<System.Management.Automation.CustomItemBase>); } set { } }
     public uint FirstLineHanging { get { return default(uint); } set { } }
     public uint FirstLineIndent { get { return default(uint); } set { } }
@@ -3745,6 +3759,7 @@ namespace System.Management.Automation {
   }
 
   public class DscResourceInfo {
+    internal DscResourceInfo() { }
     public string CompanyName { get { return default(string); } set { } }
     public string FriendlyName { get { return default(string); } set { } }
     public string HelpFile { get { return default(string); } set { } }
@@ -3760,6 +3775,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class DscResourcePropertyInfo {
+    internal DscResourcePropertyInfo() { }
     public bool IsMandatory { get { return default(bool); } set { } }
     public string Name { get { return default(string); } set { } }
     public string PropertyType { get { return default(string); } set { } }
@@ -3846,9 +3862,9 @@ namespace System.Management.Automation {
     [System.SerializableAttribute]
    public class ErrorDetails {
     public ErrorDetails(string message) { }
-    public ErrorDetails(System.Management.Automation.Cmdlet cmdlet, string baseName, string resourceId, object[] args) { }
-    public ErrorDetails(System.Management.Automation.IResourceSupplier resourceSupplier, string baseName, string resourceId, object[] args) { }
-    public ErrorDetails(System.Reflection.Assembly assembly, string baseName, string resourceId, object[] args) { }
+    public ErrorDetails(System.Management.Automation.Cmdlet cmdlet, string baseName, string resourceId, params object[] args) { }
+    public ErrorDetails(System.Management.Automation.IResourceSupplier resourceSupplier, string baseName, string resourceId, params object[] args) { }
+    public ErrorDetails(System.Reflection.Assembly assembly, string baseName, string resourceId, params object[] args) { }
     protected ErrorDetails(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
 
     public string Message { get { return default(string); } }
@@ -3878,6 +3894,7 @@ namespace System.Management.Automation {
   }
 
   public class ExitException : System.Management.Automation.FlowControlException {
+    internal ExitException() { }
     public object Argument { get { return default(object); } set { } }
   }
 
@@ -4516,6 +4533,7 @@ namespace System.Management.Automation {
   }
 
   public class ListControlBuilder {
+    internal ListControlBuilder() { }
     public System.Management.Automation.ListControl EndList (  ) { return default(System.Management.Automation.ListControl); }
     public System.Management.Automation.ListControlBuilder GroupByProperty ( string property, System.Management.Automation.CustomControl customControl, string label ) { return default(System.Management.Automation.ListControlBuilder); }
     public System.Management.Automation.ListControlBuilder GroupByScriptBlock ( string scriptBlock, System.Management.Automation.CustomControl customControl, string label ) { return default(System.Management.Automation.ListControlBuilder); }
@@ -4543,6 +4561,7 @@ namespace System.Management.Automation {
   }
 
   public class ListEntryBuilder {
+    internal ListEntryBuilder() { }
     public System.Management.Automation.ListEntryBuilder AddItemProperty ( string property, string label, string format ) { return default(System.Management.Automation.ListEntryBuilder); }
     public System.Management.Automation.ListEntryBuilder AddItemScriptBlock ( string scriptBlock, string label, string format ) { return default(System.Management.Automation.ListEntryBuilder); }
     public System.Management.Automation.ListControlBuilder EndEntry (  ) { return default(System.Management.Automation.ListControlBuilder); }
@@ -4587,6 +4606,7 @@ namespace System.Management.Automation {
   }
 
   public class ModuleIntrinsics {
+    internal ModuleIntrinsics() { }
     public static string GetModulePath ( string currentProcessModulePath, string hklmMachineModulePath, string hkcuUserModulePath ) { return default(string); }
 
   }
@@ -4601,8 +4621,8 @@ namespace System.Management.Automation {
 
    [System.AttributeUsageAttribute((System.AttributeTargets)4, AllowMultiple = true)]
    public sealed class OutputTypeAttribute : System.Management.Automation.Internal.CmdletMetadataAttribute {
-    public OutputTypeAttribute(System.Type[] type) { }
-    public OutputTypeAttribute(string[] type) { }
+    public OutputTypeAttribute(params System.Type[] type) { }
+    public OutputTypeAttribute(params string[] type) { }
 
     public string[] ParameterSetName { get { return default(string[]); } set { } }
     public string ProviderCmdlet { get { return default(string); } set { } }
@@ -5173,7 +5193,7 @@ namespace System.Management.Automation {
     public override System.Collections.ObjectModel.Collection<string> OverloadDefinitions { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public override string TypeNameOfValue { get { return default(string); } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
-    public override object Invoke ( object[] arguments ) { return default(object); }
+    public override object Invoke ( params object[] arguments ) { return default(object); }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -5232,7 +5252,7 @@ namespace System.Management.Automation {
     public PSCredential(string userName, System.Security.SecureString password) { }
     public PSCredential(System.Management.Automation.PSObject pso) { }
 
-    public System.Management.Automation.PSCredential Empty { get { return default(System.Management.Automation.PSCredential); } }
+    public static System.Management.Automation.PSCredential Empty { get { return default(System.Management.Automation.PSCredential); } }
     public System.Security.SecureString Password { get { return default(System.Security.SecureString); } }
     public string UserName { get { return default(string); } }
     public System.Net.NetworkCredential GetNetworkCredential (  ) { return default(System.Net.NetworkCredential); }
@@ -5273,7 +5293,7 @@ namespace System.Management.Automation {
     public event System.EventHandler Completed { add { } remove { } }
     public event System.EventHandler<System.Management.Automation.DataAddedEventArgs> DataAdded { add { } remove { } }
     public event System.EventHandler<System.Management.Automation.DataAddingEventArgs> DataAdding { add { } remove { } }
-    public event System.EventHandler<System.EventArgs> IdleEvent { add { } remove { } }
+    // event System.EventHandler<System.EventArgs> IdleEvent { add { } remove { } }
 
     public bool BlockingEnumerator { get { return default(bool); } set { } }
     public int Count { get { return default(int); } }
@@ -5290,22 +5310,22 @@ namespace System.Management.Automation {
     object System.Collections.ICollection.SyncRoot { get { return default(object); } }
 
     public void Add ( T item ) { }
-    public int Add ( object item ) { return default(int); }
+    int System.Collections.IList.Add ( object item ) { return default(int); }
     public void Clear (  ) { }
     public void Complete (  ) { }
     public bool Contains ( T item ) { return default(bool); }
-    public bool Contains ( object item ) { return default(bool); }
+    bool System.Collections.IList.Contains ( object item ) { return default(bool); }
     public void CopyTo ( T[] array, int arrayIndex ) { }
     void System.Collections.ICollection.CopyTo ( System.Array array, int arrayIndex ) { }
     public void Dispose (  ) { }
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() { return default(System.Collections.IEnumerator); }
     public System.Collections.Generic.IEnumerator<T> GetEnumerator (  ) { return default(System.Collections.Generic.IEnumerator<T>); }
     public virtual void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
-    public int IndexOf ( object item ) { return default(int); }
+    int System.Collections.IList.IndexOf ( object item ) { return default(int); }
     public int IndexOf ( T item ) { return default(int); }
     public void Insert ( int index, T item ) { }
-    public void Insert ( int index, object item ) { }
-    public void InsertItem ( System.Guid psInstanceId, int index, T item ) { }
+    void System.Collections.IList.Insert ( int index, object item ) { }
+    void InsertItem ( System.Guid psInstanceId, int index, T item ) { }
     public static implicit operator System.Management.Automation.PSDataCollection<T> ( bool valueToConvert ) { return default(System.Management.Automation.PSDataCollection<T>); }
     public static implicit operator System.Management.Automation.PSDataCollection<T> ( string valueToConvert ) { return default(System.Management.Automation.PSDataCollection<T>); }
     public static implicit operator System.Management.Automation.PSDataCollection<T> ( int valueToConvert ) { return default(System.Management.Automation.PSDataCollection<T>); }
@@ -5315,9 +5335,9 @@ namespace System.Management.Automation {
     public static implicit operator System.Management.Automation.PSDataCollection<T> ( object[] arrayToConvert ) { return default(System.Management.Automation.PSDataCollection<T>); }
     public System.Collections.ObjectModel.Collection<T> ReadAll (  ) { return default(System.Collections.ObjectModel.Collection<T>); }
     public bool Remove ( T item ) { return default(bool); }
-    public void Remove ( object item ) { }
+    void System.Collections.IList.Remove ( object item ) { }
     public void RemoveAt ( int index ) { }
-    public void RemoveItem ( int index ) { }
+    // void RemoveItem ( int index ) { }
 
   }
 
@@ -5416,15 +5436,15 @@ namespace System.Management.Automation {
     public System.DateTime TimeGenerated { get { return default(System.DateTime); } set { } }
   }
 
-   [System.Reflection.DefaultMemberAttribute("Item")]
    public class PSEventArgsCollection : System.Collections.Generic.IEnumerable<System.Management.Automation.PSEventArgs> {
     public PSEventArgsCollection() { }
 
     public event System.Management.Automation.PSEventReceivedEventHandler PSEventReceived { add { } remove { } }
 
     public int Count { get { return default(int); } }
-    public System.Management.Automation.PSEventArgs Item { get { return default(System.Management.Automation.PSEventArgs); } }
+    public System.Management.Automation.PSEventArgs this[int index] { get { return default(System.Management.Automation.PSEventArgs); } }
     public object SyncRoot { get { return default(object); } }
+
     public System.Collections.Generic.IEnumerator<System.Management.Automation.PSEventArgs> GetEnumerator (  ) { return default(System.Collections.Generic.IEnumerator<System.Management.Automation.PSEventArgs>); }
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() { return default(System.Collections.IEnumerator); }
     public void RemoveAt ( int index ) { }
@@ -5450,8 +5470,6 @@ namespace System.Management.Automation {
 
   public abstract class PSEventManager {
     protected PSEventManager() { }
-
-    public abstract event System.EventHandler<System.Management.Automation.PSEventArgs> ForwardEvent;
 
     public System.Management.Automation.PSEventArgsCollection ReceivedEvents { get { return default(System.Management.Automation.PSEventArgsCollection); } }
     public abstract System.Collections.Generic.List<System.Management.Automation.PSEventSubscriber> Subscribers { get; }
@@ -5650,7 +5668,7 @@ namespace System.Management.Automation {
    public abstract class PSMemberInfoCollection<T> : System.Collections.Generic.IEnumerable<T>, System.Collections.IEnumerable where T : System.Management.Automation.PSMemberInfo {
     protected PSMemberInfoCollection() { }
 
-    public abstract T this[int index] { get; }
+    public abstract T this[string name] { get; }
     public virtual void Add ( T member ) { }
     public virtual void Add ( T member, bool preValidated ) { }
     public virtual System.Collections.Generic.IEnumerator<T> GetEnumerator (  ) { return default(System.Collections.Generic.IEnumerator<T>); }
@@ -5711,7 +5729,7 @@ namespace System.Management.Automation {
     public override System.Collections.ObjectModel.Collection<string> OverloadDefinitions { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public override string TypeNameOfValue { get { return default(string); } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
-    public override object Invoke ( object[] arguments ) { return default(object); }
+    public override object Invoke ( params object[] arguments ) { return default(object); }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -5782,14 +5800,14 @@ namespace System.Management.Automation {
     public System.Collections.Generic.IEnumerable<string> Scripts { get { return default(System.Collections.Generic.IEnumerable<string>); } }
     public System.Management.Automation.SessionState SessionState { get { return default(System.Management.Automation.SessionState); } set { } }
     public System.Collections.Generic.IEnumerable<string> Tags { get { return default(System.Collections.Generic.IEnumerable<string>); } }
-    public bool UseAppDomainLevelModuleCache { get { return default(bool); } set { } }
+    public static bool UseAppDomainLevelModuleCache { get { return default(bool); } set { } }
     public System.Version Version { get { return default(System.Version); } set { } }
     public System.Management.Automation.PSObject AsCustomObject (  ) { return default(System.Management.Automation.PSObject); }
     public static void ClearAppDomainLevelModulePathCache (  ) { }
     public System.Management.Automation.PSModuleInfo Clone (  ) { return default(System.Management.Automation.PSModuleInfo); }
     public System.Collections.ObjectModel.ReadOnlyDictionary<System.String,System.Management.Automation.Language.TypeDefinitionAst> GetExportedTypeDefinitions (  ) { return default(System.Collections.ObjectModel.ReadOnlyDictionary<System.String,System.Management.Automation.Language.TypeDefinitionAst>); }
     public System.Management.Automation.PSVariable GetVariableFromCallersModule ( string variableName ) { return default(System.Management.Automation.PSVariable); }
-    public object Invoke ( System.Management.Automation.ScriptBlock sb, object[] args ) { return default(object); }
+    public object Invoke ( System.Management.Automation.ScriptBlock sb, params object[] args ) { return default(object); }
     public System.Management.Automation.ScriptBlock NewBoundScriptBlock ( System.Management.Automation.ScriptBlock scriptBlockToBind ) { return default(System.Management.Automation.ScriptBlock); }
     public override string ToString (  ) { return default(string); }
 
@@ -5933,19 +5951,20 @@ namespace System.Management.Automation {
     public override System.Collections.ObjectModel.Collection<string> OverloadDefinitions { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public override string TypeNameOfValue { get { return default(string); } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
-    public override object Invoke ( object[] arguments ) { return default(object); }
-    public void InvokeSet ( object valueToSet, object[] arguments ) { }
+    public override object Invoke ( params object[] arguments ) { return default(object); }
+    public void InvokeSet ( object valueToSet, params object[] arguments ) { }
     public override string ToString (  ) { return default(string); }
 
   }
 
     [System.SerializableAttribute]
-    [System.Reflection.DefaultMemberAttribute("Item")]
    public sealed class PSPrimitiveDictionary : System.Collections.Hashtable {
     public PSPrimitiveDictionary() { }
     public PSPrimitiveDictionary(System.Collections.Hashtable other) { }
 
-    public object Item { get { return default(object); } set { } }
+    public override object this[object key] { get { return default(object); } set { } }
+    public object this[string key] { get { return default(object); } set { } }
+
     public void Add ( string key, System.Int32[] value ) { }
     public void Add ( string key, System.Int64[] value ) { }
     public void Add ( string key, System.SByte value ) { }
@@ -6048,7 +6067,7 @@ namespace System.Management.Automation {
     public System.Management.Automation.ScriptBlock Script { get { return default(System.Management.Automation.ScriptBlock); } }
     public override string TypeNameOfValue { get { return default(string); } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
-    public override object Invoke ( object[] arguments ) { return default(object); }
+    public override object Invoke ( params object[] arguments ) { return default(object); }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -6193,6 +6212,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class PSVariableIntrinsics {
+    internal PSVariableIntrinsics() { }
     public System.Management.Automation.PSVariable Get ( string name ) { return default(System.Management.Automation.PSVariable); }
     public object GetValue ( string name ) { return default(object); }
     public object GetValue ( string name, object defaultValue ) { return default(object); }
@@ -6220,6 +6240,8 @@ namespace System.Management.Automation {
     internal ReadOnlyPSMemberInfoCollection() { }
     public int Count { get { return default(int); } }
     public T this[int index] { get { return default(T); } }
+    public T this[string name] { get { return default(T); } }
+
     public System.Management.Automation.ReadOnlyPSMemberInfoCollection<T> Match ( string name ) { return default(System.Management.Automation.ReadOnlyPSMemberInfoCollection<T>); }
     public System.Management.Automation.ReadOnlyPSMemberInfoCollection<T> Match ( string name, System.Management.Automation.PSMemberTypes memberTypes ) { return default(System.Management.Automation.ReadOnlyPSMemberInfoCollection<T>); }
 
@@ -6401,18 +6423,18 @@ namespace System.Management.Automation {
     public static System.Management.Automation.ScriptBlock Create ( string script ) { return default(System.Management.Automation.ScriptBlock); }
     public System.Management.Automation.ScriptBlock GetNewClosure (  ) { return default(System.Management.Automation.ScriptBlock); }
     public virtual void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
-    public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, out System.Collections.Generic.Dictionary<string,object> usingVariables, bool isTrustedInput, object[] args ) { usingVariables = default(System.Collections.Generic.Dictionary<string,object>); return default(System.Management.Automation.PowerShell); }
-    public System.Management.Automation.PowerShell GetPowerShell ( object[] args ) { return default(System.Management.Automation.PowerShell); }
-    public System.Management.Automation.PowerShell GetPowerShell ( bool isTrustedInput, object[] args ) { return default(System.Management.Automation.PowerShell); }
-    public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, object[] args ) { return default(System.Management.Automation.PowerShell); }
-    public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, out System.Collections.Generic.Dictionary<string,object>usingVariables, object[] args ) { usingVariables = default(System.Collections.Generic.Dictionary<string,object>); return default(System.Management.Automation.PowerShell); }
+    public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, out System.Collections.Generic.Dictionary<string,object> usingVariables, bool isTrustedInput, params object[] args ) { usingVariables = default(System.Collections.Generic.Dictionary<string,object>); return default(System.Management.Automation.PowerShell); }
+    public System.Management.Automation.PowerShell GetPowerShell ( params object[] args ) { return default(System.Management.Automation.PowerShell); }
+    public System.Management.Automation.PowerShell GetPowerShell ( bool isTrustedInput, params object[] args ) { return default(System.Management.Automation.PowerShell); }
+    public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, params object[] args ) { return default(System.Management.Automation.PowerShell); }
+    public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, out System.Collections.Generic.Dictionary<string,object>usingVariables, params object[] args ) { usingVariables = default(System.Collections.Generic.Dictionary<string,object>); return default(System.Management.Automation.PowerShell); }
     public System.Management.Automation.SteppablePipeline GetSteppablePipeline ( System.Management.Automation.CommandOrigin commandOrigin ) { return default(System.Management.Automation.SteppablePipeline); }
-    public System.Management.Automation.SteppablePipeline GetSteppablePipeline ( System.Management.Automation.CommandOrigin commandOrigin, object[] args ) { return default(System.Management.Automation.SteppablePipeline); }
+    public System.Management.Automation.SteppablePipeline GetSteppablePipeline ( System.Management.Automation.CommandOrigin commandOrigin, params object[] args ) { return default(System.Management.Automation.SteppablePipeline); }
     public System.Management.Automation.SteppablePipeline GetSteppablePipeline (  ) { return default(System.Management.Automation.SteppablePipeline); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> Invoke ( object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public object InvokeReturnAsIs ( object[] args ) { return default(object); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeWithContext ( System.Collections.Generic.Dictionary<string, System.Management.Automation.ScriptBlock> functionsToDefine, System.Collections.Generic.List<System.Management.Automation.PSVariable> variablesToDefine, object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeWithContext ( System.Collections.IDictionary functionsToDefine, System.Collections.Generic.List<System.Management.Automation.PSVariable> variablesToDefine, object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> Invoke ( params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public object InvokeReturnAsIs ( params object[] args ) { return default(object); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeWithContext ( System.Collections.Generic.Dictionary<string, System.Management.Automation.ScriptBlock> functionsToDefine, System.Collections.Generic.List<System.Management.Automation.PSVariable> variablesToDefine, params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> InvokeWithContext ( System.Collections.IDictionary functionsToDefine, System.Collections.Generic.List<System.Management.Automation.PSVariable> variablesToDefine, params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -6641,7 +6663,7 @@ namespace System.Management.Automation {
     public SwitchParameter(bool isPresent) { }
 
     public bool IsPresent { get { return default(bool); } }
-    public System.Management.Automation.SwitchParameter Present { get { return default(System.Management.Automation.SwitchParameter); } }
+    public static System.Management.Automation.SwitchParameter Present { get { return default(System.Management.Automation.SwitchParameter); } }
     public override bool Equals ( object obj ) { return default(bool); }
     public override int GetHashCode (  ) { return default(int); }
     public static bool operator == ( System.Management.Automation.SwitchParameter first, System.Management.Automation.SwitchParameter second ) { return default(bool); }
@@ -6671,6 +6693,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class TableControlBuilder {
+    internal TableControlBuilder() { }
     public System.Management.Automation.TableControlBuilder AddHeader ( System.Management.Automation.Alignment alignment, int width, string label ) { return default(System.Management.Automation.TableControlBuilder); }
     public System.Management.Automation.TableControl EndTable (  ) { return default(System.Management.Automation.TableControl); }
     public System.Management.Automation.TableControlBuilder GroupByProperty ( string property, System.Management.Automation.CustomControl customControl, string label ) { return default(System.Management.Automation.TableControlBuilder); }
@@ -6709,6 +6732,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class TableRowDefinitionBuilder {
+    internal TableRowDefinitionBuilder() { }
     public System.Management.Automation.TableRowDefinitionBuilder AddPropertyColumn ( string propertyName, System.Management.Automation.Alignment alignment, string format ) { return default(System.Management.Automation.TableRowDefinitionBuilder); }
     public System.Management.Automation.TableRowDefinitionBuilder AddScriptBlockColumn ( string scriptBlock, System.Management.Automation.Alignment alignment, string format ) { return default(System.Management.Automation.TableRowDefinitionBuilder); }
     public System.Management.Automation.TableControlBuilder EndRowDefinition (  ) { return default(System.Management.Automation.TableControlBuilder); }
@@ -6740,7 +6764,7 @@ namespace System.Management.Automation {
 
    [System.AttributeUsageAttribute((System.AttributeTargets)384)]
    public class ValidateDriveAttribute : System.Management.Automation.ValidateArgumentsAttribute {
-    public ValidateDriveAttribute(string[] validRootDrives) { }
+    public ValidateDriveAttribute(params string[] validRootDrives) { }
 
     protected override void Validate ( object arguments, System.Management.Automation.EngineIntrinsics engineIntrinsics ) { }
 
@@ -6811,7 +6835,7 @@ namespace System.Management.Automation {
 
    [System.AttributeUsageAttribute((System.AttributeTargets)384)]
    public sealed class ValidateSetAttribute : System.Management.Automation.ValidateEnumeratedArgumentsAttribute {
-    public ValidateSetAttribute(string[] validValues) { }
+    public ValidateSetAttribute(params string[] validValues) { }
     public ValidateSetAttribute(System.Type valuesGeneratorType) { }
 
     public bool IgnoreCase { get { return default(bool); } set { } }
@@ -7025,6 +7049,7 @@ namespace System.Management.Automation {
   }
 
   public sealed class WideControlBuilder {
+    internal WideControlBuilder() { }
     public System.Management.Automation.WideControlBuilder AddPropertyEntry ( string propertyName, string format, System.Collections.Generic.IEnumerable<string> entrySelectedByType, System.Collections.Generic.IEnumerable<System.Management.Automation.DisplayEntry> entrySelectedByCondition ) { return default(System.Management.Automation.WideControlBuilder); }
     public System.Management.Automation.WideControlBuilder AddScriptBlockEntry ( string scriptBlock, string format, System.Collections.Generic.IEnumerable<string> entrySelectedByType, System.Collections.Generic.IEnumerable<System.Management.Automation.DisplayEntry> entrySelectedByCondition ) { return default(System.Management.Automation.WideControlBuilder); }
     public System.Management.Automation.WideControl EndWideControl (  ) { return default(System.Management.Automation.WideControl); }
@@ -7431,6 +7456,7 @@ namespace System.Management.Automation.Remoting {
   }
 
   public sealed class WSManPluginManagedEntryWrapper {
+    internal WSManPluginManagedEntryWrapper() { }
     public static int InitPlugin ( System.IntPtr wkrPtrs ) { return default(int); }
     public static void PSPluginOperationShutdownCallback ( object operationContext, bool timedOut ) { }
     public static void ShutdownPlugin ( System.IntPtr pluginContext ) { }
@@ -7791,6 +7817,7 @@ namespace System.Management.Automation.Runspaces {
   }
 
   public sealed class ContainerConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
+    internal ContainerConnectionInfo() { }
     public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } }
     public override string CertificateThumbprint { get { return default(string); } }
     public override string ComputerName { get { return default(string); } }
@@ -8084,10 +8111,10 @@ namespace System.Management.Automation.Runspaces {
     public abstract event System.EventHandler<System.Management.Automation.Runspaces.RunspaceAvailabilityEventArgs> AvailabilityChanged;
     public abstract event System.EventHandler<System.Management.Automation.Runspaces.RunspaceStateEventArgs> StateChanged;
 
-    public bool CanUseDefaultRunspace { get { return default(bool); } }
+    public static bool CanUseDefaultRunspace { get { return default(bool); } }
     public abstract System.Management.Automation.Runspaces.RunspaceConnectionInfo ConnectionInfo { get; }
     public System.Management.Automation.Debugger Debugger { get { return default(System.Management.Automation.Debugger); } }
-    public System.Management.Automation.Runspaces.Runspace DefaultRunspace { get { return default(System.Management.Automation.Runspaces.Runspace); } set { } }
+    public static System.Management.Automation.Runspaces.Runspace DefaultRunspace { get { return default(System.Management.Automation.Runspaces.Runspace); } set { } }
     public System.Nullable<System.DateTime> DisconnectedOn { get { return default(System.Nullable<System.DateTime>); } set { } }
     public abstract System.Management.Automation.PSEventManager Events { get; }
     public System.Nullable<System.DateTime> ExpiresOn { get { return default(System.Nullable<System.DateTime>); } set { } }
@@ -8139,10 +8166,10 @@ namespace System.Management.Automation.Runspaces {
 
   public enum RunspaceCapability {
     Default = 0,
-    NamedPipeTransport = 2,
-    SSHTransport = 8,
     SupportsDisconnect = 1,
+    NamedPipeTransport = 2,
     VMSocketTransport = 4,
+    // SSHTransport = 8,
   }
 
   public abstract class RunspaceConnectionInfo {
@@ -8198,7 +8225,9 @@ namespace System.Management.Automation.Runspaces {
 
   }
 
-  internal class RunspaceCreatedEventArgs { }
+  internal class RunspaceCreatedEventArgs { 
+    internal RunspaceCreatedEventArgs() { }
+  }
 
   public sealed class RunspacePool : System.IDisposable {
     internal RunspacePool() { }
@@ -8443,6 +8472,7 @@ namespace System.Management.Automation.Runspaces {
 
   }
 
+  /*
   public sealed class SSHConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
     public SSHConnectionInfo(string userName, string computerName, string keyFilePath) { }
 
@@ -8452,6 +8482,7 @@ namespace System.Management.Automation.Runspaces {
     public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
     public string UserName { get { return default(string); } set { } }
   }
+  */
 
   public enum TargetMachineType {
     Container = 2,
@@ -8510,6 +8541,7 @@ namespace System.Management.Automation.Runspaces {
 
   }
 
+  /*
   public sealed class VMConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
     public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } }
     public override string CertificateThumbprint { get { return default(string); } }
@@ -8518,6 +8550,7 @@ namespace System.Management.Automation.Runspaces {
     public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
     public System.Guid VMGuid { get { return default(System.Guid); } set { } }
   }
+  */
 
   public sealed class WSManConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
     public WSManConnectionInfo(string scheme, string computerName, int port, string appName, string shellUri, System.Management.Automation.PSCredential credential, int openTimeout) { }
@@ -9438,7 +9471,7 @@ namespace System.Management.Automation.Language {
 
   public class NullString {
     internal NullString() { }
-    public System.Management.Automation.Language.NullString Value { get { return default(System.Management.Automation.Language.NullString); } }
+    public static System.Management.Automation.Language.NullString Value { get { return default(System.Management.Automation.Language.NullString); } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -9469,6 +9502,7 @@ namespace System.Management.Automation.Language {
   }
 
   public class ParameterBindingResult {
+    internal ParameterBindingResult() { }
     public object ConstantValue { get { return default(object); } set { } }
     public System.Management.Automation.ParameterMetadata Parameter { get { return default(System.Management.Automation.ParameterMetadata); } set { } }
     public System.Management.Automation.Language.CommandElementAst Value { get { return default(System.Management.Automation.Language.CommandElementAst); } set { } }
@@ -9683,11 +9717,13 @@ namespace System.Management.Automation.Language {
   }
 
   public class StaticBindingError {
+    internal StaticBindingError() { }
     public System.Management.Automation.ParameterBindingException BindingException { get { return default(System.Management.Automation.ParameterBindingException); } set { } }
     public System.Management.Automation.Language.CommandElementAst CommandElement { get { return default(System.Management.Automation.Language.CommandElementAst); } set { } }
   }
 
   public class StaticBindingResult {
+    internal StaticBindingResult() { }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.Language.StaticBindingError> BindingExceptions { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.Language.StaticBindingError>); } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.Language.ParameterBindingResult> BoundParameters { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.Language.ParameterBindingResult>); } }
   }
@@ -10121,9 +10157,9 @@ namespace System.Management.Automation.Internal {
   }
 
   public static class ClassOps {
-    public static void CallBaseCtor ( object target, System.Reflection.ConstructorInfo ci, object[] args ) { }
-    public static object CallMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, object[] args ) { return default(object); }
-    public static void CallVoidMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, object[] args ) { }
+    public static void CallBaseCtor ( object target, System.Reflection.ConstructorInfo ci, params object[] args ) { }
+    public static object CallMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, params object[] args ) { return default(object); }
+    public static void CallVoidMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, params object[] args ) { }
     public static void ValidateSetProperty ( System.Type type, string propertyName, object value ) { }
 
   }
@@ -10174,7 +10210,9 @@ namespace System.Management.Automation.Internal {
     [System.Management.Automation.Internal.CommonParameters.ValidateVariableName]
     [System.Management.Automation.ParameterAttribute]  
     public string WarningVariable { get { return default(string); } set { } }
-    internal class ValidateVariableName : System.Attribute { }
+    internal class ValidateVariableName : System.Attribute { 
+      internal ValidateVariableName() { }
+    }
   }
 
   public static class DebuggerUtils {
@@ -10273,6 +10311,7 @@ namespace System.Management.Automation.Internal {
   }
 
   public class ScriptBlockMemberMethodWrapper {
+    internal ScriptBlockMemberMethodWrapper() { }
     public void InvokeHelper ( object instance, object sessionStateInternal, object[] args ) { }
     public T InvokeHelperT<T> ( object instance, object sessionStateInternal, object[] args ) { return default(T); }
 
@@ -10284,6 +10323,7 @@ namespace System.Management.Automation.Internal {
   }
 
   public class SessionStateKeeper {
+    internal SessionStateKeeper() { }
     public object GetSessionState (  ) { return default(object); }
 
   }

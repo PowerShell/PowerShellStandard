@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>PowerShellStandard.Library</id>
-    <version>5.1.0-preview-01</version>
+    <version>5.1.0-preview-02</version>
     <title>PowerShellStandard.Library</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
