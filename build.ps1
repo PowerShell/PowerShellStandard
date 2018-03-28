@@ -1,7 +1,8 @@
 #!/usr/bin/env pwsh
 param ( 
-    [Parameter(ParameterSetName="Clean")][switch]$Clean,
-    [Parameter(ParameterSetName="Test")][switch]$Test
+    [Parameter()][switch]$Clean,
+    [Parameter()][switch]$Test,
+    [ParameteR()][switch]$Pack
 )
 
 import-module $PSScriptRoot/PowerShellStandard.psm1 -force
@@ -11,7 +12,12 @@ if ( $Clean ) {
     return
 }
 
-Start-Build
+if ( $Pack ) {
+    Export-NuGetPackage
+}
+else {
+    Start-Build
+}
 
 if ( $Test ) {
     Invoke-Test

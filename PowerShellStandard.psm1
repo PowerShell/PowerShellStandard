@@ -43,21 +43,17 @@ function Invoke-Test {
     }
 }
 
-function Export-Nupkg
+function Export-NuGetPackage
 {
-    if ( ! (get-command nuget.exe) ) { 
-        Throw "nuget.exe not found, packages cannot be created"
-    }
-    # be sure we've built
-    Start-Build
-    # build the packages
+    # create the package
+    # it will automatically build
     $versions = 3,5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            $result = nuget.exe pack PowerShellStandard.Library.nuspec 2>&1
+            $result = dotnet pack
             if ( ! $? ) {
                 Write-Error -Message $result
             }
