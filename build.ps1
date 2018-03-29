@@ -2,7 +2,7 @@
 param ( 
     [Parameter()][switch]$Clean,
     [Parameter()][switch]$Test,
-    [ParameteR()][switch]$Pack
+    [Parameter()][switch]$Pack
 )
 
 import-module $PSScriptRoot/PowerShellStandard.psm1 -force

@@ -62,7 +62,10 @@ function Export-NuGetPackage
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
             $result = dotnet pack
-            if ( ! $? ) {
+            if ( $? ) {
+                Copy-Item (Join-Path $srcDir "bin/Debug/PowerShellStandard*.nupkg") $PsScriptRoot
+            }
+            else {
                 Write-Error -Message $result
             }
         }
