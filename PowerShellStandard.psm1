@@ -15,16 +15,35 @@ function Start-Build {
 }
 
 function Start-Clean {
+    $dirs = "src","test"
     $versions = 3,5
-    $srcBase = Join-Path $PsScriptRoot src
+    # clean up test/3. test/5, src/3, src/5
+    foreach ( $directory in $dirs ) {
+        $baseDir = Join-Path $PsScriptRoot $directory
+        foreach ( $version in $versions ) {
+            try {
+                $fileDir = Join-Path $baseDir $version
+                Push-Location $fileDir
+                dotnet clean
+                if ( test-path obj ) { remove-item -recurse -force obj }
+                if ( test-path bin ) { remove-item -recurse -force bin }
+                remove-item "PowerShellStandard.Library.${version}*.nupkg" -ErrorAction SilentlyContinue
+            }
+            finally {
+                Pop-Location
+            }
+        }
+    }
+}
+
+function Invoke-Test {
+    $versions = 3,5
     foreach ( $version in $versions ) {
         try {
-            $srcDir = Join-Path $srcBase $version
-            Push-Location $srcDir
-            dotnet clean
-            if ( test-path obj ) { remove-item -recurse -force obj }
-            if ( test-path bin ) { remove-item -recurse -force bin }
-            remove-item "PowerShellStandard.Library.${version}*.nupkg"
+            $testBase = Join-Path $PsScriptRoot "test/${version}"
+            Push-Location $testBase
+            dotnet build
+            Invoke-Pester
         }
         finally {
             Pop-Location
@@ -32,33 +51,21 @@ function Start-Clean {
     }
 }
 
-function Invoke-Test {
-    try {
-        $testBase = Join-Path $PsScriptRoot test
-        Push-Location $testBase
-        Invoke-Pester
-    }
-    finally {
-        Pop-Location
-    }
-}
-
-function Export-Nupkg
+function Export-NuGetPackage
 {
-    if ( ! (get-command nuget.exe) ) { 
-        Throw "nuget.exe not found, packages cannot be created"
-    }
-    # be sure we've built
-    Start-Build
-    # build the packages
+    # create the package
+    # it will automatically build
     $versions = 3,5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            $result = nuget.exe pack PowerShellStandard.Library.nuspec 2>&1
-            if ( ! $? ) {
+            $result = dotnet pack
+            if ( $? ) {
+                Copy-Item (Join-Path $srcDir "bin/Debug/PowerShellStandard*.nupkg") $PsScriptRoot
+            }
+            else {
                 Write-Error -Message $result
             }
         }

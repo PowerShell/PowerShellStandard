@@ -2,11 +2,11 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>PowerShellStandard.Library</id>
-    <version>5.1.0-preview-02</version>
+    <version>5.1.0-preview-03</version>
     <title>PowerShellStandard.Library</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
-    <projectUrl>https://msdn.microsoft.com/en-us/mt173057.aspx</projectUrl>
+    <projectUrl>https://github.com/PowerShell/PowerShellStandard</projectUrl>
     <iconUrl>https://secure.gravatar.com/avatar/cfba7016de8e12d5b3017130f75ef8ed</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Contains the reference assemblies for PowerShell Standard 5</description>

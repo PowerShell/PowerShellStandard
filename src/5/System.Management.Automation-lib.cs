@@ -4127,7 +4127,7 @@ namespace System.Management.Automation {
   public partial interface IJobDebugger {
     System.Management.Automation.Debugger Debugger { get; }
 
-    bool IsAsync { get; }
+    bool IsAsync { get; set; }
 
   }
 
@@ -5077,7 +5077,7 @@ namespace System.Management.Automation {
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public string ReferencedMemberName { get { return default(string); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -5208,7 +5208,7 @@ namespace System.Management.Automation {
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public System.Reflection.MethodInfo SetterCodeReference { get { return default(System.Reflection.MethodInfo); } set { } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -5400,7 +5400,7 @@ namespace System.Management.Automation {
     internal PSDynamicMember() { }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -5417,7 +5417,7 @@ namespace System.Management.Automation {
     internal PSEvent() { }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -5660,7 +5660,7 @@ namespace System.Management.Automation {
     public abstract System.Management.Automation.PSMemberTypes MemberType { get; }
     public string Name { get { return default(string); } }
     public abstract string TypeNameOfValue { get; }
-    public abstract object Value { get; }
+    public abstract object Value { get; set; }
     public virtual System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
  
   }
@@ -5689,7 +5689,7 @@ namespace System.Management.Automation {
     public System.Management.Automation.PSMemberInfoCollection<System.Management.Automation.PSMethodInfo> Methods { get { return default(System.Management.Automation.PSMemberInfoCollection<System.Management.Automation.PSMethodInfo>); } }
     public System.Management.Automation.PSMemberInfoCollection<System.Management.Automation.PSPropertyInfo> Properties { get { return default(System.Management.Automation.PSMemberInfoCollection<System.Management.Automation.PSPropertyInfo>); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -5738,7 +5738,7 @@ namespace System.Management.Automation {
     protected PSMethodInfo() { }
 
     public abstract System.Collections.ObjectModel.Collection<string> OverloadDefinitions { get; }
-    public sealed override object Value { get { return default(object); } }
+    public sealed override object Value { get { return default(object); } set { } }
     public abstract object Invoke ( params object[] arguments );
 
   }
@@ -5820,7 +5820,7 @@ namespace System.Management.Automation {
     public override bool IsSettable { get { return default(bool); } }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -6014,7 +6014,7 @@ namespace System.Management.Automation {
     public override bool IsSettable { get { return default(bool); } }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -6047,7 +6047,7 @@ namespace System.Management.Automation {
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public System.Collections.ObjectModel.Collection<string> ReferencedPropertyNames { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -6082,7 +6082,7 @@ namespace System.Management.Automation {
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public System.Management.Automation.ScriptBlock SetterScript { get { return default(System.Management.Automation.ScriptBlock); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } }
+    public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -7642,17 +7642,17 @@ namespace System.Management.Automation.Host {
   public abstract class PSHostRawUserInterface {
     protected PSHostRawUserInterface() { }
 
-    public abstract System.ConsoleColor BackgroundColor { get; }
-    public abstract System.Management.Automation.Host.Size BufferSize { get; }
-    public abstract System.Management.Automation.Host.Coordinates CursorPosition { get; }
-    public abstract int CursorSize { get; }
-    public abstract System.ConsoleColor ForegroundColor { get; }
+    public abstract System.ConsoleColor BackgroundColor { get; set; }
+    public abstract System.Management.Automation.Host.Size BufferSize { get; set; }
+    public abstract System.Management.Automation.Host.Coordinates CursorPosition { get; set; }
+    public abstract int CursorSize { get; set; }
+    public abstract System.ConsoleColor ForegroundColor { get; set; }
     public abstract bool KeyAvailable { get; }
     public abstract System.Management.Automation.Host.Size MaxPhysicalWindowSize { get; }
     public abstract System.Management.Automation.Host.Size MaxWindowSize { get; }
-    public abstract System.Management.Automation.Host.Coordinates WindowPosition { get; }
-    public abstract System.Management.Automation.Host.Size WindowSize { get; }
-    public abstract string WindowTitle { get; }
+    public abstract System.Management.Automation.Host.Coordinates WindowPosition { get; set; }
+    public abstract System.Management.Automation.Host.Size WindowSize { get; set; }
+    public abstract string WindowTitle { get; set; }
     public virtual void FlushInputBuffer (  ) { }
     public virtual System.Management.Automation.Host.BufferCell[,] GetBufferContents ( System.Management.Automation.Host.Rectangle rectangle ) { return default(System.Management.Automation.Host.BufferCell[,]); }
     public virtual int LengthInBufferCells ( char source ) { return default(int); }
@@ -7818,10 +7818,10 @@ namespace System.Management.Automation.Runspaces {
 
   public sealed class ContainerConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
     internal ContainerConnectionInfo() { }
-    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } }
-    public override string CertificateThumbprint { get { return default(string); } }
-    public override string ComputerName { get { return default(string); } }
-    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
+    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } set { } }
+    public override string CertificateThumbprint { get { return default(string); } set { } }
+    public override string ComputerName { get { return default(string); } set { } }
+    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } set { } }
     public static System.Management.Automation.Runspaces.ContainerConnectionInfo CreateContainerConnectionInfo ( string containerId, bool runAsAdmin, string configurationName ) { return default(System.Management.Automation.Runspaces.ContainerConnectionInfo); }
     public void CreateContainerProcess (  ) { }
     public bool TerminateContainerProcess (  ) { return default(bool); }
@@ -7961,10 +7961,10 @@ namespace System.Management.Automation.Runspaces {
     public NamedPipeConnectionInfo(int processId, string appDomainName, int openTimeout) { }
 
     public string AppDomainName { get { return default(string); } set { } }
-    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } }
-    public override string CertificateThumbprint { get { return default(string); } }
-    public override string ComputerName { get { return default(string); } }
-    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
+    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } set { } }
+    public override string CertificateThumbprint { get { return default(string); } set { } }
+    public override string ComputerName { get { return default(string); } set { } }
+    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } set { } }
     public int ProcessId { get { return default(int); } set { } }
   }
 
@@ -8124,11 +8124,11 @@ namespace System.Management.Automation.Runspaces {
     public abstract System.Management.Automation.JobManager JobManager { get; }
     public string Name { get { return default(string); } set { } }
     public abstract System.Management.Automation.Runspaces.RunspaceConnectionInfo OriginalConnectionInfo { get; }
-    public abstract System.Management.Automation.Runspaces.RunspaceAvailability RunspaceAvailability { get; }
+    public abstract System.Management.Automation.Runspaces.RunspaceAvailability RunspaceAvailability { get; set; }
     public bool RunspaceIsRemote { get { return default(bool); } }
     public abstract System.Management.Automation.Runspaces.RunspaceStateInfo RunspaceStateInfo { get; }
     public System.Management.Automation.Runspaces.SessionStateProxy SessionStateProxy { get { return default(System.Management.Automation.Runspaces.SessionStateProxy); } }
-    public abstract System.Management.Automation.Runspaces.PSThreadOptions ThreadOptions { get; }
+    public abstract System.Management.Automation.Runspaces.PSThreadOptions ThreadOptions { get; set; }
     public abstract System.Version Version { get; }
     public virtual void Close (  ) { }
     public virtual void CloseAsync (  ) { }
@@ -8175,11 +8175,11 @@ namespace System.Management.Automation.Runspaces {
   public abstract class RunspaceConnectionInfo {
     protected RunspaceConnectionInfo() { }
 
-    public abstract System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get; }
+    public abstract System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get; set; }
     public int CancelTimeout { get { return default(int); } set { } }
-    public abstract string CertificateThumbprint { get; }
-    public abstract string ComputerName { get; }
-    public abstract System.Management.Automation.PSCredential Credential { get; }
+    public abstract string CertificateThumbprint { get; set; }
+    public abstract string ComputerName { get; set; }
+    public abstract System.Management.Automation.PSCredential Credential { get; set; }
     public System.Globalization.CultureInfo Culture { get { return default(System.Globalization.CultureInfo); } set { } }
     public int IdleTimeout { get { return default(int); } set { } }
     public int MaxIdleTimeout { get { return default(int); } set { } }
@@ -8566,11 +8566,11 @@ namespace System.Management.Automation.Runspaces {
     public const string HttpScheme = "http";
     public const string HttpsScheme = "https";
     public string AppName { get { return default(string); } set { } }
-    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } }
-    public override string CertificateThumbprint { get { return default(string); } }
-    public override string ComputerName { get { return default(string); } }
+    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } set { } }
+    public override string CertificateThumbprint { get { return default(string); } set { } }
+    public override string ComputerName { get { return default(string); } set { } }
     public System.Uri ConnectionUri { get { return default(System.Uri); } set { } }
-    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
+    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } set { } }
     public bool EnableNetworkAccess { get { return default(bool); } set { } }
     public bool IncludePortInSPN { get { return default(bool); } set { } }
     public int MaxConnectionRetryCount { get { return default(int); } set { } }
