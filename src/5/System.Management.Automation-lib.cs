@@ -5075,7 +5075,7 @@ namespace System.Management.Automation {
     public override bool IsGettable { get { return default(bool); } }
     public override bool IsSettable { get { return default(bool); } }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
-    public string ReferencedMemberName { get { return default(string); } set { } }
+    public string ReferencedMemberName { get { return default(string); } }
     public override string TypeNameOfValue { get { return default(string); } }
     public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
