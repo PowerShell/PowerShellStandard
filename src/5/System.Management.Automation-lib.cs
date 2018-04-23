@@ -500,7 +500,7 @@ namespace Microsoft.PowerShell.Commands {
    [System.Management.Automation.OutputTypeAttribute(new System.Type[4] { typeof(System.Boolean), typeof(System.String), typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = "Get-Item")]
    [System.Management.Automation.OutputTypeAttribute(new System.Type[5] { typeof(System.Boolean), typeof(System.String), typeof(System.DateTime), typeof(System.IO.FileInfo), typeof(System.IO.DirectoryInfo) }, ProviderCmdlet = "Get-ItemProperty")]
    [System.Management.Automation.OutputTypeAttribute(new System.Type[2] { typeof(System.String), typeof(System.IO.FileInfo) }, ProviderCmdlet = "New-Item")]
-   public sealed class FileSystemProvider : System.Management.Automation.Provider.NavigationCmdletProvider, System.Management.Automation.Provider.IContentCmdletProvider, System.Management.Automation.Provider.IPropertyCmdletProvider, System.Management.Automation.Provider.ISecurityDescriptorCmdletProvider, System.Management.Automation.Provider.ICmdletProviderSupportsHelp {
+   public sealed class FileSystemProvider : System.Management.Automation.Provider.NavigationCmdletProvider, System.Management.Automation.Provider.IContentCmdletProvider, System.Management.Automation.Provider.IPropertyCmdletProvider, System.Management.Automation.IResourceSupplier, System.Management.Automation.Provider.ISecurityDescriptorCmdletProvider, System.Management.Automation.Provider.ICmdletProviderSupportsHelp {
     public FileSystemProvider() { }
 
     public const string ProviderName = "FileSystem";
@@ -2052,6 +2052,11 @@ namespace Microsoft.PowerShell.Commands {
     [System.Management.Automation.ParameterAttribute(ParameterSetName = "VMNameInstanceId", Mandatory=true, ValueFromPipelineByPropertyName=true)]
     [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
     public virtual string[] VMName { get { return default(string[]); } set { } }
+
+    protected System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession> GetMatchingRunspaces(bool writeErrorOnNoMatch) { return default(System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession>); }
+    protected System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession> GetMatchingRunspaces(string configurationName) { return default(System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession>); }
+    protected System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession> GetMatchingRunspacesByName(bool writeErrorOnNoMatch) { return default(System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession>); }
+    protected System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession> GetMatchingRunspacesByRunspaceId(bool writeErrorOnNoMatch) { return default(System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession>); }
   }
 
   public class PSSessionConfigurationCommandBase : System.Management.Automation.PSCmdlet {
@@ -2118,12 +2123,12 @@ namespace Microsoft.PowerShell.Commands {
 
     [System.Management.Automation.ParameterAttribute]
     public System.Management.Automation.SwitchParameter AutoRemoveJob { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    public override string[] Command { get { return default(string[]); } set { } }
+    public override string[] Command { get { return default(string[]); } }
     [System.Management.Automation.AliasAttribute(new string[] {"Cn"})]
     [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "ComputerName", ValueFromPipelineByPropertyName=true)]
     [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
     public string[] ComputerName { get { return default(string[]); } set { } }
-    public override System.Collections.Hashtable Filter { get { return default(System.Collections.Hashtable); } set { } }
+    public override System.Collections.Hashtable Filter { get { return default(System.Collections.Hashtable); } }
     [System.Management.Automation.ParameterAttribute]
     public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
     [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ComputerName", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
@@ -2140,7 +2145,7 @@ namespace Microsoft.PowerShell.Commands {
     [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "Session", ValueFromPipelineByPropertyName=true)]
     [System.Management.Automation.ValidateNotNullAttribute]
     public System.Management.Automation.Runspaces.PSSession[] Session { get { return default(System.Management.Automation.Runspaces.PSSession[]); } set { } }
-    public override System.Management.Automation.JobState State { get { return default(System.Management.Automation.JobState); } set { } }
+    public override System.Management.Automation.JobState State { get { return default(System.Management.Automation.JobState); } }
     [System.Management.Automation.ParameterAttribute]
     public System.Management.Automation.SwitchParameter Wait { get { return default(System.Management.Automation.SwitchParameter); } set { } }
     [System.Management.Automation.ParameterAttribute]
@@ -2380,7 +2385,7 @@ namespace Microsoft.PowerShell.Commands {
     Opened = 1,
   }
 
-  public abstract class SessionStateProviderBase : System.Management.Automation.Provider.ContainerCmdletProvider, System.Management.Automation.Provider.IContentCmdletProvider {
+  public abstract class SessionStateProviderBase : System.Management.Automation.Provider.ContainerCmdletProvider, System.Management.Automation.Provider.IContentCmdletProvider, System.Management.Automation.IResourceSupplier {
     protected SessionStateProviderBase() { }
 
     public virtual void ClearContent ( string path ) { }
@@ -3618,15 +3623,15 @@ namespace System.Management.Automation {
   }
 
   public abstract class Debugger {
-    internal Debugger() { }
+    protected Debugger() { }
 
     public event System.EventHandler<System.Management.Automation.BreakpointUpdatedEventArgs> BreakpointUpdated { add { } remove { } }
     public event System.EventHandler<System.Management.Automation.DebuggerStopEventArgs> DebuggerStop { add { } remove { } }
 
-    public System.Management.Automation.DebugModes DebugMode { get { return default(System.Management.Automation.DebugModes); } }
-    public bool InBreakpoint { get { return default(bool); } }
-    public System.Guid InstanceId { get { return default(System.Guid); } }
-    public bool IsActive { get { return default(bool); } }
+    public System.Management.Automation.DebugModes DebugMode { get { return default(System.Management.Automation.DebugModes); } protected set { } }
+    public virtual bool InBreakpoint { get { return default(bool); } }
+    public virtual System.Guid InstanceId { get { return default(System.Guid); } }
+    public virtual bool IsActive { get { return default(bool); } }
     public virtual System.Collections.Generic.IEnumerable<System.Management.Automation.CallStackFrame> GetCallStack (  ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CallStackFrame>); }
     public virtual System.Management.Automation.DebuggerStopEventArgs GetDebuggerStopArgs (  ) { return default(System.Management.Automation.DebuggerStopEventArgs); }
     public virtual System.Management.Automation.DebuggerCommandResults ProcessCommand ( System.Management.Automation.PSCommand command, System.Management.Automation.PSDataCollection<System.Management.Automation.PSObject> output ) { return default(System.Management.Automation.DebuggerCommandResults); }
@@ -3638,6 +3643,16 @@ namespace System.Management.Automation {
     public virtual void SetParent ( System.Management.Automation.Debugger parent, System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakPoints, System.Nullable<System.Management.Automation.DebuggerResumeAction> startAction, System.Management.Automation.Host.PSHost host, System.Management.Automation.PathInfo path, System.Collections.Generic.Dictionary<string, System.Management.Automation.DebugSource> functionSourceMap ) { }
     public virtual void SetParent ( System.Management.Automation.Debugger parent, System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakPoints, System.Nullable<System.Management.Automation.DebuggerResumeAction> startAction, System.Management.Automation.Host.PSHost host, System.Management.Automation.PathInfo path ) { }
     public virtual void StopProcessCommand (  ) { }
+    
+    protected bool DebuggerStopped { get { return default(bool); } }
+    protected void RaiseDebuggerStopEvent(System.Management.Automation.DebuggerStopEventArgs args) { }
+    protected bool IsDebuggerStopEventSubscribed() { return default(bool); }
+    protected void RaiseBreakpointUpdatedEvent(System.Management.Automation.BreakpointUpdatedEventArgs args) { }
+    protected bool IsDebuggerBreakpointUpdatedEventSubscribed() { return default(bool); }
+    // protected void RaiseStartRunspaceDebugProcessingEvent(System.Management.Automation.StartRunspaceDebugProcessingEventArgs args) { }
+    // protected void RaiseRunspaceProcessingCompletedEvent(System.Management.Automation.ProcessRunspaceDebugEndEventArgs args) { }
+    protected bool IsStartRunspaceDebugProcessingEventSubscribed() { return default(bool); }
+    protected void RaiseCancelRunspaceDebugProcessingEvent() { }
 
   }
 
@@ -4111,7 +4126,7 @@ namespace System.Management.Automation {
 
   }
 
-  public partial interface ICommandRuntime2 {
+  public partial interface ICommandRuntime2 : System.Management.Automation.ICommandRuntime {
      bool ShouldContinue ( string query, string caption, bool hasSecurityImpact, ref bool yesToAll, ref bool noToAll );
      void WriteInformation ( System.Management.Automation.InformationRecord informationRecord );
 
@@ -4318,6 +4333,8 @@ namespace System.Management.Automation {
     public virtual void StopJob (  ) { }
     public void UnloadJobStreams (  ) { }
 
+    protected void SetJobState(System.Management.Automation.JobState jobState) { }
+
   }
 
   public abstract class Job2 : System.Management.Automation.Job, System.IDisposable {
@@ -4454,7 +4471,7 @@ namespace System.Management.Automation {
     public virtual void PersistJob ( System.Management.Automation.Job2 job ) { }
     public virtual void RemoveJob ( System.Management.Automation.Job2 job ) { }
     public void StoreJobIdForReuse ( System.Management.Automation.Job2 job, bool recurse ) { }
-
+    protected System.Management.Automation.JobIdentifier RetrieveJobIdForReuse(System.Guid instanceId) { return default(System.Management.Automation.JobIdentifier); }
   }
 
   public enum JobState {
@@ -5666,6 +5683,7 @@ namespace System.Management.Automation {
     public abstract string TypeNameOfValue { get; }
     public abstract object Value { get; set; }
     public virtual System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
+    protected void SetMemberName(string name) { }
  
   }
 
@@ -6155,7 +6173,7 @@ namespace System.Management.Automation {
     WriteLine = 4096,
   }
 
-  public abstract class PSTransportOption {
+  public abstract class PSTransportOption : System.ICloneable {
     protected PSTransportOption() { }
 
     public virtual object Clone (  ) { return default(object); }
@@ -6197,7 +6215,10 @@ namespace System.Management.Automation {
     public string PSTypeName { get { return default(string); } set { } }
   }
 
-  public class PSVariable {
+  internal partial interface IHasSessionStateEntryVisibility {
+  }
+
+  public class PSVariable : System.Management.Automation.IHasSessionStateEntryVisibility {
     public PSVariable(string name) { }
     public PSVariable(string name, object value) { }
     public PSVariable(string name, object value, System.Management.Automation.ScopedItemOptions options) { }
@@ -7215,7 +7236,7 @@ namespace System.Management.Automation.Provider {
 
   }
 
-  public partial interface IDynamicPropertyCmdletProvider {
+  public partial interface IDynamicPropertyCmdletProvider : System.Management.Automation.Provider.IPropertyCmdletProvider {
      void CopyProperty ( string sourcePath, string sourceProperty, string destinationPath, string destinationProperty );
      object CopyPropertyDynamicParameters ( string sourcePath, string sourceProperty, string destinationPath, string destinationProperty );
      void MoveProperty ( string sourcePath, string sourceProperty, string destinationPath, string destinationProperty );
@@ -7257,7 +7278,7 @@ namespace System.Management.Automation.Provider {
     protected virtual object GetItemDynamicParameters ( string path ) { return default(object); }
     protected virtual void InvokeDefaultAction ( string path ) { }
     protected virtual object InvokeDefaultActionDynamicParameters ( string path ) { return default(object); }
-    protected virtual bool IsValidPath ( string path ) { return default(bool); }
+    protected abstract bool IsValidPath ( string path );
     protected virtual bool ItemExists ( string path ) { return default(bool); }
     protected virtual object ItemExistsDynamicParameters ( string path ) { return default(object); }
     protected virtual void SetItem ( string path, object value ) { }
@@ -7636,7 +7657,7 @@ namespace System.Management.Automation.Host {
     public bool DebuggerEnabled { get { return default(bool); } set { } }
     public abstract System.Guid InstanceId { get; }
     public abstract string Name { get; }
-    public System.Management.Automation.PSObject PrivateData { get { return default(System.Management.Automation.PSObject); } }
+    public virtual System.Management.Automation.PSObject PrivateData { get { return default(System.Management.Automation.PSObject); } }
     public abstract System.Management.Automation.Host.PSHostUserInterface UI { get; }
     public abstract System.Version Version { get; }
     public virtual void EnterNestedPrompt (  ) { }
@@ -7681,7 +7702,7 @@ namespace System.Management.Automation.Host {
     protected PSHostUserInterface() { }
 
     public abstract System.Management.Automation.Host.PSHostRawUserInterface RawUI { get; }
-    public bool SupportsVirtualTerminal { get { return default(bool); } }
+    public virtual bool SupportsVirtualTerminal { get { return default(bool); } }
     public virtual System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSObject> Prompt ( string caption, string message, System.Collections.ObjectModel.Collection<System.Management.Automation.Host.FieldDescription> descriptions ) { return default(System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSObject>); }
     public virtual int PromptForChoice ( string caption, string message, System.Collections.ObjectModel.Collection<System.Management.Automation.Host.ChoiceDescription> choices, int defaultChoice ) { return default(int); }
     public virtual System.Management.Automation.PSCredential PromptForCredential ( string caption, string message, string userName, string targetName, System.Management.Automation.PSCredentialTypes allowedCredentialTypes, System.Management.Automation.PSCredentialUIOptions options ) { return default(System.Management.Automation.PSCredential); }
@@ -8938,7 +8959,7 @@ namespace System.Management.Automation.Language {
 
   }
 
-  public abstract class DefaultCustomAstVisitor {
+  public abstract class DefaultCustomAstVisitor : System.Management.Automation.Language.ICustomAstVisitor {
     protected DefaultCustomAstVisitor() { }
 
     public virtual object VisitArrayExpression ( System.Management.Automation.Language.ArrayExpressionAst arrayExpressionAst ) { return default(object); }
@@ -8998,7 +9019,7 @@ namespace System.Management.Automation.Language {
 
   }
 
-  public abstract class DefaultCustomAstVisitor2 : System.Management.Automation.Language.DefaultCustomAstVisitor, System.Management.Automation.Language.ICustomAstVisitor2 {
+  public abstract class DefaultCustomAstVisitor2 : System.Management.Automation.Language.DefaultCustomAstVisitor, System.Management.Automation.Language.ICustomAstVisitor, System.Management.Automation.Language.ICustomAstVisitor2 {
     protected DefaultCustomAstVisitor2() { }
 
     public virtual object VisitBaseCtorInvokeMemberExpression ( System.Management.Automation.Language.BaseCtorInvokeMemberExpressionAst baseCtorInvokeMemberExpressionAst ) { return default(object); }
@@ -9303,7 +9324,7 @@ namespace System.Management.Automation.Language {
 
   }
 
-  public partial interface ICustomAstVisitor2 {
+  public partial interface ICustomAstVisitor2 : System.Management.Automation.Language.ICustomAstVisitor {
      object VisitBaseCtorInvokeMemberExpression ( System.Management.Automation.Language.BaseCtorInvokeMemberExpressionAst baseCtorInvokeMemberExpressionAst );
      object VisitConfigurationDefinition ( System.Management.Automation.Language.ConfigurationDefinitionAst configurationDefinitionAst );
      object VisitDynamicKeywordStatement ( System.Management.Automation.Language.DynamicKeywordStatementAst dynamicKeywordAst );
@@ -9523,7 +9544,7 @@ namespace System.Management.Automation.Language {
     public bool UsedColon { get { return default(bool); } }
   }
 
-  public class ParenExpressionAst : System.Management.Automation.Language.ExpressionAst {
+ public class ParenExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public ParenExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.PipelineBaseAst pipeline) : base(extent) { }
 
     public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
@@ -9672,7 +9693,7 @@ namespace System.Management.Automation.Language {
 
   }
 
-  public sealed class ScriptExtent {
+  public sealed class ScriptExtent : System.Management.Automation.Language.IScriptExtent {
     public ScriptExtent(System.Management.Automation.Language.ScriptPosition startPosition, System.Management.Automation.Language.ScriptPosition endPosition) { }
 
     public int EndColumnNumber { get { return default(int); } }
@@ -9687,7 +9708,7 @@ namespace System.Management.Automation.Language {
     public string Text { get { return default(string); } }
   }
 
-  public sealed class ScriptPosition {
+  public sealed class ScriptPosition : System.Management.Automation.Language.IScriptPosition {
     public ScriptPosition(string scriptName, int scriptLineNumber, int offsetInLine, string line) { }
     public ScriptPosition(string scriptName, int scriptLineNumber, int offsetInLine, string line, string fullScript) { }
 
