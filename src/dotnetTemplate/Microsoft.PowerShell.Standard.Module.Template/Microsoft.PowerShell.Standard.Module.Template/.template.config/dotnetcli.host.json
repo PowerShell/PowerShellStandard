@@ -1,0 +1,12 @@
+{
+  "symbolInfo": {
+    "skipRestore": {
+      "longName": "no-restore",
+      "shortName": ""
+    },
+    "PowerShellStandardVersion": {
+      "longName": "powershell-standard-version",
+      "shortName": "v"
+    }
+  }
+}

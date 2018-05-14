@@ -49,6 +49,9 @@ function Invoke-Test {
             Pop-Location
         }
     }
+
+    Push-Location (Join-Path $PsScriptRoot "test/dotnetTemplate")
+    Invoke-Pester
 }
 
 function Export-NuGetPackage
