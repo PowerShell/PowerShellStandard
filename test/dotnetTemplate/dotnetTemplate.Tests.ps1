@@ -1,4 +1,4 @@
-Describe "PowerShell Standard C# Module" {
+Describe "PowerShell Standard C# Module Template" {
     Context "Targeting PowerShell Standard 5.1" {
         BeforeAll {
             $testFolder = "./foo"
