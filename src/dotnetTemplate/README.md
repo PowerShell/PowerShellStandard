@@ -1,6 +1,6 @@
-# PowerShellStandard-based PowerShell binary module template
+# PowerShell Standard based C# module template
 
-A `dotnet new` template that creates an example PowerShell binary module that uses PowerShellStandard.
+A `dotnet new` template that creates an example PowerShell C# module that uses PowerShellStandard.
 
 ```
 dotnet new psmodule
@@ -18,7 +18,7 @@ dotnet new psmodule
 2. Install the template:
 
 ```powershell
-dotnet new -i ./src/dotnetTemplate/Microsoft.PowerShell.PowerShellStandard.Template/Microsoft.PowerShell.PowerShellStandard.Template
+dotnet new -i ./src/dotnetTemplate/Microsoft.PowerShell.Standard.Module.Template/Microsoft.PowerShell.Standard.Module.Template
 ```
 
 ## Usage

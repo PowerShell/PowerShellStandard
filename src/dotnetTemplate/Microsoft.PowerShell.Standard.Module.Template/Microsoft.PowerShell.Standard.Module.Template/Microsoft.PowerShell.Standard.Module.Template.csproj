@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Microsoft.PowerShell.PowerShellStandard.Template</AssemblyName>
+    <AssemblyName>Microsoft.PowerShell.Standard.Module.Template</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

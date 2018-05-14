@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
-    <id>Microsoft.PowerShell.PowerShellStandard.Template</id>
+    <id>Microsoft.PowerShell.Standard.Module.Template</id>
     <version>0.1.0</version>
     <title>PowerShell Standard module</title>
     <authors>Microsoft</authors>
@@ -10,9 +10,9 @@
     <iconUrl>https://secure.gravatar.com/avatar/cfba7016de8e12d5b3017130f75ef8ed</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Creates a PowerShellStandard-based PowerShell binary module.
+      Creates a PowerShell Standard based C# module.
     </description>
-    <copyright>Copyright Microsoft Corporation 2018. All rights reserved.</copyright>
+    <copyright>Copyright (c) Microsoft Corporation. All rights reserved.</copyright>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
