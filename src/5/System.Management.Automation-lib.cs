@@ -2969,6 +2969,13 @@ namespace System.Management.Automation {
       internal PSRemotingJob() { }
     }
 
+   public sealed class PSTransactionContext : IDisposable
+   {
+        internal PSTransactionContext() { }
+        ~PSTransactionContext() { }
+        public void Dispose() { }
+   }
+
   public enum ActionPreference {
     Continue = 2,
     Ignore = 4,
@@ -7102,7 +7109,7 @@ namespace System.Management.Automation {
 namespace System.Management.Automation.Provider {
   public abstract class CmdletProvider {
     protected CmdletProvider() { }
-
+    public System.Management.Automation.PSTransactionContext CurrentPSTransaction { get { return default(System.Management.Automation.PSTransactionContext); } }
     public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
     public System.Collections.ObjectModel.Collection<string> Exclude { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public string Filter { get { return default(string); } }
@@ -7112,6 +7119,9 @@ namespace System.Management.Automation.Provider {
     public System.Management.Automation.CommandInvocationIntrinsics InvokeCommand { get { return default(System.Management.Automation.CommandInvocationIntrinsics); } }
     public System.Management.Automation.ProviderIntrinsics InvokeProvider { get { return default(System.Management.Automation.ProviderIntrinsics); } }
     public System.Management.Automation.SessionState SessionState { get { return default(System.Management.Automation.SessionState); } }
+    protected object DynamicParameters { get { return default(object); } }
+    protected System.Management.Automation.PSDriveInfo PSDriveInfo { get { return default(System.Management.Automation.PSDriveInfo); } }
+    protected internal System.Management.Automation.ProviderInfo ProviderInfo { get { return default(System.Management.Automation.ProviderInfo); } }
     public bool Stopping { get { return default(bool); } }
     public virtual string GetResourceString ( string baseName, string resourceId ) { return default(string); }
     public bool ShouldContinue ( string query, string caption, ref bool yesToAll, ref bool noToAll ) { return default(bool); }
