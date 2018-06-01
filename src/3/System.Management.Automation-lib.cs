@@ -5430,6 +5430,7 @@ namespace System.Management.Automation {
   }
   public class RuntimeException : System.Exception, System.Management.Automation.IContainsErrorRecord {
     public RuntimeException() { }
+    protected RuntimeException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
     public RuntimeException(string message) { }
     public RuntimeException(string message, System.Exception innerException) { }
     public RuntimeException(string message, System.Exception innerException, System.Management.Automation.ErrorRecord errorRecord) { }

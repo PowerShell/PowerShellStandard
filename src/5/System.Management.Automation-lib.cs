@@ -2968,7 +2968,6 @@ namespace System.Management.Automation {
     internal class PSRemotingJob { 
       internal PSRemotingJob() { }
     }
-
   public enum ActionPreference {
     Continue = 2,
     Ignore = 4,
@@ -6150,7 +6149,13 @@ namespace System.Management.Automation {
     Warning = 1024,
     WriteLine = 4096,
   }
-
+#if TRANSACTIONS
+  public sealed class PSTransactionContext : System.IDisposable {
+    internal PSTransactionContext() { }
+    public void Dispose() { }
+    ~PSTransactionContext() { }
+  }
+#endif
   public abstract class PSTransportOption {
     protected PSTransportOption() { }
 
@@ -7104,6 +7109,10 @@ namespace System.Management.Automation.Provider {
     protected CmdletProvider() { }
 
     public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
+#if TRANSACTIONS
+    public System.Management.Automation.PSTransactionContext CurrentPSTransaction { get { return default(System.Management.Automation.PSTransactionContext); } }
+#endif
+    protected object DynamicParameters { get { return default(object); } }
     public System.Collections.ObjectModel.Collection<string> Exclude { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public string Filter { get { return default(string); } }
     public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } }
@@ -7111,8 +7120,11 @@ namespace System.Management.Automation.Provider {
     public System.Collections.ObjectModel.Collection<string> Include { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public System.Management.Automation.CommandInvocationIntrinsics InvokeCommand { get { return default(System.Management.Automation.CommandInvocationIntrinsics); } }
     public System.Management.Automation.ProviderIntrinsics InvokeProvider { get { return default(System.Management.Automation.ProviderIntrinsics); } }
+    protected internal System.Management.Automation.ProviderInfo ProviderInfo { get { return default(System.Management.Automation.ProviderInfo); } }
+    protected System.Management.Automation.PSDriveInfo PSDriveInfo { get { return default(System.Management.Automation.PSDriveInfo); } }
     public System.Management.Automation.SessionState SessionState { get { return default(System.Management.Automation.SessionState); } }
     public bool Stopping { get { return default(bool); } }
+
     public virtual string GetResourceString ( string baseName, string resourceId ) { return default(string); }
     public bool ShouldContinue ( string query, string caption, ref bool yesToAll, ref bool noToAll ) { return default(bool); }
     public bool ShouldContinue ( string query, string caption ) { return default(bool); }
