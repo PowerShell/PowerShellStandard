@@ -76,5 +76,20 @@ function Export-NuGetPackage
             Pop-Location
         }
     }
+    # Create the template nupkg
+    try {
+        $templateDir = Join-Path $PsScriptRoot src/dotnetTemplate
+        Push-Location $templateDir
+        $result = dotnet pack
+        if ( $? ) {
+            Copy-Item (Join-Path $templateDir "bin/Debug/*.nupkg") $PsScriptRoot
+        }
+        else {
+            Write-Error -Message $result
+        }
+    }
+    finally {
+        Pop-Location
+    }
 
 }

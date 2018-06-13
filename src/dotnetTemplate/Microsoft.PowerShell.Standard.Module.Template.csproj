@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <NuspecFile>./Microsoft.PowerShell.Standard.Module.Template/Microsoft.PowerShell.Standard.Module.Template.nuspec</NuspecFile>
+        <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    </PropertyGroup>
+</Project>
