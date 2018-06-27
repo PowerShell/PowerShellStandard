@@ -458,7 +458,7 @@ namespace Microsoft.PowerShell.Commands {
   public class FileSystemContentDynamicParametersBase {
     public FileSystemContentDynamicParametersBase() { }
 
-    public bool WasStreamTypeSpecified { get { return default(bool); } set { } }
+    public bool WasStreamTypeSpecified { get { return default(bool); } private set { } }
   }
 
   public class FileSystemContentReaderDynamicParameters : Microsoft.PowerShell.Commands.FileSystemContentDynamicParametersBase {
@@ -466,7 +466,7 @@ namespace Microsoft.PowerShell.Commands {
 
     [System.Management.Automation.ParameterAttribute]
     public string Delimiter { get { return default(string); } set { } }
-    public bool DelimiterSpecified { get { return default(bool); } set { } }
+    public bool DelimiterSpecified { get { return default(bool); } private set { } }
     [System.Management.Automation.ParameterAttribute]
     public System.Management.Automation.SwitchParameter Raw { get { return default(System.Management.Automation.SwitchParameter); } set { } }
     [System.Management.Automation.ParameterAttribute]
@@ -1355,11 +1355,11 @@ namespace Microsoft.PowerShell.Commands {
     public ModuleSpecification(string moduleName) { }
     public ModuleSpecification(System.Collections.Hashtable moduleSpecification) { }
 
-    public System.Nullable<System.Guid> Guid { get { return default(System.Nullable<System.Guid>); } set { } }
-    public string MaximumVersion { get { return default(string); } set { } }
-    public string Name { get { return default(string); } set { } }
-    public System.Version RequiredVersion { get { return default(System.Version); } set { } }
-    public System.Version Version { get { return default(System.Version); } set { } }
+    public System.Nullable<System.Guid> Guid { get { return default(System.Nullable<System.Guid>); } internal set { } }
+    public string MaximumVersion { get { return default(string); } internal set { } }
+    public string Name { get { return default(string); } internal set { } }
+    public System.Version RequiredVersion { get { return default(System.Version); } internal set { } }
+    public System.Version Version { get { return default(System.Version); } internal set { } }
     public override string ToString (  ) { return default(string); }
     public static bool TryParse ( string input, out Microsoft.PowerShell.Commands.ModuleSpecification result ) { result = default(Microsoft.PowerShell.Commands.ModuleSpecification); return default(bool); }
 
@@ -1783,7 +1783,7 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-  public class NounArgumentCompleter {
+  public class NounArgumentCompleter : System.Management.Automation.IArgumentCompleter {
     public NounArgumentCompleter() { }
 
     public System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult> CompleteArgument ( string commandName, string parameterName, string wordToComplete, System.Management.Automation.Language.CommandAst commandAst, System.Collections.IDictionary fakeBoundParameters ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult>); }
@@ -1868,7 +1868,7 @@ namespace Microsoft.PowerShell.Commands {
     Job = 2,
   }
 
-  public class PSEditionArgumentCompleter {
+  public class PSEditionArgumentCompleter : System.Management.Automation.IArgumentCompleter {
     public PSEditionArgumentCompleter() { }
 
     public System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult> CompleteArgument ( string commandName, string parameterName, string wordToComplete, System.Management.Automation.Language.CommandAst commandAst, System.Collections.IDictionary fakeBoundParameters ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult>); }
@@ -1924,9 +1924,9 @@ namespace Microsoft.PowerShell.Commands {
 
   public sealed class PSHostProcessInfo {
     internal PSHostProcessInfo() { }
-    public string AppDomainName { get { return default(string); } set { } }
-    public int ProcessId { get { return default(int); } set { } }
-    public string ProcessName { get { return default(string); } set { } }
+    public string AppDomainName { get { return default(string); } private set { } }
+    public int ProcessId { get { return default(int); } private set { } }
+    public string ProcessName { get { return default(string); } private set { } }
   }
 
   public abstract class PSRemotingBaseCmdlet : Microsoft.PowerShell.Commands.PSRemotingCmdlet {
@@ -2374,16 +2374,16 @@ namespace Microsoft.PowerShell.Commands {
   public abstract class SessionStateProviderBase : System.Management.Automation.Provider.ContainerCmdletProvider, System.Management.Automation.Provider.IContentCmdletProvider, System.Management.Automation.IResourceSupplier {
     protected SessionStateProviderBase() { }
 
-    public virtual void ClearContent ( string path ) { }
-    public virtual object ClearContentDynamicParameters ( string path ) { return default(object); }
+    public void ClearContent ( string path ) { }
+    public object ClearContentDynamicParameters ( string path ) { return default(object); }
     protected override void ClearItem ( string path ) { }
     protected override void CopyItem ( string path, string copyPath, bool recurse ) { }
     protected override void GetChildItems ( string path, bool recurse ) { }
     protected override void GetChildNames ( string path, System.Management.Automation.ReturnContainers returnContainers ) { }
-    public virtual System.Management.Automation.Provider.IContentReader GetContentReader ( string path ) { return default(System.Management.Automation.Provider.IContentReader); }
-    public virtual object GetContentReaderDynamicParameters ( string path ) { return default(object); }
-    public virtual System.Management.Automation.Provider.IContentWriter GetContentWriter ( string path ) { return default(System.Management.Automation.Provider.IContentWriter); }
-    public virtual object GetContentWriterDynamicParameters ( string path ) { return default(object); }
+    public System.Management.Automation.Provider.IContentReader GetContentReader ( string path ) { return default(System.Management.Automation.Provider.IContentReader); }
+    public object GetContentReaderDynamicParameters ( string path ) { return default(object); }
+    public System.Management.Automation.Provider.IContentWriter GetContentWriter ( string path ) { return default(System.Management.Automation.Provider.IContentWriter); }
+    public object GetContentWriterDynamicParameters ( string path ) { return default(object); }
     protected override void GetItem ( string name ) { }
     protected override bool HasChildItems ( string path ) { return default(bool); }
     protected override bool IsValidPath ( string path ) { return default(bool); }
@@ -2857,16 +2857,16 @@ namespace Microsoft.PowerShell.Commands {
 
   public class WSManConfigurationOption : System.Management.Automation.PSTransportOption {
     internal WSManConfigurationOption() { }
-    public System.Nullable<int> IdleTimeoutSec { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxConcurrentCommandsPerSession { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxConcurrentUsers { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxIdleTimeoutSec { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxMemoryPerSessionMB { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxProcessesPerSession { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxSessions { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<int> MaxSessionsPerUser { get { return default(System.Nullable<int>); } set { } }
-    public System.Nullable<System.Management.Automation.Runspaces.OutputBufferingMode> OutputBufferingMode { get { return default(System.Nullable<System.Management.Automation.Runspaces.OutputBufferingMode>); } set { } }
-    public System.Nullable<int> ProcessIdleTimeoutSec { get { return default(System.Nullable<int>); } set { } }
+    public System.Nullable<int> IdleTimeoutSec { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxConcurrentCommandsPerSession { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxConcurrentUsers { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxIdleTimeoutSec { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxMemoryPerSessionMB { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxProcessesPerSession { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxSessions { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<int> MaxSessionsPerUser { get { return default(System.Nullable<int>); } internal set { } }
+    public System.Nullable<System.Management.Automation.Runspaces.OutputBufferingMode> OutputBufferingMode { get { return default(System.Nullable<System.Management.Automation.Runspaces.OutputBufferingMode>); } internal set { } }
+    public System.Nullable<int> ProcessIdleTimeoutSec { get { return default(System.Nullable<int>); } internal set { } }
     protected internal override void LoadFromDefaults ( System.Management.Automation.Runspaces.PSSessionType sessionType, bool keepAssigned ) { }
 
   }
@@ -2886,7 +2886,7 @@ namespace Microsoft.PowerShell.Commands.Internal.Format {
     [System.Management.Automation.ParameterAttribute(ValueFromPipeline=true)]
     public System.Management.Automation.PSObject InputObject { get { return default(System.Management.Automation.PSObject); } set { } }
     protected override void BeginProcessing (  ) { }
-    public virtual void Dispose (  ) { }
+    public void Dispose (  ) { }
     protected virtual void Dispose ( bool disposing ) { }
     protected override void EndProcessing (  ) { }
     protected virtual System.Management.Automation.PSObject InputObjectCall (  ) { return default(System.Management.Automation.PSObject); }
@@ -2955,14 +2955,17 @@ namespace Microsoft.PowerShell.Cim {
 
 }
 namespace System.Management.Automation {
-    internal class OutputProcessingStateEventArgs : System.EventArgs {
+  internal class ExecutionContext {
+    }
+  internal class OutputProcessingStateEventArgs : System.EventArgs {
       internal OutputProcessingStateEventArgs() { }
     }
-    internal class PSRemotingJob : System.Management.Automation.Job {
+  internal class PSRemotingJob : System.Management.Automation.Job {
       internal PSRemotingJob() { }
       public override string Location { get { return default(string); } }
       public override bool HasMoreData { get { return default(bool); } }
       public override string StatusMessage { get { return default(string); } }
+      public override void StopJob() { }
     }
 
   public enum ActionPreference {
@@ -3053,8 +3056,8 @@ namespace System.Management.Automation {
     public ArgumentCompleterAttribute(System.Type type) { }
     public ArgumentCompleterAttribute(System.Management.Automation.ScriptBlock scriptBlock) { }
 
-    public System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } set { } }
-    public System.Type Type { get { return default(System.Type); } set { } }
+    public System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } private set { } }
+    public System.Type Type { get { return default(System.Type); } private set { } }
   }
 
    [System.AttributeUsageAttribute((System.AttributeTargets)384)]
@@ -3062,7 +3065,7 @@ namespace System.Management.Automation {
     protected ArgumentTransformationAttribute() { }
 
     public virtual bool TransformNullOptionalParameters { get { return default(bool); } }
-    public virtual object Transform ( System.Management.Automation.EngineIntrinsics engineIntrinsics, object inputData ) { return default(object); }
+    public abstract object Transform ( System.Management.Automation.EngineIntrinsics engineIntrinsics, object inputData );
 
   }
 
@@ -3096,9 +3099,9 @@ namespace System.Management.Automation {
 
   public class BreakpointUpdatedEventArgs : System.EventArgs {
     internal BreakpointUpdatedEventArgs() { }
-    public System.Management.Automation.Breakpoint Breakpoint { get { return default(System.Management.Automation.Breakpoint); } set { } }
-    public int BreakpointCount { get { return default(int); } set { } }
-    public System.Management.Automation.BreakpointUpdateType UpdateType { get { return default(System.Management.Automation.BreakpointUpdateType); } set { } }
+    public System.Management.Automation.Breakpoint Breakpoint { get { return default(System.Management.Automation.Breakpoint); } private set { } }
+    public int BreakpointCount { get { return default(int); } private set { } }
+    public System.Management.Automation.BreakpointUpdateType UpdateType { get { return default(System.Management.Automation.BreakpointUpdateType); } private set { } }
   }
 
   public enum BreakpointUpdateType {
@@ -3113,8 +3116,8 @@ namespace System.Management.Automation {
     public CallStackFrame(System.Management.Automation.InvocationInfo invocationInfo) { }
 
     public string FunctionName { get { return default(string); } }
-    public System.Management.Automation.InvocationInfo InvocationInfo { get { return default(System.Management.Automation.InvocationInfo); } set { } }
-    public System.Management.Automation.Language.IScriptExtent Position { get { return default(System.Management.Automation.Language.IScriptExtent); } set { } }
+    public System.Management.Automation.InvocationInfo InvocationInfo { get { return default(System.Management.Automation.InvocationInfo); } private set { } }
+    public System.Management.Automation.Language.IScriptExtent Position { get { return default(System.Management.Automation.Language.IScriptExtent); } private set { } }
     public int ScriptLineNumber { get { return default(int); } }
     public string ScriptName { get { return default(string); } }
     public System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSVariable> GetFrameVariables (  ) { return default(System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSVariable>); }
@@ -3205,7 +3208,7 @@ namespace System.Management.Automation {
 
     public string DefaultParameterSet { get { return default(string); } }
     public override string Definition { get { return default(string); } }
-    public string HelpFile { get { return default(string); } set { } }
+    public string HelpFile { get { return default(string); } internal set { } }
     public System.Type ImplementingType { get { return default(System.Type); } }
     public string Noun { get { return default(string); } }
     public System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } set { } }
@@ -3249,14 +3252,14 @@ namespace System.Management.Automation {
     public CmsMessageRecipient(string identifier) { }
     public CmsMessageRecipient(System.Security.Cryptography.X509Certificates.X509Certificate2 certificate) { }
 
-    public System.Security.Cryptography.X509Certificates.X509Certificate2Collection Certificates { get { return default(System.Security.Cryptography.X509Certificates.X509Certificate2Collection); } set { } }
+    public System.Security.Cryptography.X509Certificates.X509Certificate2Collection Certificates { get { return default(System.Security.Cryptography.X509Certificates.X509Certificate2Collection); } internal set { } }
     public void Resolve ( System.Management.Automation.SessionState sessionState, System.Management.Automation.ResolutionPurpose purpose, out System.Management.Automation.ErrorRecord error ) { error = default(System.Management.Automation.ErrorRecord); }
 
   }
 
   public class CommandBreakpoint : System.Management.Automation.Breakpoint {
     internal CommandBreakpoint() { }
-    public string Command { get { return default(string); } set { } }
+    public string Command { get { return default(string); } private set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -3280,11 +3283,11 @@ namespace System.Management.Automation {
 
   public abstract class CommandInfo {
     internal CommandInfo() { }
-    public System.Management.Automation.CommandTypes CommandType { get { return default(System.Management.Automation.CommandTypes); } }
+    public System.Management.Automation.CommandTypes CommandType { get { return default(System.Management.Automation.CommandTypes); } private set { } }
     public abstract string Definition { get; }
     public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } internal set { } }
     public string ModuleName { get { return default(string); } }
-    public string Name { get { return default(string); } }
+    public string Name { get { return default(string); } private set { } }
     public abstract System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName> OutputType { get;  }
     public virtual System.Collections.Generic.Dictionary<string, System.Management.Automation.ParameterMetadata> Parameters { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.ParameterMetadata>); } }
     public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.CommandParameterSetInfo> ParameterSets { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.CommandParameterSetInfo>); } }
@@ -3338,12 +3341,12 @@ namespace System.Management.Automation {
     public CommandMetadata(string path) { }
     public CommandMetadata(System.Management.Automation.CommandMetadata other) { }
 
-    public System.Type CommandType { get { return default(System.Type); } set { } }
+    public System.Type CommandType { get { return default(System.Type); } private set { } }
     public System.Management.Automation.ConfirmImpact ConfirmImpact { get { return default(System.Management.Automation.ConfirmImpact); } set { } }
     public string DefaultParameterSetName { get { return default(string); } set { } }
     public string HelpUri { get { return default(string); } set { } }
     public string Name { get { return default(string); } set { } }
-    public System.Collections.Generic.Dictionary<string, System.Management.Automation.ParameterMetadata> Parameters { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.ParameterMetadata>); } set { } }
+    public System.Collections.Generic.Dictionary<string, System.Management.Automation.ParameterMetadata> Parameters { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.ParameterMetadata>); } private set { } }
     public bool PositionalBinding { get { return default(bool); } set { } }
     public System.Management.Automation.RemotingCapability RemotingCapability { get { return default(System.Management.Automation.RemotingCapability); } set { } }
     public bool SupportsPaging { get { return default(bool); } set { } }
@@ -3374,23 +3377,23 @@ namespace System.Management.Automation {
   public class CommandParameterInfo {
     internal CommandParameterInfo() { }
     public System.Collections.ObjectModel.ReadOnlyCollection<string> Aliases { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Attribute> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Attribute>); } set { } }
-    public string HelpMessage { get { return default(string); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Attribute> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Attribute>); } private set { } }
+    public string HelpMessage { get { return default(string); } private set { } }
     public bool IsDynamic { get { return default(bool); } }
-    public bool IsMandatory { get { return default(bool); } set { } }
+    public bool IsMandatory { get { return default(bool); } private set { } }
     public string Name { get { return default(string); } }
     public System.Type ParameterType { get { return default(System.Type); } }
-    public int Position { get { return default(int); } set { } }
-    public bool ValueFromPipeline { get { return default(bool); } set { } }
-    public bool ValueFromPipelineByPropertyName { get { return default(bool); } set { } }
-    public bool ValueFromRemainingArguments { get { return default(bool); } set { } }
+    public int Position { get { return default(int); } private set { } }
+    public bool ValueFromPipeline { get { return default(bool); } private set { } }
+    public bool ValueFromPipelineByPropertyName { get { return default(bool); } private set { } }
+    public bool ValueFromRemainingArguments { get { return default(bool); } private set { } }
   }
 
   public class CommandParameterSetInfo {
     internal CommandParameterSetInfo() { }
-    public bool IsDefault { get { return default(bool); } set { } }
-    public string Name { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.CommandParameterInfo> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.CommandParameterInfo>); } set { } }
+    public bool IsDefault { get { return default(bool); } private set { } }
+    public string Name { get { return default(string); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.CommandParameterInfo> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.CommandParameterInfo>); } private set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -3448,7 +3451,7 @@ namespace System.Management.Automation {
 
   public class ConfigurationInfo : System.Management.Automation.FunctionInfo {
     internal ConfigurationInfo() { }
-    public bool IsMetaConfiguration { get { return default(bool); } set { } }
+    public bool IsMetaConfiguration { get { return default(bool); } internal set { } }
   }
 
   public enum ConfirmImpact {
@@ -3620,18 +3623,18 @@ namespace System.Management.Automation {
     public virtual System.Guid InstanceId { get { return default(System.Guid); } }
     public virtual bool IsActive { get { return default(bool); } }
     public virtual System.Collections.Generic.IEnumerable<System.Management.Automation.CallStackFrame> GetCallStack (  ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CallStackFrame>); }
-    public virtual System.Management.Automation.DebuggerStopEventArgs GetDebuggerStopArgs (  ) { return default(System.Management.Automation.DebuggerStopEventArgs); }
-    public virtual System.Management.Automation.DebuggerCommandResults ProcessCommand ( System.Management.Automation.PSCommand command, System.Management.Automation.PSDataCollection<System.Management.Automation.PSObject> output ) { return default(System.Management.Automation.DebuggerCommandResults); }
+    public abstract System.Management.Automation.DebuggerStopEventArgs GetDebuggerStopArgs (  );
+    public abstract System.Management.Automation.DebuggerCommandResults ProcessCommand ( System.Management.Automation.PSCommand command, System.Management.Automation.PSDataCollection<System.Management.Automation.PSObject> output );
     public virtual void ResetCommandProcessorSource (  ) { }
     public virtual void SetBreakpoints ( System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakpoints ) { }
-    public virtual void SetDebuggerAction ( System.Management.Automation.DebuggerResumeAction resumeAction ) { }
+    public abstract void SetDebuggerAction ( System.Management.Automation.DebuggerResumeAction resumeAction );
     public virtual void SetDebuggerStepMode ( bool enabled ) { }
     public virtual void SetDebugMode ( System.Management.Automation.DebugModes mode ) { }
     public virtual void SetParent ( System.Management.Automation.Debugger parent, System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakPoints, System.Nullable<System.Management.Automation.DebuggerResumeAction> startAction, System.Management.Automation.Host.PSHost host, System.Management.Automation.PathInfo path, System.Collections.Generic.Dictionary<string, System.Management.Automation.DebugSource> functionSourceMap ) { }
     public virtual void SetParent ( System.Management.Automation.Debugger parent, System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakPoints, System.Nullable<System.Management.Automation.DebuggerResumeAction> startAction, System.Management.Automation.Host.PSHost host, System.Management.Automation.PathInfo path ) { }
-    public virtual void StopProcessCommand (  ) { }
+    public abstract void StopProcessCommand (  );
 
-    protected bool DebuggerStopped { get { return default(bool); } }
+    protected bool DebuggerStopped { get { return default(bool); } private set { } }
     protected void RaiseDebuggerStopEvent(System.Management.Automation.DebuggerStopEventArgs args) { }
     protected bool IsDebuggerStopEventSubscribed() { return default(bool); }
     protected void RaiseBreakpointUpdatedEvent(System.Management.Automation.BreakpointUpdatedEventArgs args) { }
@@ -3644,8 +3647,8 @@ namespace System.Management.Automation {
   public sealed class DebuggerCommandResults {
     public DebuggerCommandResults(System.Nullable<System.Management.Automation.DebuggerResumeAction> resumeAction, bool evaluatedByDebugger) { }
 
-    public bool EvaluatedByDebugger { get { return default(bool); } set { } }
-    public System.Nullable<System.Management.Automation.DebuggerResumeAction> ResumeAction { get { return default(System.Nullable<System.Management.Automation.DebuggerResumeAction>); } set { } }
+    public bool EvaluatedByDebugger { get { return default(bool); } private set { } }
+    public System.Nullable<System.Management.Automation.DebuggerResumeAction> ResumeAction { get { return default(System.Nullable<System.Management.Automation.DebuggerResumeAction>); } private set { } }
   }
 
   public enum DebuggerResumeAction {
@@ -3660,8 +3663,8 @@ namespace System.Management.Automation {
     internal DebuggerStopEventArgs() { }
     public DebuggerStopEventArgs(System.Management.Automation.InvocationInfo invocationInfo, System.Collections.ObjectModel.Collection<System.Management.Automation.Breakpoint> breakpoints, System.Management.Automation.DebuggerResumeAction resumeAction) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Breakpoint> Breakpoints { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Breakpoint>); } set { } }
-    public System.Management.Automation.InvocationInfo InvocationInfo { get { return default(System.Management.Automation.InvocationInfo); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Breakpoint> Breakpoints { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Breakpoint>); } private set { } }
+    public System.Management.Automation.InvocationInfo InvocationInfo { get { return default(System.Management.Automation.InvocationInfo); } internal set { } }
     public System.Management.Automation.DebuggerResumeAction ResumeAction { get { return default(System.Management.Automation.DebuggerResumeAction); } set { } }
   }
 
@@ -3683,17 +3686,16 @@ namespace System.Management.Automation {
   public sealed class DebugSource {
     public DebugSource(string script, string scriptFile, string xamlDefinition) { }
 
-    public string Script { get { return default(string); } set { } }
-    public string ScriptFile { get { return default(string); } set { } }
-    public string XamlDefinition { get { return default(string); } set { } }
+    public string Script { get { return default(string); } private set { } }
+    public string ScriptFile { get { return default(string); } private set { } }
+    public string XamlDefinition { get { return default(string); } private set { } }
   }
 
-   [System.Reflection.DefaultMemberAttribute("Item")]
    public sealed class DefaultParameterDictionary : System.Collections.Hashtable {
     public DefaultParameterDictionary() { }
     public DefaultParameterDictionary(System.Collections.IDictionary dictionary) { }
 
-    public object Item { get { return default(object); } set { } }
+    public override object this[object key] { get { return default(object); } set { } }
     public override void Add ( object key, object value ) { }
     public bool ChangeSinceLastCheck (  ) { return default(bool); }
     public override void Clear (  ) { }
@@ -3706,8 +3708,8 @@ namespace System.Management.Automation {
   public sealed class DisplayEntry {
     public DisplayEntry(string value, System.Management.Automation.DisplayEntryValueType type) { }
 
-    public string Value { get { return default(string); } set { } }
-    public System.Management.Automation.DisplayEntryValueType ValueType { get { return default(System.Management.Automation.DisplayEntryValueType); } set { } }
+    public string Value { get { return default(string); } internal set { } }
+    public System.Management.Automation.DisplayEntryValueType ValueType { get { return default(System.Management.Automation.DisplayEntryValueType); } internal set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -3765,13 +3767,13 @@ namespace System.Management.Automation {
     internal DscResourceInfo() { }
     public string CompanyName { get { return default(string); } set { } }
     public string FriendlyName { get { return default(string); } set { } }
-    public string HelpFile { get { return default(string); } set { } }
+    public string HelpFile { get { return default(string); } internal set { } }
     public System.Management.Automation.ImplementedAsType ImplementedAs { get { return default(System.Management.Automation.ImplementedAsType); } set { } }
-    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } set { } }
-    public string Name { get { return default(string); } set { } }
+    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } internal set { } }
+    public string Name { get { return default(string); } private set { } }
     public string ParentPath { get { return default(string); } set { } }
     public string Path { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.DscResourcePropertyInfo> Properties { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.DscResourcePropertyInfo>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.DscResourcePropertyInfo> Properties { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.DscResourcePropertyInfo>); } private set { } }
     public string ResourceType { get { return default(string); } set { } }
     public void UpdateProperties ( System.Collections.Generic.IList<System.Management.Automation.DscResourcePropertyInfo> properties ) { }
 
@@ -3782,7 +3784,7 @@ namespace System.Management.Automation {
     public bool IsMandatory { get { return default(bool); } set { } }
     public string Name { get { return default(string); } set { } }
     public string PropertyType { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> Values { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> Values { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } private set { } }
   }
 
   public enum DSCResourceRunAsCredential {
@@ -3862,8 +3864,8 @@ namespace System.Management.Automation {
 
   }
 
-    [System.SerializableAttribute]
-   public class ErrorDetails {
+   [System.SerializableAttribute]
+   public class ErrorDetails : System.Runtime.Serialization.ISerializable {
     public ErrorDetails(string message) { }
     public ErrorDetails(System.Management.Automation.Cmdlet cmdlet, string baseName, string resourceId, params object[] args) { }
     public ErrorDetails(System.Management.Automation.IResourceSupplier resourceSupplier, string baseName, string resourceId, params object[] args) { }
@@ -3878,7 +3880,7 @@ namespace System.Management.Automation {
   }
 
     [System.SerializableAttribute]
-   public class ErrorRecord {
+   public class ErrorRecord : System.Runtime.Serialization.ISerializable {
     public ErrorRecord(System.Exception exception, string errorId, System.Management.Automation.ErrorCategory errorCategory, object targetObject) { }
     protected ErrorRecord(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
     public ErrorRecord(System.Management.Automation.ErrorRecord errorRecord, System.Exception replaceParentContainsErrorRecordException) { }
@@ -3898,16 +3900,16 @@ namespace System.Management.Automation {
 
   public class ExitException : System.Management.Automation.FlowControlException {
     internal ExitException() { }
-    public object Argument { get { return default(object); } set { } }
+    public object Argument { get { return default(object); } internal set { } }
   }
 
   public sealed class ExtendedTypeDefinition {
     public ExtendedTypeDefinition(string typeName, System.Collections.Generic.IEnumerable<System.Management.Automation.FormatViewDefinition> viewDefinitions) { }
     public ExtendedTypeDefinition(string typeName) { }
 
-    public System.Collections.Generic.List<System.Management.Automation.FormatViewDefinition> FormatViewDefinition { get { return default(System.Collections.Generic.List<System.Management.Automation.FormatViewDefinition>); } set { } }
+    public System.Collections.Generic.List<System.Management.Automation.FormatViewDefinition> FormatViewDefinition { get { return default(System.Collections.Generic.List<System.Management.Automation.FormatViewDefinition>); } internal set { } }
     public string TypeName { get { return default(string); } }
-    public System.Collections.Generic.List<string> TypeNames { get { return default(System.Collections.Generic.List<string>); } set { } }
+    public System.Collections.Generic.List<string> TypeNames { get { return default(System.Collections.Generic.List<string>); } internal set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -3921,13 +3923,17 @@ namespace System.Management.Automation {
 
   }
 
-  public class ExternalScriptInfo : System.Management.Automation.CommandInfo {
+  internal interface IScriptCommandInfo  {
+    System.Management.Automation.ScriptBlock ScriptBlock { get; }
+  }
+
+  public class ExternalScriptInfo : System.Management.Automation.CommandInfo, System.Management.Automation.IScriptCommandInfo {
     internal ExternalScriptInfo() { }
     public override string Definition { get { return default(string); } }
     public System.Text.Encoding OriginalEncoding { get { return default(System.Text.Encoding); } }
     public override System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName> OutputType { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName>); } }
     public string Path { get { return default(string); } }
-    public System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } set { } }
+    public System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } private set { } }
     public string ScriptContents { get { return default(string); } }
     public override string Source { get { return default(string); } }
     public override System.Management.Automation.SessionStateEntryVisibility Visibility { get { return default(System.Management.Automation.SessionStateEntryVisibility); } set { } }
@@ -3954,8 +3960,8 @@ namespace System.Management.Automation {
    public sealed class FormatViewDefinition {
     public FormatViewDefinition(string name, System.Management.Automation.PSControl control) { }
 
-    public System.Management.Automation.PSControl Control { get { return default(System.Management.Automation.PSControl); } set { } }
-    public string Name { get { return default(string); } set { } }
+    public System.Management.Automation.PSControl Control { get { return default(System.Management.Automation.PSControl); } private set { } }
+    public string Name { get { return default(string); } private set { } }
   }
 
   public class ForwardedEventArgs : System.EventArgs {
@@ -3963,13 +3969,13 @@ namespace System.Management.Automation {
     public System.Management.Automation.PSObject SerializedRemoteEventArgs { get { return default(System.Management.Automation.PSObject); } }
   }
 
-  public class FunctionInfo : System.Management.Automation.CommandInfo {
+  public class FunctionInfo : System.Management.Automation.CommandInfo, System.Management.Automation.IScriptCommandInfo {
     internal FunctionInfo() { }
     public bool CmdletBinding { get { return default(bool); } }
     public string DefaultParameterSet { get { return default(string); } }
     public override string Definition { get { return default(string); } }
     public string Description { get { return default(string); } set { } }
-    public string HelpFile { get { return default(string); } set { } }
+    public string HelpFile { get { return default(string); } internal set { } }
     public string Noun { get { return default(string); } }
     public System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } set { } }
     public override System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName> OutputType { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName>); } }
@@ -4179,14 +4185,14 @@ namespace System.Management.Automation {
     [System.Runtime.Serialization.DataMemberAttribute]
     public uint ManagedThreadId { get { return default(uint); } set { } }
     [System.Runtime.Serialization.DataMemberAttribute]
-    public object MessageData { get { return default(object); } set { } }
+    public object MessageData { get { return default(object); } internal set { } }
     public uint NativeThreadId { get { return default(uint); } set { } }
     [System.Runtime.Serialization.DataMemberAttribute]
     public uint ProcessId { get { return default(uint); } set { } }
     [System.Runtime.Serialization.DataMemberAttribute]
     public string Source { get { return default(string); } set { } }
     [System.Runtime.Serialization.DataMemberAttribute]
-    public System.Collections.Generic.List<string> Tags { get { return default(System.Collections.Generic.List<string>); } set { } }
+    public System.Collections.Generic.List<string> Tags { get { return default(System.Collections.Generic.List<string>); } internal set { } }
     [System.Runtime.Serialization.DataMemberAttribute]
     public System.DateTime TimeGenerated { get { return default(System.DateTime); } set { } }
     [System.Runtime.Serialization.DataMemberAttribute]
@@ -4219,23 +4225,23 @@ namespace System.Management.Automation {
    [System.Diagnostics.DebuggerDisplayAttribute("Command = {MyCommand}")]
    public class InvocationInfo {
     internal InvocationInfo() { }
-    public System.Collections.Generic.Dictionary<string, object> BoundParameters { get { return default(System.Collections.Generic.Dictionary<string, object>); } set { } }
-    public System.Management.Automation.CommandOrigin CommandOrigin { get { return default(System.Management.Automation.CommandOrigin); } set { } }
+    public System.Collections.Generic.Dictionary<string, object> BoundParameters { get { return default(System.Collections.Generic.Dictionary<string, object>); } internal set { } }
+    public System.Management.Automation.CommandOrigin CommandOrigin { get { return default(System.Management.Automation.CommandOrigin); } internal set { } }
     public System.Management.Automation.Language.IScriptExtent DisplayScriptPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } set { } }
-    public bool ExpectingInput { get { return default(bool); } set { } }
-    public System.Int64 HistoryId { get { return default(System.Int64); } set { } }
-    public string InvocationName { get { return default(string); } set { } }
+    public bool ExpectingInput { get { return default(bool); } internal set { } }
+    public System.Int64 HistoryId { get { return default(System.Int64); } internal set { } }
+    public string InvocationName { get { return default(string); } internal set { } }
     public string Line { get { return default(string); } }
     public System.Management.Automation.CommandInfo MyCommand { get { return default(System.Management.Automation.CommandInfo); } }
     public int OffsetInLine { get { return default(int); } }
-    public int PipelineLength { get { return default(int); } set { } }
-    public int PipelinePosition { get { return default(int); } set { } }
+    public int PipelineLength { get { return default(int); } internal set { } }
+    public int PipelinePosition { get { return default(int); } internal set { } }
     public string PositionMessage { get { return default(string); } }
     public string PSCommandPath { get { return default(string); } }
     public string PSScriptRoot { get { return default(string); } }
     public int ScriptLineNumber { get { return default(int); } }
     public string ScriptName { get { return default(string); } }
-    public System.Collections.Generic.List<object> UnboundArguments { get { return default(System.Collections.Generic.List<object>); } set { } }
+    public System.Collections.Generic.List<object> UnboundArguments { get { return default(System.Collections.Generic.List<object>); } internal set { } }
     public static System.Management.Automation.InvocationInfo Create ( System.Management.Automation.CommandInfo commandInfo, System.Management.Automation.Language.IScriptExtent scriptPosition ) { return default(System.Management.Automation.InvocationInfo); }
 
   }
@@ -4299,7 +4305,7 @@ namespace System.Management.Automation {
     public int Id { get { return default(int); } }
     public System.Management.Automation.PSDataCollection<System.Management.Automation.InformationRecord> Information { get { return default(System.Management.Automation.PSDataCollection<System.Management.Automation.InformationRecord>); } set { } }
     public System.Guid InstanceId { get { return default(System.Guid); } }
-    public System.Management.Automation.JobStateInfo JobStateInfo { get { return default(System.Management.Automation.JobStateInfo); } }
+    public System.Management.Automation.JobStateInfo JobStateInfo { get { return default(System.Management.Automation.JobStateInfo); } private set { } }
     public abstract string Location { get; }
     public string Name { get { return default(string); } set { } }
     public System.Management.Automation.PSDataCollection<System.Management.Automation.PSObject> Output { get { return default(System.Management.Automation.PSDataCollection<System.Management.Automation.PSObject>); } set { } }
@@ -4310,12 +4316,12 @@ namespace System.Management.Automation {
     public abstract string StatusMessage { get; }
     public System.Management.Automation.PSDataCollection<System.Management.Automation.VerboseRecord> Verbose { get { return default(System.Management.Automation.PSDataCollection<System.Management.Automation.VerboseRecord>); } set { } }
     public System.Management.Automation.PSDataCollection<System.Management.Automation.WarningRecord> Warning { get { return default(System.Management.Automation.PSDataCollection<System.Management.Automation.WarningRecord>); } set { } }
-    public virtual void Dispose (  ) { }
+    public void Dispose (  ) { }
     protected virtual void Dispose ( bool disposing ) { }
     protected virtual void DoLoadJobStreams (  ) { }
     protected virtual void DoUnloadJobStreams (  ) { }
     public void LoadJobStreams (  ) { }
-    public virtual void StopJob (  ) { }
+    public abstract void StopJob (  );
     public void UnloadJobStreams (  ) { }
 
     protected void SetJobState(System.Management.Automation.JobState jobState) { }
@@ -4342,19 +4348,19 @@ namespace System.Management.Automation {
     protected virtual void OnStopJobCompleted ( System.ComponentModel.AsyncCompletedEventArgs eventArgs ) { }
     protected virtual void OnSuspendJobCompleted ( System.ComponentModel.AsyncCompletedEventArgs eventArgs ) { }
     protected virtual void OnUnblockJobCompleted ( System.ComponentModel.AsyncCompletedEventArgs eventArgs ) { }
-    public virtual void ResumeJob (  ) { }
-    public virtual void ResumeJobAsync (  ) { }
-    public virtual void StartJob (  ) { }
-    public virtual void StartJobAsync (  ) { }
-    public virtual void StopJob ( bool force, string reason ) { }
-    public virtual void StopJobAsync (  ) { }
-    public virtual void StopJobAsync ( bool force, string reason ) { }
-    public virtual void SuspendJob (  ) { }
-    public virtual void SuspendJob ( bool force, string reason ) { }
-    public virtual void SuspendJobAsync (  ) { }
-    public virtual void SuspendJobAsync ( bool force, string reason ) { }
-    public virtual void UnblockJob (  ) { }
-    public virtual void UnblockJobAsync (  ) { }
+    public abstract void ResumeJob (  );
+    public abstract void ResumeJobAsync (  );
+    public abstract void StartJob (  );
+    public abstract void StartJobAsync (  );
+    public abstract void StopJob ( bool force, string reason );
+    public abstract void StopJobAsync (  );
+    public abstract void StopJobAsync ( bool force, string reason );
+    public abstract void SuspendJob (  );
+    public abstract void SuspendJob ( bool force, string reason );
+    public abstract void SuspendJobAsync (  );
+    public abstract void SuspendJobAsync ( bool force, string reason );
+    public abstract void UnblockJob (  );
+    public abstract void UnblockJobAsync (  );
 
   }
 
@@ -4366,7 +4372,7 @@ namespace System.Management.Automation {
   }
 
     [System.SerializableAttribute]
-   public class JobDefinition {
+   public class JobDefinition : System.Runtime.Serialization.ISerializable {
     public JobDefinition(System.Type jobSourceAdapterType, string command, string name) { }
     protected JobDefinition(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
 
@@ -4378,8 +4384,8 @@ namespace System.Management.Automation {
     public string ModuleName { get { return default(string); } set { } }
     public string Name { get { return default(string); } set { } }
     public virtual void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
-    public void Load ( System.IO.Stream stream ) { }
-    public void Save ( System.IO.Stream stream ) { }
+    public virtual void Load ( System.IO.Stream stream ) { }
+    public virtual void Save ( System.IO.Stream stream ) { }
 
   }
 
@@ -4403,7 +4409,7 @@ namespace System.Management.Automation {
   }
 
     [System.SerializableAttribute]
-   public class JobInvocationInfo {
+   public class JobInvocationInfo : System.Runtime.Serialization.ISerializable {
     protected JobInvocationInfo() { }
     public JobInvocationInfo(System.Management.Automation.JobDefinition definition, System.Collections.Generic.Dictionary<string, object> parameters) { }
     public JobInvocationInfo(System.Management.Automation.JobDefinition definition, System.Collections.Generic.IEnumerable<System.Collections.Generic.Dictionary<string, object>> parameterCollectionList) { }
@@ -4417,8 +4423,8 @@ namespace System.Management.Automation {
     public string Name { get { return default(string); } set { } }
     public System.Collections.Generic.List<System.Management.Automation.Runspaces.CommandParameterCollection> Parameters { get { return default(System.Collections.Generic.List<System.Management.Automation.Runspaces.CommandParameterCollection>); } }
     public virtual void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
-    public void Load ( System.IO.Stream stream ) { }
-    public void Save ( System.IO.Stream stream ) { }
+    public virtual void Load ( System.IO.Stream stream ) { }
+    public virtual void Save ( System.IO.Stream stream ) { }
 
   }
 
@@ -4443,18 +4449,18 @@ namespace System.Management.Automation {
     protected JobSourceAdapter() { }
 
     public string Name { get { return default(string); } set { } }
-    public virtual System.Management.Automation.Job2 GetJobByInstanceId ( System.Guid instanceId, bool recurse ) { return default(System.Management.Automation.Job2); }
-    public virtual System.Management.Automation.Job2 GetJobBySessionId ( int id, bool recurse ) { return default(System.Management.Automation.Job2); }
-    public virtual System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobs (  ) { return default(System.Collections.Generic.IList<System.Management.Automation.Job2>); }
-    public virtual System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByCommand ( string command, bool recurse ) { return default(System.Collections.Generic.IList<System.Management.Automation.Job2>); }
-    public virtual System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByFilter ( System.Collections.Generic.Dictionary<string, object> filter, bool recurse ) { return default(System.Collections.Generic.IList<System.Management.Automation.Job2>); }
-    public virtual System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByName ( string name, bool recurse ) { return default(System.Collections.Generic.IList<System.Management.Automation.Job2>); }
-    public virtual System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByState ( System.Management.Automation.JobState state, bool recurse ) { return default(System.Collections.Generic.IList<System.Management.Automation.Job2>); }
+    public abstract System.Management.Automation.Job2 GetJobByInstanceId ( System.Guid instanceId, bool recurse );
+    public abstract System.Management.Automation.Job2 GetJobBySessionId ( int id, bool recurse );
+    public abstract System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobs (  );
+    public abstract System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByCommand ( string command, bool recurse );
+    public abstract System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByFilter ( System.Collections.Generic.Dictionary<string, object> filter, bool recurse );
+    public abstract System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByName ( string name, bool recurse );
+    public abstract System.Collections.Generic.IList<System.Management.Automation.Job2> GetJobsByState ( System.Management.Automation.JobState state, bool recurse );
     public System.Management.Automation.Job2 NewJob ( System.Management.Automation.JobDefinition definition ) { return default(System.Management.Automation.Job2); }
     public virtual System.Management.Automation.Job2 NewJob ( string definitionName, string definitionPath ) { return default(System.Management.Automation.Job2); }
-    public virtual System.Management.Automation.Job2 NewJob ( System.Management.Automation.JobInvocationInfo specification ) { return default(System.Management.Automation.Job2); }
+    public abstract System.Management.Automation.Job2 NewJob ( System.Management.Automation.JobInvocationInfo specification );
     public virtual void PersistJob ( System.Management.Automation.Job2 job ) { }
-    public virtual void RemoveJob ( System.Management.Automation.Job2 job ) { }
+    public abstract void RemoveJob ( System.Management.Automation.Job2 job );
     public void StoreJobIdForReuse ( System.Management.Automation.Job2 job, bool recurse ) { }
     protected System.Management.Automation.JobIdentifier RetrieveJobIdForReuse(System.Guid instanceId) { return default(System.Management.Automation.JobIdentifier); }
   }
@@ -4522,8 +4528,8 @@ namespace System.Management.Automation {
 
   public class LineBreakpoint : System.Management.Automation.Breakpoint {
     internal LineBreakpoint() { }
-    public int Column { get { return default(int); } set { } }
-    public int Line { get { return default(int); } set { } }
+    public int Column { get { return default(int); } private set { } }
+    public int Line { get { return default(int); } private set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -4532,7 +4538,7 @@ namespace System.Management.Automation {
     public ListControl() { }
     public ListControl(System.Collections.Generic.IEnumerable<System.Management.Automation.ListControlEntry> entries) { }
 
-    public System.Collections.Generic.List<System.Management.Automation.ListControlEntry> Entries { get { return default(System.Collections.Generic.List<System.Management.Automation.ListControlEntry>); } set { } }
+    public System.Collections.Generic.List<System.Management.Automation.ListControlEntry> Entries { get { return default(System.Collections.Generic.List<System.Management.Automation.ListControlEntry>); } internal set { } }
     public static System.Management.Automation.ListControlBuilder Create ( bool outOfBand ) { return default(System.Management.Automation.ListControlBuilder); }
 
   }
@@ -4551,18 +4557,18 @@ namespace System.Management.Automation {
     public ListControlEntry(System.Collections.Generic.IEnumerable<System.Management.Automation.ListControlEntryItem> listItems) { }
     public ListControlEntry(System.Collections.Generic.IEnumerable<System.Management.Automation.ListControlEntryItem> listItems, System.Collections.Generic.IEnumerable<string> selectedBy) { }
 
-    public System.Management.Automation.EntrySelectedBy EntrySelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } set { } }
-    public System.Collections.Generic.List<System.Management.Automation.ListControlEntryItem> Items { get { return default(System.Collections.Generic.List<System.Management.Automation.ListControlEntryItem>); } set { } }
+    public System.Management.Automation.EntrySelectedBy EntrySelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } internal set { } }
+    public System.Collections.Generic.List<System.Management.Automation.ListControlEntryItem> Items { get { return default(System.Collections.Generic.List<System.Management.Automation.ListControlEntryItem>); } internal set { } }
     public System.Collections.Generic.List<string> SelectedBy { get { return default(System.Collections.Generic.List<string>); } }
   }
 
   public sealed class ListControlEntryItem {
     public ListControlEntryItem(string label, System.Management.Automation.DisplayEntry entry) { }
 
-    public System.Management.Automation.DisplayEntry DisplayEntry { get { return default(System.Management.Automation.DisplayEntry); } set { } }
-    public string FormatString { get { return default(string); } set { } }
-    public System.Management.Automation.DisplayEntry ItemSelectionCondition { get { return default(System.Management.Automation.DisplayEntry); } set { } }
-    public string Label { get { return default(string); } set { } }
+    public System.Management.Automation.DisplayEntry DisplayEntry { get { return default(System.Management.Automation.DisplayEntry); } internal set { } }
+    public string FormatString { get { return default(string); } internal set { } }
+    public System.Management.Automation.DisplayEntry ItemSelectionCondition { get { return default(System.Management.Automation.DisplayEntry); } internal set { } }
+    public string Label { get { return default(string); } internal set { } }
   }
 
   public class ListEntryBuilder {
@@ -4631,7 +4637,7 @@ namespace System.Management.Automation {
 
     public string[] ParameterSetName { get { return default(string[]); } set { } }
     public string ProviderCmdlet { get { return default(string); } set { } }
-    public System.Management.Automation.PSTypeName[] Type { get { return default(System.Management.Automation.PSTypeName[]); } set { } }
+    public System.Management.Automation.PSTypeName[] Type { get { return default(System.Management.Automation.PSTypeName[]); } private set { } }
   }
 
   public sealed class PagingParameters {
@@ -4823,12 +4829,12 @@ namespace System.Management.Automation {
     public event System.EventHandler<System.Management.Automation.PSInvocationStateChangedEventArgs> InvocationStateChanged { add { } remove { } }
 
     public System.Management.Automation.PSCommand Commands { get { return default(System.Management.Automation.PSCommand); } set { } }
-    public bool HadErrors { get { return default(bool); } set { } }
+    public bool HadErrors { get { return default(bool); } private set { } }
     public string HistoryString { get { return default(string); } set { } }
-    public System.Guid InstanceId { get { return default(System.Guid); } set { } }
-    public System.Management.Automation.PSInvocationStateInfo InvocationStateInfo { get { return default(System.Management.Automation.PSInvocationStateInfo); } set { } }
-    public bool IsNested { get { return default(bool); } set { } }
-    public bool IsRunspaceOwner { get { return default(bool); } set { } }
+    public System.Guid InstanceId { get { return default(System.Guid); } private set { } }
+    public System.Management.Automation.PSInvocationStateInfo InvocationStateInfo { get { return default(System.Management.Automation.PSInvocationStateInfo); } private set { } }
+    public bool IsNested { get { return default(bool); } private set { } }
+    public bool IsRunspaceOwner { get { return default(bool); } internal set { } }
     public System.Management.Automation.Runspaces.Runspace Runspace { get { return default(System.Management.Automation.Runspaces.Runspace); } set { } }
     public System.Management.Automation.Runspaces.RunspacePool RunspacePool { get { return default(System.Management.Automation.Runspaces.RunspacePool); } set { } }
     public System.Management.Automation.PSDataStreams Streams { get { return default(System.Management.Automation.PSDataStreams); } }
@@ -5001,7 +5007,7 @@ namespace System.Management.Automation {
     public string HelpFile { get { return default(string); } }
     public string Home { get { return default(string); } set { } }
     public System.Type ImplementingType { get { return default(System.Type); } }
-    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } set { } }
+    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } private set { } }
     public string ModuleName { get { return default(string); } }
     public string Name { get { return default(string); } }
     public override string ToString (  ) { return default(string); }
@@ -5076,7 +5082,7 @@ namespace System.Management.Automation {
     public PSAliasProperty(string name, string referencedMemberName) { }
     public PSAliasProperty(string name, string referencedMemberName, System.Type conversionType) { }
 
-    public System.Type ConversionType { get { return default(System.Type); } set { } }
+    public System.Type ConversionType { get { return default(System.Type); } private set { } }
     public override bool IsGettable { get { return default(bool); } }
     public override bool IsSettable { get { return default(bool); } }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
@@ -5155,18 +5161,20 @@ namespace System.Management.Automation {
   }
 
   public sealed class PSClassInfo {
-    public string HelpFile { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSClassMemberInfo> Members { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSClassMemberInfo>); } set { } }
-    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } set { } }
-    public string Name { get { return default(string); } set { } }
+    internal PSClassInfo(string name) { }
+    public string HelpFile { get { return default(string); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSClassMemberInfo> Members { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSClassMemberInfo>); } private set { } }
+    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } internal set { } }
+    public string Name { get { return default(string); } private set { } }
     public void UpdateMembers ( System.Collections.Generic.IList<System.Management.Automation.PSClassMemberInfo> members ) { }
 
   }
 
   public sealed class PSClassMemberInfo {
-    public string DefaultValue { get { return default(string); } set { } }
-    public string Name { get { return default(string); } set { } }
-    public string TypeName { get { return default(string); } set { } }
+    internal PSClassMemberInfo(string name, string memberType, string defaultValue) { }
+    public string DefaultValue { get { return default(string); } private set { } }
+    public string Name { get { return default(string); } private set { } }
+    public string TypeName { get { return default(string); } private set { } }
   }
 
   public abstract class PSCmdlet : System.Management.Automation.Cmdlet {
@@ -5193,7 +5201,7 @@ namespace System.Management.Automation {
   public class PSCodeMethod : System.Management.Automation.PSMethodInfo {
     public PSCodeMethod(string name, System.Reflection.MethodInfo codeReference) { }
 
-    public System.Reflection.MethodInfo CodeReference { get { return default(System.Reflection.MethodInfo); } set { } }
+    public System.Reflection.MethodInfo CodeReference { get { return default(System.Reflection.MethodInfo); } private set { } }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public override System.Collections.ObjectModel.Collection<string> OverloadDefinitions { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public override string TypeNameOfValue { get { return default(string); } }
@@ -5207,11 +5215,11 @@ namespace System.Management.Automation {
     public PSCodeProperty(string name, System.Reflection.MethodInfo getterCodeReference) { }
     public PSCodeProperty(string name, System.Reflection.MethodInfo getterCodeReference, System.Reflection.MethodInfo setterCodeReference) { }
 
-    public System.Reflection.MethodInfo GetterCodeReference { get { return default(System.Reflection.MethodInfo); } set { } }
+    public System.Reflection.MethodInfo GetterCodeReference { get { return default(System.Reflection.MethodInfo); } private set { } }
     public override bool IsGettable { get { return default(bool); } }
     public override bool IsSettable { get { return default(bool); } }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
-    public System.Reflection.MethodInfo SetterCodeReference { get { return default(System.Reflection.MethodInfo); } set { } }
+    public System.Reflection.MethodInfo SetterCodeReference { get { return default(System.Reflection.MethodInfo); } private set { } }
     public override string TypeNameOfValue { get { return default(string); } }
     public override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
@@ -5360,8 +5368,8 @@ namespace System.Management.Automation {
     internal PSDebugContext() { }
     public PSDebugContext(System.Management.Automation.InvocationInfo invocationInfo, System.Collections.Generic.List<System.Management.Automation.Breakpoint> breakpoints) { }
 
-    public System.Management.Automation.Breakpoint[] Breakpoints { get { return default(System.Management.Automation.Breakpoint[]); } set { } }
-    public System.Management.Automation.InvocationInfo InvocationInfo { get { return default(System.Management.Automation.InvocationInfo); } set { } }
+    public System.Management.Automation.Breakpoint[] Breakpoints { get { return default(System.Management.Automation.Breakpoint[]); } private set { } }
+    public System.Management.Automation.InvocationInfo InvocationInfo { get { return default(System.Management.Automation.InvocationInfo); } private set { } }
   }
 
    [System.AttributeUsageAttribute((System.AttributeTargets)384)]
@@ -5372,7 +5380,7 @@ namespace System.Management.Automation {
     public object Value { get { return default(object); } set { } }
   }
 
-  public class PSDriveInfo {
+  public class PSDriveInfo : System.IComparable {
     protected PSDriveInfo(System.Management.Automation.PSDriveInfo driveInfo) { }
     public PSDriveInfo(string name, System.Management.Automation.ProviderInfo provider, string root, string description, System.Management.Automation.PSCredential credential) { }
     public PSDriveInfo(string name, System.Management.Automation.ProviderInfo provider, string root, string description, System.Management.Automation.PSCredential credential, string displayRoot) { }
@@ -5381,11 +5389,11 @@ namespace System.Management.Automation {
     public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
     public string CurrentLocation { get { return default(string); } set { } }
     public string Description { get { return default(string); } set { } }
-    public string DisplayRoot { get { return default(string); } set { } }
-    public System.Nullable<System.Int64> MaximumSize { get { return default(System.Nullable<System.Int64>); } set { } }
+    public string DisplayRoot { get { return default(string); } internal set { } }
+    public System.Nullable<System.Int64> MaximumSize { get { return default(System.Nullable<System.Int64>); } internal set { } }
     public string Name { get { return default(string); } }
     public System.Management.Automation.ProviderInfo Provider { get { return default(System.Management.Automation.ProviderInfo); } }
-    public string Root { get { return default(string); } set { } }
+    public string Root { get { return default(string); } internal set { } }
     public int CompareTo ( object obj ) { return default(int); }
     public int CompareTo ( System.Management.Automation.PSDriveInfo drive ) { return default(int); }
     public bool Equals ( System.Management.Automation.PSDriveInfo drive ) { return default(bool); }
@@ -5420,7 +5428,7 @@ namespace System.Management.Automation {
     internal PSEvent() { }
     public override System.Management.Automation.PSMemberTypes MemberType { get { return default(System.Management.Automation.PSMemberTypes); } }
     public override string TypeNameOfValue { get { return default(string); } }
-    public override object Value { get { return default(object); } set { } }
+    public sealed override object Value { get { return default(object); } set { } }
     public override System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
     public override string ToString (  ) { return default(string); }
 
@@ -5428,15 +5436,15 @@ namespace System.Management.Automation {
 
   public class PSEventArgs : System.EventArgs {
     internal PSEventArgs() { }
-    public string ComputerName { get { return default(string); } set { } }
-    public int EventIdentifier { get { return default(int); } set { } }
+    public string ComputerName { get { return default(string); } internal set { } }
+    public int EventIdentifier { get { return default(int); } internal set { } }
     public System.Management.Automation.PSObject MessageData { get { return default(System.Management.Automation.PSObject); } }
-    public System.Guid RunspaceId { get { return default(System.Guid); } set { } }
+    public System.Guid RunspaceId { get { return default(System.Guid); } internal set { } }
     public object Sender { get { return default(object); } }
     public object[] SourceArgs { get { return default(object[]); } }
     public System.EventArgs SourceEventArgs { get { return default(System.EventArgs); } }
     public string SourceIdentifier { get { return default(string); } }
-    public System.DateTime TimeGenerated { get { return default(System.DateTime); } set { } }
+    public System.DateTime TimeGenerated { get { return default(System.DateTime); } internal set { } }
   }
 
    public class PSEventArgsCollection : System.Collections.Generic.IEnumerable<System.Management.Automation.PSEventArgs> {
@@ -5479,21 +5487,21 @@ namespace System.Management.Automation {
     protected virtual System.Management.Automation.PSEventArgs CreateEvent ( string sourceIdentifier, object sender, object[] args, System.Management.Automation.PSObject extraData ) { return default(System.Management.Automation.PSEventArgs); }
     public System.Management.Automation.PSEventArgs GenerateEvent ( string sourceIdentifier, object sender, object[] args, System.Management.Automation.PSObject extraData ) { return default(System.Management.Automation.PSEventArgs); }
     public System.Management.Automation.PSEventArgs GenerateEvent ( string sourceIdentifier, object sender, object[] args, System.Management.Automation.PSObject extraData, bool processInCurrentThread, bool waitForCompletionInCurrentThread ) { return default(System.Management.Automation.PSEventArgs); }
-    public virtual System.Collections.Generic.IEnumerable<System.Management.Automation.PSEventSubscriber> GetEventSubscribers ( string sourceIdentifier ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.PSEventSubscriber>); }
+    public abstract System.Collections.Generic.IEnumerable<System.Management.Automation.PSEventSubscriber> GetEventSubscribers ( string sourceIdentifier );
     protected int GetNextEventId() { return default(int); }
     protected internal virtual void ProcessNewEvent ( System.Management.Automation.PSEventArgs newEvent, bool processInCurrentThread, bool waitForCompletionWhenInCurrentThread ) { }
     protected virtual void ProcessNewEvent ( System.Management.Automation.PSEventArgs newEvent, bool processInCurrentThread ) { }
-    public virtual System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.ScriptBlock action, bool supportEvent, bool forwardEvent ) { return default(System.Management.Automation.PSEventSubscriber); }
-    public virtual System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.ScriptBlock action, bool supportEvent, bool forwardEvent, int maxTriggerCount ) { return default(System.Management.Automation.PSEventSubscriber); }
-    public virtual System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.PSEventReceivedEventHandler handlerDelegate, bool supportEvent, bool forwardEvent ) { return default(System.Management.Automation.PSEventSubscriber); }
-    public virtual System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.PSEventReceivedEventHandler handlerDelegate, bool supportEvent, bool forwardEvent, int maxTriggerCount ) { return default(System.Management.Automation.PSEventSubscriber); }
-    public virtual void UnsubscribeEvent ( System.Management.Automation.PSEventSubscriber subscriber ) { }
+    public abstract System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.ScriptBlock action, bool supportEvent, bool forwardEvent );
+    public abstract System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.ScriptBlock action, bool supportEvent, bool forwardEvent, int maxTriggerCount );
+    public abstract System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.PSEventReceivedEventHandler handlerDelegate, bool supportEvent, bool forwardEvent );
+    public abstract System.Management.Automation.PSEventSubscriber SubscribeEvent ( object source, string eventName, string sourceIdentifier, System.Management.Automation.PSObject data, System.Management.Automation.PSEventReceivedEventHandler handlerDelegate, bool supportEvent, bool forwardEvent, int maxTriggerCount );
+    public abstract void UnsubscribeEvent ( System.Management.Automation.PSEventSubscriber subscriber );
 
   }
 
   public delegate void PSEventReceivedEventHandler(object sender, System.Management.Automation.PSEventArgs e);
 
-  public class PSEventSubscriber {
+  public class PSEventSubscriber : System.IEquatable<System.Management.Automation.PSEventSubscriber> {
     internal PSEventSubscriber() { }
     public event System.Management.Automation.PSEventUnsubscribedEventHandler Unsubscribed { add { } remove { } }
 
@@ -5512,7 +5520,7 @@ namespace System.Management.Automation {
 
   public class PSEventUnsubscribedEventArgs : System.EventArgs {
     internal PSEventUnsubscribedEventArgs() { }
-    public System.Management.Automation.PSEventSubscriber EventSubscriber { get { return default(System.Management.Automation.PSEventSubscriber); } set { } }
+    public System.Management.Automation.PSEventSubscriber EventSubscriber { get { return default(System.Management.Automation.PSEventSubscriber); } internal set { } }
   }
 
   public delegate void PSEventUnsubscribedEventHandler(object sender, System.Management.Automation.PSEventArgs e);
@@ -5623,9 +5631,9 @@ namespace System.Management.Automation {
   public sealed class PSJobStartEventArgs : System.EventArgs {
     public PSJobStartEventArgs(System.Management.Automation.Job job, System.Management.Automation.Debugger debugger, bool isAsync) { }
 
-    public System.Management.Automation.Debugger Debugger { get { return default(System.Management.Automation.Debugger); } set { } }
-    public bool IsAsync { get { return default(bool); } set { } }
-    public System.Management.Automation.Job Job { get { return default(System.Management.Automation.Job); } set { } }
+    public System.Management.Automation.Debugger Debugger { get { return default(System.Management.Automation.Debugger); } private set { } }
+    public bool IsAsync { get { return default(bool); } private set { } }
+    public System.Management.Automation.Job Job { get { return default(System.Management.Automation.Job); } private set { } }
   }
 
   public enum PSLanguageMode {
@@ -5665,7 +5673,7 @@ namespace System.Management.Automation {
     public string Name { get { return default(string); } }
     public abstract string TypeNameOfValue { get; }
     public abstract object Value { get; set; }
-    public virtual System.Management.Automation.PSMemberInfo Copy (  ) { return default(System.Management.Automation.PSMemberInfo); }
+    public abstract System.Management.Automation.PSMemberInfo Copy (  );
     protected void SetMemberName(string name) { }
 
   }
@@ -5674,12 +5682,12 @@ namespace System.Management.Automation {
     protected PSMemberInfoCollection() { }
 
     public abstract T this[string name] { get; }
-    public virtual void Add ( T member ) { }
-    public virtual void Add ( T member, bool preValidated ) { }
-    public virtual System.Collections.Generic.IEnumerator<T> GetEnumerator (  ) { return default(System.Collections.Generic.IEnumerator<T>); }
-    public virtual ReadOnlyPSMemberInfoCollection<T> Match ( string name ) { return default(ReadOnlyPSMemberInfoCollection<T>); }
-    public virtual ReadOnlyPSMemberInfoCollection<T> Match ( string name, System.Management.Automation.PSMemberTypes memberTypes ) { return default(ReadOnlyPSMemberInfoCollection<T>); }
-    public virtual void Remove ( string name ) { }
+    public abstract void Add ( T member );
+    public abstract void Add ( T member, bool preValidated );
+    public abstract System.Collections.Generic.IEnumerator<T> GetEnumerator (  );
+    public abstract ReadOnlyPSMemberInfoCollection<T> Match ( string name );
+    public abstract ReadOnlyPSMemberInfoCollection<T> Match ( string name, System.Management.Automation.PSMemberTypes memberTypes );
+    public abstract void Remove ( string name );
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() { return default(System.Collections.IEnumerator); }
 
   }
@@ -5759,54 +5767,54 @@ namespace System.Management.Automation {
     public PSModuleInfo(System.Management.Automation.ScriptBlock scriptBlock) { }
 
     public System.Management.Automation.ModuleAccessMode AccessMode { get { return default(System.Management.Automation.ModuleAccessMode); } set { } }
-    public string Author { get { return default(string); } set { } }
-    public System.Version ClrVersion { get { return default(System.Version); } set { } }
-    public string CompanyName { get { return default(string); } set { } }
+    public string Author { get { return default(string); } internal set { } }
+    public System.Version ClrVersion { get { return default(System.Version); } internal set { } }
+    public string CompanyName { get { return default(string); } internal set { } }
     public System.Collections.Generic.IEnumerable<string> CompatiblePSEditions { get { return default(System.Collections.Generic.IEnumerable<string>); } }
-    public string Copyright { get { return default(string); } set { } }
+    public string Copyright { get { return default(string); } internal set { } }
     public string Definition { get { return default(string); } }
     public string Description { get { return default(string); } set { } }
-    public System.Version DotNetFrameworkVersion { get { return default(System.Version); } set { } }
+    public System.Version DotNetFrameworkVersion { get { return default(System.Version); } internal set { } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.AliasInfo> ExportedAliases { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.AliasInfo>); } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.CmdletInfo> ExportedCmdlets { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.CmdletInfo>); } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.CommandInfo> ExportedCommands { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.CommandInfo>); } }
     public System.Collections.ObjectModel.ReadOnlyCollection<string> ExportedDscResources { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> ExportedFormatFiles { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> ExportedFormatFiles { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } private set { } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.FunctionInfo> ExportedFunctions { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.FunctionInfo>); } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> ExportedTypeFiles { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> ExportedTypeFiles { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } private set { } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.PSVariable> ExportedVariables { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.PSVariable>); } }
     public System.Collections.Generic.Dictionary<string, System.Management.Automation.FunctionInfo> ExportedWorkflows { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.FunctionInfo>); } }
     public System.Collections.Generic.IEnumerable<string> FileList { get { return default(System.Collections.Generic.IEnumerable<string>); } }
-    public System.Guid Guid { get { return default(System.Guid); } set { } }
-    public string HelpInfoUri { get { return default(string); } set { } }
-    public System.Uri IconUri { get { return default(System.Uri); } set { } }
-    public System.Reflection.Assembly ImplementingAssembly { get { return default(System.Reflection.Assembly); } set { } }
-    public System.Uri LicenseUri { get { return default(System.Uri); } set { } }
+    public System.Guid Guid { get { return default(System.Guid); } private set { } }
+    public string HelpInfoUri { get { return default(string); } private set { } }
+    public System.Uri IconUri { get { return default(System.Uri); } internal set { } }
+    public System.Reflection.Assembly ImplementingAssembly { get { return default(System.Reflection.Assembly); } internal set { } }
+    public System.Uri LicenseUri { get { return default(System.Uri); } internal set { } }
     public bool LogPipelineExecutionDetails { get { return default(bool); } set { } }
     public string ModuleBase { get { return default(string); } }
     public System.Collections.Generic.IEnumerable<object> ModuleList { get { return default(System.Collections.Generic.IEnumerable<object>); } }
-    public System.Management.Automation.ModuleType ModuleType { get { return default(System.Management.Automation.ModuleType); } set { } }
-    public string Name { get { return default(string); } set { } }
+    public System.Management.Automation.ModuleType ModuleType { get { return default(System.Management.Automation.ModuleType); } private set { } }
+    public string Name { get { return default(string); } private set { } }
     public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSModuleInfo> NestedModules { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSModuleInfo>); } }
     public System.Management.Automation.ScriptBlock OnRemove { get { return default(System.Management.Automation.ScriptBlock); } set { } }
-    public string Path { get { return default(string); } set { } }
-    public string PowerShellHostName { get { return default(string); } set { } }
-    public System.Version PowerShellHostVersion { get { return default(System.Version); } set { } }
-    public System.Version PowerShellVersion { get { return default(System.Version); } set { } }
-    public string Prefix { get { return default(string); } set { } }
+    public string Path { get { return default(string); } internal set { } }
+    public string PowerShellHostName { get { return default(string); } internal set { } }
+    public System.Version PowerShellHostVersion { get { return default(System.Version); } internal set { } }
+    public System.Version PowerShellVersion { get { return default(System.Version); } internal set { } }
+    public string Prefix { get { return default(string); } internal set { } }
     public object PrivateData { get { return default(object); } set { } }
-    public System.Reflection.ProcessorArchitecture ProcessorArchitecture { get { return default(System.Reflection.ProcessorArchitecture); } set { } }
-    public System.Uri ProjectUri { get { return default(System.Uri); } set { } }
-    public string ReleaseNotes { get { return default(string); } set { } }
-    public System.Uri RepositorySourceLocation { get { return default(System.Uri); } set { } }
+    public System.Reflection.ProcessorArchitecture ProcessorArchitecture { get { return default(System.Reflection.ProcessorArchitecture); } internal set { } }
+    public System.Uri ProjectUri { get { return default(System.Uri); } internal set { } }
+    public string ReleaseNotes { get { return default(string); } internal set { } }
+    public System.Uri RepositorySourceLocation { get { return default(System.Uri); } internal set { } }
     public System.Collections.Generic.IEnumerable<string> RequiredAssemblies { get { return default(System.Collections.Generic.IEnumerable<string>); } }
     public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSModuleInfo> RequiredModules { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSModuleInfo>); } }
-    public string RootModule { get { return default(string); } set { } }
+    public string RootModule { get { return default(string); } internal set { } }
     public System.Collections.Generic.IEnumerable<string> Scripts { get { return default(System.Collections.Generic.IEnumerable<string>); } }
     public System.Management.Automation.SessionState SessionState { get { return default(System.Management.Automation.SessionState); } set { } }
     public System.Collections.Generic.IEnumerable<string> Tags { get { return default(System.Collections.Generic.IEnumerable<string>); } }
     public static bool UseAppDomainLevelModuleCache { get { return default(bool); } set { } }
-    public System.Version Version { get { return default(System.Version); } set { } }
+    public System.Version Version { get { return default(System.Version); } private set { } }
     public System.Management.Automation.PSObject AsCustomObject (  ) { return default(System.Management.Automation.PSObject); }
     public static void ClearAppDomainLevelModulePathCache (  ) { }
     public System.Management.Automation.PSModuleInfo Clone (  ) { return default(System.Management.Automation.PSModuleInfo); }
@@ -5872,7 +5880,7 @@ namespace System.Management.Automation {
     public System.Collections.ObjectModel.Collection<string> TypeNames { get { return default(System.Collections.ObjectModel.Collection<string>); } }
     public static System.Management.Automation.PSObject AsPSObject ( object obj ) { return default(System.Management.Automation.PSObject); }
     public int CompareTo ( object obj ) { return default(int); }
-    public System.Management.Automation.PSObject Copy (  ) { return default(System.Management.Automation.PSObject); }
+    public virtual System.Management.Automation.PSObject Copy (  ) { return default(System.Management.Automation.PSObject); }
     public override bool Equals ( object obj ) { return default(bool); }
     public override int GetHashCode (  ) { return default(int); }
     public virtual void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
@@ -6028,14 +6036,14 @@ namespace System.Management.Automation {
   public abstract class PSPropertyAdapter {
     protected PSPropertyAdapter() { }
 
-    public virtual System.Collections.ObjectModel.Collection<System.Management.Automation.PSAdaptedProperty> GetProperties ( object baseObject ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSAdaptedProperty>); }
-    public virtual System.Management.Automation.PSAdaptedProperty GetProperty ( object baseObject, string propertyName ) { return default(System.Management.Automation.PSAdaptedProperty); }
-    public virtual string GetPropertyTypeName ( System.Management.Automation.PSAdaptedProperty adaptedProperty ) { return default(string); }
-    public virtual object GetPropertyValue ( System.Management.Automation.PSAdaptedProperty adaptedProperty ) { return default(object); }
+    public abstract System.Collections.ObjectModel.Collection<System.Management.Automation.PSAdaptedProperty> GetProperties ( object baseObject );
+    public abstract System.Management.Automation.PSAdaptedProperty GetProperty ( object baseObject, string propertyName );
+    public abstract string GetPropertyTypeName ( System.Management.Automation.PSAdaptedProperty adaptedProperty );
+    public abstract object GetPropertyValue ( System.Management.Automation.PSAdaptedProperty adaptedProperty );
     public virtual System.Collections.ObjectModel.Collection<System.String> GetTypeNameHierarchy ( object baseObject ) { return default(System.Collections.ObjectModel.Collection<System.String>); }
-    public virtual bool IsGettable ( System.Management.Automation.PSAdaptedProperty adaptedProperty ) { return default(bool); }
-    public virtual bool IsSettable ( System.Management.Automation.PSAdaptedProperty adaptedProperty ) { return default(bool); }
-    public virtual void SetPropertyValue ( System.Management.Automation.PSAdaptedProperty adaptedProperty, object value ) { }
+    public abstract bool IsGettable ( System.Management.Automation.PSAdaptedProperty adaptedProperty );
+    public abstract bool IsSettable ( System.Management.Automation.PSAdaptedProperty adaptedProperty );
+    public abstract void SetPropertyValue ( System.Management.Automation.PSAdaptedProperty adaptedProperty, object value );
 
   }
 
@@ -6159,7 +6167,7 @@ namespace System.Management.Automation {
   public abstract class PSTransportOption : System.ICloneable {
     protected PSTransportOption() { }
 
-    public virtual object Clone (  ) { return default(object); }
+    public object Clone (  ) { return default(object); }
     protected internal virtual void LoadFromDefaults ( System.Management.Automation.Runspaces.PSSessionType sessionType, bool keepAssigned ) { }
 
   }
@@ -6167,13 +6175,13 @@ namespace System.Management.Automation {
   public abstract class PSTypeConverter {
     protected PSTypeConverter() { }
 
-    public virtual bool CanConvertFrom ( object sourceValue, System.Type destinationType ) { return default(bool); }
+    public abstract bool CanConvertFrom ( object sourceValue, System.Type destinationType );
     public virtual bool CanConvertFrom ( System.Management.Automation.PSObject sourceValue, System.Type destinationType ) { return default(bool); }
-    public virtual bool CanConvertTo ( object sourceValue, System.Type destinationType ) { return default(bool); }
+    public abstract bool CanConvertTo ( object sourceValue, System.Type destinationType );
     public virtual bool CanConvertTo ( System.Management.Automation.PSObject sourceValue, System.Type destinationType ) { return default(bool); }
-    public virtual object ConvertFrom ( object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase ) { return default(object); }
+    public abstract object ConvertFrom ( object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase );
     public virtual object ConvertFrom ( System.Management.Automation.PSObject sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase ) { return default(object); }
-    public virtual object ConvertTo ( object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase ) { return default(object); }
+    public abstract object ConvertTo ( object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase );
     public virtual object ConvertTo ( System.Management.Automation.PSObject sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase ) { return default(object); }
 
   }
@@ -6186,7 +6194,7 @@ namespace System.Management.Automation {
 
     public string Name { get { return default(string); } }
     public System.Type Type { get { return default(System.Type); } }
-    public System.Management.Automation.Language.TypeDefinitionAst TypeDefinitionAst { get { return default(System.Management.Automation.Language.TypeDefinitionAst); } set { } }
+    public System.Management.Automation.Language.TypeDefinitionAst TypeDefinitionAst { get { return default(System.Management.Automation.Language.TypeDefinitionAst); } private set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -6195,10 +6203,11 @@ namespace System.Management.Automation {
    public class PSTypeNameAttribute : System.Attribute {
     public PSTypeNameAttribute(string psTypeName) { }
 
-    public string PSTypeName { get { return default(string); } set { } }
+    public string PSTypeName { get { return default(string); } private set { } }
   }
 
   internal partial interface IHasSessionStateEntryVisibility {
+    System.Management.Automation.SessionStateEntryVisibility Visibility { get; set; }
   }
 
   public class PSVariable : System.Management.Automation.IHasSessionStateEntryVisibility {
@@ -6208,14 +6217,14 @@ namespace System.Management.Automation {
     public PSVariable(string name, object value, System.Management.Automation.ScopedItemOptions options, System.Collections.ObjectModel.Collection<System.Attribute> attributes) { }
 
     public System.Collections.ObjectModel.Collection<System.Attribute> Attributes { get { return default(System.Collections.ObjectModel.Collection<System.Attribute>); } }
-    public string Description { get { return default(string); } set { } }
-    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } set { } }
+    public virtual string Description { get { return default(string); } set { } }
+    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } private set { } }
     public string ModuleName { get { return default(string); } }
     public string Name { get { return default(string); } }
-    public System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } set { } }
-    public object Value { get { return default(object); } set { } }
+    public virtual System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } set { } }
+    public virtual object Value { get { return default(object); } set { } }
     public System.Management.Automation.SessionStateEntryVisibility Visibility { get { return default(System.Management.Automation.SessionStateEntryVisibility); } set { } }
-    public bool IsValidValue ( object value ) { return default(bool); }
+    public virtual bool IsValidValue ( object value ) { return default(bool); }
 
   }
 
@@ -6416,7 +6425,7 @@ namespace System.Management.Automation {
   }
 
     [System.SerializableAttribute]
-   public class ScriptBlock {
+   public class ScriptBlock : System.Runtime.Serialization.ISerializable {
     protected ScriptBlock(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
 
     public System.Management.Automation.Language.Ast Ast { get { return default(System.Management.Automation.Language.Ast); } }
@@ -6469,11 +6478,11 @@ namespace System.Management.Automation {
 
   }
 
-  public class ScriptInfo : System.Management.Automation.CommandInfo {
+  public class ScriptInfo : System.Management.Automation.CommandInfo, System.Management.Automation.IScriptCommandInfo {
     internal ScriptInfo() { }
     public override string Definition { get { return default(string); } }
     public override System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName> OutputType { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.PSTypeName>); } }
-    public System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } set { } }
+    public System.Management.Automation.ScriptBlock ScriptBlock { get { return default(System.Management.Automation.ScriptBlock); } private set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -6603,9 +6612,9 @@ namespace System.Management.Automation {
 
   public sealed class Signature {
     internal Signature() { }
-    public bool IsOSBinary { get { return default(bool); } set { } }
+    public bool IsOSBinary { get { return default(bool); } internal set { } }
     public string Path { get { return default(string); } }
-    public System.Management.Automation.SignatureType SignatureType { get { return default(System.Management.Automation.SignatureType); } set { } }
+    public System.Management.Automation.SignatureType SignatureType { get { return default(System.Management.Automation.SignatureType); } internal set { } }
     public System.Security.Cryptography.X509Certificates.X509Certificate2 SignerCertificate { get { return default(System.Security.Cryptography.X509Certificates.X509Certificate2); } }
     public System.Management.Automation.SignatureStatus Status { get { return default(System.Management.Automation.SignatureStatus); } }
     public string StatusMessage { get { return default(string); } }
@@ -6716,7 +6725,7 @@ namespace System.Management.Automation {
 
     public System.Management.Automation.Alignment Alignment { get { return default(System.Management.Automation.Alignment); } set { } }
     public System.Management.Automation.DisplayEntry DisplayEntry { get { return default(System.Management.Automation.DisplayEntry); } set { } }
-    public string FormatString { get { return default(string); } set { } }
+    public string FormatString { get { return default(string); } internal set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -6735,7 +6744,7 @@ namespace System.Management.Automation {
     public TableControlRow(System.Collections.Generic.IEnumerable<System.Management.Automation.TableControlColumn> columns) { }
 
     public System.Collections.Generic.List<System.Management.Automation.TableControlColumn> Columns { get { return default(System.Collections.Generic.List<System.Management.Automation.TableControlColumn>); } set { } }
-    public System.Management.Automation.EntrySelectedBy SelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } set { } }
+    public System.Management.Automation.EntrySelectedBy SelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } internal set { } }
     public bool Wrap { get { return default(bool); } set { } }
   }
 
@@ -6879,8 +6888,8 @@ namespace System.Management.Automation {
 
   public class VariableBreakpoint : System.Management.Automation.Breakpoint {
     internal VariableBreakpoint() { }
-    public System.Management.Automation.VariableAccessMode AccessMode { get { return default(System.Management.Automation.VariableAccessMode); } set { } }
-    public string Variable { get { return default(string); } set { } }
+    public System.Management.Automation.VariableAccessMode AccessMode { get { return default(System.Management.Automation.VariableAccessMode); } private set { } }
+    public string Variable { get { return default(string); } private set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -7054,8 +7063,8 @@ namespace System.Management.Automation {
     public WideControl(uint columns) { }
 
     public bool AutoSize { get { return default(bool); } set { } }
-    public uint Columns { get { return default(uint); } set { } }
-    public System.Collections.Generic.List<System.Management.Automation.WideControlEntryItem> Entries { get { return default(System.Collections.Generic.List<System.Management.Automation.WideControlEntryItem>); } set { } }
+    public uint Columns { get { return default(uint); } internal set { } }
+    public System.Collections.Generic.List<System.Management.Automation.WideControlEntryItem> Entries { get { return default(System.Collections.Generic.List<System.Management.Automation.WideControlEntryItem>); } internal set { } }
     public static System.Management.Automation.WideControlBuilder Create ( bool outOfBand, bool autoSize, uint columns ) { return default(System.Management.Automation.WideControlBuilder); }
 
   }
@@ -7074,9 +7083,9 @@ namespace System.Management.Automation {
     public WideControlEntryItem(System.Management.Automation.DisplayEntry entry) { }
     public WideControlEntryItem(System.Management.Automation.DisplayEntry entry, System.Collections.Generic.IEnumerable<string> selectedBy) { }
 
-    public System.Management.Automation.DisplayEntry DisplayEntry { get { return default(System.Management.Automation.DisplayEntry); } set { } }
-    public System.Management.Automation.EntrySelectedBy EntrySelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } set { } }
-    public string FormatString { get { return default(string); } set { } }
+    public System.Management.Automation.DisplayEntry DisplayEntry { get { return default(System.Management.Automation.DisplayEntry); } internal set { } }
+    public System.Management.Automation.EntrySelectedBy EntrySelectedBy { get { return default(System.Management.Automation.EntrySelectedBy); } internal set { } }
+    public string FormatString { get { return default(string); } internal set { } }
     public System.Collections.Generic.List<string> SelectedBy { get { return default(System.Collections.Generic.List<string>); } }
   }
 
@@ -7112,7 +7121,7 @@ namespace System.Management.Automation {
 
 }
 namespace System.Management.Automation.Provider {
-  public abstract class CmdletProvider {
+  public abstract class CmdletProvider : System.Management.Automation.IResourceSupplier{
     protected CmdletProvider() { }
 
     public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
@@ -7184,7 +7193,7 @@ namespace System.Management.Automation.Provider {
 
   }
 
-  public abstract class DriveCmdletProvider : System.Management.Automation.Provider.CmdletProvider {
+  public abstract class DriveCmdletProvider : System.Management.Automation.Provider.CmdletProvider, System.Management.Automation.IResourceSupplier {
     protected DriveCmdletProvider() { }
 
     protected virtual System.Collections.ObjectModel.Collection<System.Management.Automation.PSDriveInfo> InitializeDefaultDrives (  ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSDriveInfo>); }
@@ -7255,7 +7264,7 @@ namespace System.Management.Automation.Provider {
 
   }
 
-  public abstract class ItemCmdletProvider : System.Management.Automation.Provider.DriveCmdletProvider {
+  public abstract class ItemCmdletProvider : System.Management.Automation.Provider.DriveCmdletProvider, System.Management.Automation.IResourceSupplier {
     protected ItemCmdletProvider() { }
 
     protected virtual void ClearItem ( string path ) { }
@@ -7273,7 +7282,7 @@ namespace System.Management.Automation.Provider {
 
   }
 
-  public abstract class NavigationCmdletProvider : System.Management.Automation.Provider.ContainerCmdletProvider {
+  public abstract class NavigationCmdletProvider : System.Management.Automation.Provider.ContainerCmdletProvider, System.Management.Automation.IResourceSupplier {
     protected NavigationCmdletProvider() { }
 
     protected virtual string GetChildName ( string path ) { return default(string); }
@@ -7345,7 +7354,7 @@ namespace System.Management.Automation.Remoting {
 
   }
 
-  public sealed class PSIdentity {
+  public sealed class PSIdentity : System.Security.Principal.IIdentity {
     public PSIdentity(string authType, bool isAuthenticated, string userName, System.Management.Automation.Remoting.PSCertificateDetails cert) { }
 
     public string AuthenticationType { get { return default(string); } }
@@ -7354,9 +7363,10 @@ namespace System.Management.Automation.Remoting {
     public string Name { get { return default(string); } }
   }
 
-  public sealed class PSPrincipal {
+  public sealed class PSPrincipal : System.Security.Principal.IPrincipal {
     public PSPrincipal(System.Management.Automation.Remoting.PSIdentity identity, System.Security.Principal.WindowsIdentity windowsIdentity) { }
 
+    System.Security.Principal.IIdentity System.Security.Principal.IPrincipal.Identity { get { return default(System.Security.Principal.IIdentity); } }
     public System.Management.Automation.Remoting.PSIdentity Identity { get { return default(System.Management.Automation.Remoting.PSIdentity); } }
     public System.Security.Principal.WindowsIdentity WindowsIdentity { get { return default(System.Security.Principal.WindowsIdentity); } }
     public bool IsInRole ( string role ) { return default(bool); }
@@ -7398,11 +7408,11 @@ namespace System.Management.Automation.Remoting {
   }
 
     [System.SerializableAttribute]
-   public sealed class PSSenderInfo {
+   public sealed class PSSenderInfo : System.Runtime.Serialization.ISerializable {
     public PSSenderInfo(System.Management.Automation.Remoting.PSPrincipal userPrincipal, string httpUrl) { }
 
-    public System.Management.Automation.PSPrimitiveDictionary ApplicationArguments { get { return default(System.Management.Automation.PSPrimitiveDictionary); } set { } }
-    public string ConfigurationName { get { return default(string); } set { } }
+    public System.Management.Automation.PSPrimitiveDictionary ApplicationArguments { get { return default(System.Management.Automation.PSPrimitiveDictionary); } internal set { } }
+    public string ConfigurationName { get { return default(string); } internal set { } }
     public string ConnectionString { get { return default(string); } }
     public System.Management.Automation.Remoting.PSPrincipal UserInfo { get { return default(System.Management.Automation.Remoting.PSPrincipal); } }
     public void GetObjectData ( System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context ) { }
@@ -7412,10 +7422,10 @@ namespace System.Management.Automation.Remoting {
   public abstract class PSSessionConfiguration : System.IDisposable {
     protected PSSessionConfiguration() { }
 
-    public virtual void Dispose (  ) { }
+    public void Dispose (  ) { }
     protected virtual void Dispose ( bool isDisposing ) { }
     public virtual System.Management.Automation.PSPrimitiveDictionary GetApplicationPrivateData ( System.Management.Automation.Remoting.PSSenderInfo senderInfo ) { return default(System.Management.Automation.PSPrimitiveDictionary); }
-    public virtual System.Management.Automation.Runspaces.InitialSessionState GetInitialSessionState ( System.Management.Automation.Remoting.PSSenderInfo senderInfo ) { return default(System.Management.Automation.Runspaces.InitialSessionState); }
+    public abstract System.Management.Automation.Runspaces.InitialSessionState GetInitialSessionState ( System.Management.Automation.Remoting.PSSenderInfo senderInfo );
     public virtual System.Management.Automation.Runspaces.InitialSessionState GetInitialSessionState ( System.Management.Automation.Remoting.PSSessionConfigurationData sessionConfigurationData, System.Management.Automation.Remoting.PSSenderInfo senderInfo, string configProviderId ) { return default(System.Management.Automation.Runspaces.InitialSessionState); }
     public virtual System.Nullable<System.Int32> GetMaximumReceivedDataSizePerCommand ( System.Management.Automation.Remoting.PSSenderInfo senderInfo ) { return default(System.Nullable<System.Int32>); }
     public virtual System.Nullable<System.Int32> GetMaximumReceivedObjectSize ( System.Management.Automation.Remoting.PSSenderInfo senderInfo ) { return default(System.Nullable<System.Int32>); }
@@ -7425,7 +7435,7 @@ namespace System.Management.Automation.Remoting {
   public sealed class PSSessionConfigurationData {
     internal PSSessionConfigurationData() { }
     public System.Collections.Generic.List<string> ModulesToImport { get { return default(System.Collections.Generic.List<string>); } }
-    public string PrivateData { get { return default(string); } set { } }
+    public string PrivateData { get { return default(string); } internal set { } }
   }
 
   public sealed class PSSessionOption {
@@ -7641,17 +7651,17 @@ namespace System.Management.Automation.Host {
 
     public abstract System.Globalization.CultureInfo CurrentCulture { get; }
     public abstract System.Globalization.CultureInfo CurrentUICulture { get; }
-    public bool DebuggerEnabled { get { return default(bool); } set { } }
+    public virtual bool DebuggerEnabled { get { return default(bool); } set { } }
     public abstract System.Guid InstanceId { get; }
     public abstract string Name { get; }
     public virtual System.Management.Automation.PSObject PrivateData { get { return default(System.Management.Automation.PSObject); } }
     public abstract System.Management.Automation.Host.PSHostUserInterface UI { get; }
     public abstract System.Version Version { get; }
-    public virtual void EnterNestedPrompt (  ) { }
-    public virtual void ExitNestedPrompt (  ) { }
-    public virtual void NotifyBeginApplication (  ) { }
-    public virtual void NotifyEndApplication (  ) { }
-    public virtual void SetShouldExit ( int exitCode ) { }
+    public abstract void EnterNestedPrompt (  );
+    public abstract void ExitNestedPrompt (  );
+    public abstract void NotifyBeginApplication (  );
+    public abstract void NotifyEndApplication (  );
+    public abstract void SetShouldExit ( int exitCode );
 
   }
 
@@ -7669,8 +7679,8 @@ namespace System.Management.Automation.Host {
     public abstract System.Management.Automation.Host.Coordinates WindowPosition { get; set; }
     public abstract System.Management.Automation.Host.Size WindowSize { get; set; }
     public abstract string WindowTitle { get; set; }
-    public virtual void FlushInputBuffer (  ) { }
-    public virtual System.Management.Automation.Host.BufferCell[,] GetBufferContents ( System.Management.Automation.Host.Rectangle rectangle ) { return default(System.Management.Automation.Host.BufferCell[,]); }
+    public abstract void FlushInputBuffer (  );
+    public abstract System.Management.Automation.Host.BufferCell[,] GetBufferContents ( System.Management.Automation.Host.Rectangle rectangle );
     public virtual int LengthInBufferCells ( char source ) { return default(int); }
     public virtual int LengthInBufferCells ( string source ) { return default(int); }
     public virtual int LengthInBufferCells ( string source, int offset ) { return default(int); }
@@ -7678,10 +7688,10 @@ namespace System.Management.Automation.Host {
     public System.Management.Automation.Host.BufferCell[,] NewBufferCellArray ( System.Management.Automation.Host.Size size, System.Management.Automation.Host.BufferCell contents ) { return default(System.Management.Automation.Host.BufferCell[,]); }
     public System.Management.Automation.Host.BufferCell[,] NewBufferCellArray ( int width, int height, System.Management.Automation.Host.BufferCell contents ) { return default(System.Management.Automation.Host.BufferCell[,]); }
     public System.Management.Automation.Host.KeyInfo ReadKey (  ) { return default(System.Management.Automation.Host.KeyInfo); }
-    public virtual System.Management.Automation.Host.KeyInfo ReadKey ( System.Management.Automation.Host.ReadKeyOptions options ) { return default(System.Management.Automation.Host.KeyInfo); }
-    public virtual void ScrollBufferContents ( System.Management.Automation.Host.Rectangle source, System.Management.Automation.Host.Coordinates destination, System.Management.Automation.Host.Rectangle clip, System.Management.Automation.Host.BufferCell fill ) { }
-    public virtual void SetBufferContents ( System.Management.Automation.Host.Coordinates origin, System.Management.Automation.Host.BufferCell[,] contents ) { }
-    public virtual void SetBufferContents ( System.Management.Automation.Host.Rectangle rectangle, System.Management.Automation.Host.BufferCell fill ) { }
+    public abstract System.Management.Automation.Host.KeyInfo ReadKey ( System.Management.Automation.Host.ReadKeyOptions options );
+    public abstract void ScrollBufferContents ( System.Management.Automation.Host.Rectangle source, System.Management.Automation.Host.Coordinates destination, System.Management.Automation.Host.Rectangle clip, System.Management.Automation.Host.BufferCell fill );
+    public abstract void SetBufferContents ( System.Management.Automation.Host.Coordinates origin, System.Management.Automation.Host.BufferCell[,] contents );
+    public abstract void SetBufferContents ( System.Management.Automation.Host.Rectangle rectangle, System.Management.Automation.Host.BufferCell fill );
 
   }
 
@@ -7690,23 +7700,23 @@ namespace System.Management.Automation.Host {
 
     public abstract System.Management.Automation.Host.PSHostRawUserInterface RawUI { get; }
     public virtual bool SupportsVirtualTerminal { get { return default(bool); } }
-    public virtual System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSObject> Prompt ( string caption, string message, System.Collections.ObjectModel.Collection<System.Management.Automation.Host.FieldDescription> descriptions ) { return default(System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSObject>); }
-    public virtual int PromptForChoice ( string caption, string message, System.Collections.ObjectModel.Collection<System.Management.Automation.Host.ChoiceDescription> choices, int defaultChoice ) { return default(int); }
-    public virtual System.Management.Automation.PSCredential PromptForCredential ( string caption, string message, string userName, string targetName, System.Management.Automation.PSCredentialTypes allowedCredentialTypes, System.Management.Automation.PSCredentialUIOptions options ) { return default(System.Management.Automation.PSCredential); }
-    public virtual System.Management.Automation.PSCredential PromptForCredential ( string caption, string message, string userName, string targetName ) { return default(System.Management.Automation.PSCredential); }
-    public virtual string ReadLine (  ) { return default(string); }
-    public virtual System.Security.SecureString ReadLineAsSecureString (  ) { return default(System.Security.SecureString); }
-    public virtual void Write ( System.ConsoleColor foregroundColor, System.ConsoleColor backgroundColor, string value ) { }
-    public virtual void Write ( string value ) { }
-    public virtual void WriteDebugLine ( string message ) { }
-    public virtual void WriteErrorLine ( string value ) { }
+    public abstract System.Collections.Generic.Dictionary<System.String,System.Management.Automation.PSObject> Prompt ( string caption, string message, System.Collections.ObjectModel.Collection<System.Management.Automation.Host.FieldDescription> descriptions );
+    public abstract int PromptForChoice ( string caption, string message, System.Collections.ObjectModel.Collection<System.Management.Automation.Host.ChoiceDescription> choices, int defaultChoice );
+    public abstract System.Management.Automation.PSCredential PromptForCredential ( string caption, string message, string userName, string targetName, System.Management.Automation.PSCredentialTypes allowedCredentialTypes, System.Management.Automation.PSCredentialUIOptions options );
+    public abstract System.Management.Automation.PSCredential PromptForCredential ( string caption, string message, string userName, string targetName );
+    public abstract string ReadLine (  );
+    public abstract System.Security.SecureString ReadLineAsSecureString (  );
+    public abstract void Write ( System.ConsoleColor foregroundColor, System.ConsoleColor backgroundColor, string value );
+    public abstract void Write ( string value );
+    public abstract void WriteDebugLine ( string message );
+    public abstract void WriteErrorLine ( string value );
     public virtual void WriteInformation ( System.Management.Automation.InformationRecord record ) { }
     public virtual void WriteLine (  ) { }
     public virtual void WriteLine ( System.ConsoleColor foregroundColor, System.ConsoleColor backgroundColor, string value ) { }
-    public virtual void WriteLine ( string value ) { }
-    public virtual void WriteProgress ( System.Int64 sourceId, System.Management.Automation.ProgressRecord record ) { }
-    public virtual void WriteVerboseLine ( string message ) { }
-    public virtual void WriteWarningLine ( string message ) { }
+    public abstract void WriteLine ( string value );
+    public abstract void WriteProgress ( System.Int64 sourceId, System.Management.Automation.ProgressRecord record );
+    public abstract void WriteVerboseLine ( string message );
+    public abstract void WriteWarningLine ( string message );
 
   }
 
@@ -7792,7 +7802,7 @@ namespace System.Management.Automation.Runspaces {
 
     public System.Management.Automation.CommandOrigin CommandOrigin { get { return default(System.Management.Automation.CommandOrigin); } set { } }
     public string CommandText { get { return default(string); } }
-    public bool IsEndOfStatement { get { return default(bool); } set { } }
+    public bool IsEndOfStatement { get { return default(bool); } internal set { } }
     public bool IsScript { get { return default(bool); } }
     public System.Management.Automation.Runspaces.PipelineResultTypes MergeUnclaimedPreviousCommandResults { get { return default(System.Management.Automation.Runspaces.PipelineResultTypes); } set { } }
     public System.Management.Automation.Runspaces.CommandParameterCollection Parameters { get { return default(System.Management.Automation.Runspaces.CommandParameterCollection); } }
@@ -7868,23 +7878,23 @@ namespace System.Management.Automation.Runspaces {
   public class InitialSessionState {
     protected InitialSessionState() { }
 
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateAssemblyEntry> Assemblies { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateAssemblyEntry>); } }
-    public System.Management.Automation.AuthorizationManager AuthorizationManager { get { return default(System.Management.Automation.AuthorizationManager); } set { } }
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateCommandEntry> Commands { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateCommandEntry>); } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateAssemblyEntry> Assemblies { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateAssemblyEntry>); } }
+    public virtual System.Management.Automation.AuthorizationManager AuthorizationManager { get { return default(System.Management.Automation.AuthorizationManager); } set { } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateCommandEntry> Commands { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateCommandEntry>); } }
     public bool DisableFormatUpdates { get { return default(bool); } set { } }
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry> EnvironmentVariables { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry>); } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry> EnvironmentVariables { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry>); } }
     public Microsoft.PowerShell.ExecutionPolicy ExecutionPolicy { get { return default(Microsoft.PowerShell.ExecutionPolicy); } set { } }
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateFormatEntry> Formats { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateFormatEntry>); } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateFormatEntry> Formats { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateFormatEntry>); } }
     public System.Management.Automation.PSLanguageMode LanguageMode { get { return default(System.Management.Automation.PSLanguageMode); } set { } }
     public System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification> Modules { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification>); } }
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateProviderEntry> Providers { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateProviderEntry>); } }
-    public System.Collections.Generic.HashSet<string> StartupScripts { get { return default(System.Collections.Generic.HashSet<string>); } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateProviderEntry> Providers { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateProviderEntry>); } }
+    public virtual System.Collections.Generic.HashSet<string> StartupScripts { get { return default(System.Collections.Generic.HashSet<string>); } }
     public System.Management.Automation.Runspaces.PSThreadOptions ThreadOptions { get { return default(System.Management.Automation.Runspaces.PSThreadOptions); } set { } }
     public bool ThrowOnRunspaceOpenError { get { return default(bool); } set { } }
     public string TranscriptDirectory { get { return default(string); } set { } }
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateTypeEntry> Types { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateTypeEntry>); } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateTypeEntry> Types { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateTypeEntry>); } }
     public bool UseFullLanguageModeInDebugger { get { return default(bool); } set { } }
-    public System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry> Variables { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry>); } }
+    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry> Variables { get { return default(System.Management.Automation.Runspaces.InitialSessionStateEntryCollection<System.Management.Automation.Runspaces.SessionStateVariableEntry>); } }
     public System.Management.Automation.Runspaces.InitialSessionState Clone (  ) { return default(System.Management.Automation.Runspaces.InitialSessionState); }
     public static System.Management.Automation.Runspaces.InitialSessionState Create (  ) { return default(System.Management.Automation.Runspaces.InitialSessionState); }
     public static System.Management.Automation.Runspaces.InitialSessionState Create ( string snapInName ) { return default(System.Management.Automation.Runspaces.InitialSessionState); }
@@ -7904,9 +7914,9 @@ namespace System.Management.Automation.Runspaces {
   public abstract class InitialSessionStateEntry {
     protected InitialSessionStateEntry(string name) { }
 
-    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } }
+    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } private set { } }
     public string Name { get { return default(string); } internal set { } }
-    public virtual System.Management.Automation.Runspaces.InitialSessionStateEntry Clone (  ) { return default(System.Management.Automation.Runspaces.InitialSessionStateEntry); }
+    public abstract System.Management.Automation.Runspaces.InitialSessionStateEntry Clone (  );
 
   }
 
@@ -7958,8 +7968,8 @@ namespace System.Management.Automation.Runspaces {
     public InvalidRunspaceStateException(string message, System.Exception innerException) { }
     protected InvalidRunspaceStateException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }
 
-    public System.Management.Automation.Runspaces.RunspaceState CurrentState { get { return default(System.Management.Automation.Runspaces.RunspaceState); } set { } }
-    public System.Management.Automation.Runspaces.RunspaceState ExpectedState { get { return default(System.Management.Automation.Runspaces.RunspaceState); } set { } }
+    public System.Management.Automation.Runspaces.RunspaceState CurrentState { get { return default(System.Management.Automation.Runspaces.RunspaceState); } internal set { } }
+    public System.Management.Automation.Runspaces.RunspaceState ExpectedState { get { return default(System.Management.Automation.Runspaces.RunspaceState); } internal set { } }
   }
 
   public class MemberSetData : System.Management.Automation.Runspaces.TypeMemberData {
@@ -7967,7 +7977,7 @@ namespace System.Management.Automation.Runspaces {
 
     public bool InheritMembers { get { return default(bool); } set { } }
     public bool IsHidden { get { return default(bool); } set { } }
-    public System.Collections.ObjectModel.Collection<System.Management.Automation.Runspaces.TypeMemberData> Members { get { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.Runspaces.TypeMemberData>); } set { } }
+    public System.Collections.ObjectModel.Collection<System.Management.Automation.Runspaces.TypeMemberData> Members { get { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.Runspaces.TypeMemberData>); } private set { } }
   }
 
   public sealed class NamedPipeConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
@@ -8027,7 +8037,7 @@ namespace System.Management.Automation.Runspaces {
     public PropertySetData(System.Collections.Generic.IEnumerable<string> referencedProperties) { }
 
     public bool IsHidden { get { return default(bool); } set { } }
-    public System.Collections.ObjectModel.Collection<string> ReferencedProperties { get { return default(System.Collections.ObjectModel.Collection<string>); } set { } }
+    public System.Collections.ObjectModel.Collection<string> ReferencedProperties { get { return default(System.Collections.ObjectModel.Collection<string>); } private set { } }
   }
 
     [System.SerializableAttribute]
@@ -8085,7 +8095,7 @@ namespace System.Management.Automation.Runspaces {
   }
 
     [System.SerializableAttribute]
-   public class RemotingErrorRecord : System.Management.Automation.ErrorRecord {
+   public class RemotingErrorRecord : System.Management.Automation.ErrorRecord, System.Runtime.Serialization.ISerializable {
     public RemotingErrorRecord(System.Management.Automation.ErrorRecord errorRecord, System.Management.Automation.Remoting.OriginInfo originInfo) : base (default(System.Exception), default(string), default(System.Management.Automation.ErrorCategory), default(object)) { }
     protected RemotingErrorRecord(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) : base (default(System.Exception), default(string), default(System.Management.Automation.ErrorCategory), default(object)) { }
 
@@ -8129,12 +8139,12 @@ namespace System.Management.Automation.Runspaces {
 
     public static bool CanUseDefaultRunspace { get { return default(bool); } }
     public abstract System.Management.Automation.Runspaces.RunspaceConnectionInfo ConnectionInfo { get; }
-    public System.Management.Automation.Debugger Debugger { get { return default(System.Management.Automation.Debugger); } }
+    public virtual System.Management.Automation.Debugger Debugger { get { return default(System.Management.Automation.Debugger); } }
     public static System.Management.Automation.Runspaces.Runspace DefaultRunspace { get { return default(System.Management.Automation.Runspaces.Runspace); } set { } }
     public System.Nullable<System.DateTime> DisconnectedOn { get { return default(System.Nullable<System.DateTime>); } internal set { } }
     public abstract System.Management.Automation.PSEventManager Events { get; }
     public System.Nullable<System.DateTime> ExpiresOn { get { return default(System.Nullable<System.DateTime>); } internal set { } }
-    public int Id { get { return default(int); } }
+    public int Id { get { return default(int); } private set { } }
     public abstract System.Management.Automation.Runspaces.InitialSessionState InitialSessionState { get; }
     public System.Guid InstanceId { get { return default(System.Guid); } internal set { } }
     public abstract System.Management.Automation.JobManager JobManager { get; }
@@ -8146,23 +8156,23 @@ namespace System.Management.Automation.Runspaces {
     public System.Management.Automation.Runspaces.SessionStateProxy SessionStateProxy { get { return default(System.Management.Automation.Runspaces.SessionStateProxy); } }
     public abstract System.Management.Automation.Runspaces.PSThreadOptions ThreadOptions { get; set; }
     public abstract System.Version Version { get; }
-    public virtual void Close (  ) { }
-    public virtual void CloseAsync (  ) { }
-    public virtual void Connect (  ) { }
-    public virtual void ConnectAsync (  ) { }
-    public virtual void Disconnect (  ) { }
-    public virtual void DisconnectAsync (  ) { }
+    public abstract void Close (  );
+    public abstract void CloseAsync (  );
+    public abstract void Connect (  );
+    public abstract void ConnectAsync (  );
+    public abstract void Disconnect (  );
+    public abstract void DisconnectAsync (  );
     protected virtual void Dispose ( bool disposing ) { }
-    public virtual void Dispose (  ) { }
-    public virtual System.Management.Automation.PSPrimitiveDictionary GetApplicationPrivateData (  ) { return default(System.Management.Automation.PSPrimitiveDictionary); }
-    public virtual System.Management.Automation.Runspaces.RunspaceCapability GetCapabilities (  ) { return default(System.Management.Automation.Runspaces.RunspaceCapability); }
+    public void Dispose (  ) { }
+    public abstract System.Management.Automation.PSPrimitiveDictionary GetApplicationPrivateData (  );
+    public abstract System.Management.Automation.Runspaces.RunspaceCapability GetCapabilities (  );
     public static System.Management.Automation.Runspaces.Runspace GetRunspace ( System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo, System.Guid sessionId, System.Nullable<System.Guid> commandId, System.Management.Automation.Host.PSHost host, System.Management.Automation.Runspaces.TypeTable typeTable ) { return default(System.Management.Automation.Runspaces.Runspace); }
     public static System.Management.Automation.Runspaces.Runspace[] GetRunspaces ( System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo, System.Management.Automation.Host.PSHost host ) { return default(System.Management.Automation.Runspaces.Runspace[]); }
     public static System.Management.Automation.Runspaces.Runspace[] GetRunspaces ( System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo ) { return default(System.Management.Automation.Runspaces.Runspace[]); }
     public static System.Management.Automation.Runspaces.Runspace[] GetRunspaces ( System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo, System.Management.Automation.Host.PSHost host, System.Management.Automation.Runspaces.TypeTable typeTable ) { return default(System.Management.Automation.Runspaces.Runspace[]); }
     protected virtual void OnAvailabilityChanged ( System.Management.Automation.Runspaces.RunspaceAvailabilityEventArgs e ) { }
-    public virtual void Open (  ) { }
-    public virtual void OpenAsync (  ) { }
+    public abstract void Open (  );
+    public abstract void OpenAsync (  );
     public virtual void ResetRunspaceState (  ) { }
 
   }
@@ -8421,7 +8431,7 @@ namespace System.Management.Automation.Runspaces {
     public SessionStateFunctionEntry(string name, string definition) : base (name) { }
 
     public string Definition { get { return default(string); } }
-    public string HelpFile { get { return default(string); } set { } }
+    public string HelpFile { get { return default(string); } private set { } }
     public System.Management.Automation.ScopedItemOptions Options { get { return default(System.Management.Automation.ScopedItemOptions); } }
     public override System.Management.Automation.Runspaces.InitialSessionStateEntry Clone (  ) { return default(System.Management.Automation.Runspaces.InitialSessionStateEntry); }
 
@@ -8438,18 +8448,18 @@ namespace System.Management.Automation.Runspaces {
 
   public class SessionStateProxy {
     internal SessionStateProxy() { }
-    public System.Collections.Generic.List<string> Applications { get { return default(System.Collections.Generic.List<string>); } }
-    public System.Management.Automation.DriveManagementIntrinsics Drive { get { return default(System.Management.Automation.DriveManagementIntrinsics); } }
-    public System.Management.Automation.CommandInvocationIntrinsics InvokeCommand { get { return default(System.Management.Automation.CommandInvocationIntrinsics); } }
-    public System.Management.Automation.ProviderIntrinsics InvokeProvider { get { return default(System.Management.Automation.ProviderIntrinsics); } }
-    public System.Management.Automation.PSLanguageMode LanguageMode { get { return default(System.Management.Automation.PSLanguageMode); } set { } }
-    public System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } }
-    public System.Management.Automation.PathIntrinsics Path { get { return default(System.Management.Automation.PathIntrinsics); } }
-    public System.Management.Automation.CmdletProviderManagementIntrinsics Provider { get { return default(System.Management.Automation.CmdletProviderManagementIntrinsics); } }
-    public System.Management.Automation.PSVariableIntrinsics PSVariable { get { return default(System.Management.Automation.PSVariableIntrinsics); } }
-    public System.Collections.Generic.List<string> Scripts { get { return default(System.Collections.Generic.List<string>); } }
-    public object GetVariable ( string name ) { return default(object); }
-    public void SetVariable ( string name, object value ) { }
+    public virtual System.Collections.Generic.List<string> Applications { get { return default(System.Collections.Generic.List<string>); } }
+    public virtual System.Management.Automation.DriveManagementIntrinsics Drive { get { return default(System.Management.Automation.DriveManagementIntrinsics); } }
+    public virtual System.Management.Automation.CommandInvocationIntrinsics InvokeCommand { get { return default(System.Management.Automation.CommandInvocationIntrinsics); } }
+    public virtual System.Management.Automation.ProviderIntrinsics InvokeProvider { get { return default(System.Management.Automation.ProviderIntrinsics); } }
+    public virtual System.Management.Automation.PSLanguageMode LanguageMode { get { return default(System.Management.Automation.PSLanguageMode); } set { } }
+    public virtual System.Management.Automation.PSModuleInfo Module { get { return default(System.Management.Automation.PSModuleInfo); } }
+    public virtual System.Management.Automation.PathIntrinsics Path { get { return default(System.Management.Automation.PathIntrinsics); } }
+    public virtual System.Management.Automation.CmdletProviderManagementIntrinsics Provider { get { return default(System.Management.Automation.CmdletProviderManagementIntrinsics); } }
+    public virtual System.Management.Automation.PSVariableIntrinsics PSVariable { get { return default(System.Management.Automation.PSVariableIntrinsics); } }
+    public virtual System.Collections.Generic.List<string> Scripts { get { return default(System.Collections.Generic.List<string>); } }
+    public virtual object GetVariable ( string name ) { return default(object); }
+    public virtual void SetVariable ( string name, object value ) { }
 
   }
 
@@ -8503,7 +8513,7 @@ namespace System.Management.Automation.Runspaces {
     public System.Management.Automation.Runspaces.PropertySetData DefaultKeyPropertySet { get { return default(System.Management.Automation.Runspaces.PropertySetData); } set { } }
     public bool InheritPropertySerializationSet { get { return default(bool); } set { } }
     public bool IsOverride { get { return default(bool); } set { } }
-    public System.Collections.Generic.Dictionary<string, System.Management.Automation.Runspaces.TypeMemberData> Members { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.Runspaces.TypeMemberData>); } set { } }
+    public System.Collections.Generic.Dictionary<string, System.Management.Automation.Runspaces.TypeMemberData> Members { get { return default(System.Collections.Generic.Dictionary<string, System.Management.Automation.Runspaces.TypeMemberData>); } private set { } }
     public System.Management.Automation.Runspaces.PropertySetData PropertySerializationSet { get { return default(System.Management.Automation.Runspaces.PropertySetData); } set { } }
     public uint SerializationDepth { get { return default(uint); } set { } }
     public string SerializationMethod { get { return default(string); } set { } }
@@ -8512,7 +8522,7 @@ namespace System.Management.Automation.Runspaces {
     public System.Type TargetTypeForDeserialization { get { return default(System.Type); } set { } }
     public System.Type TypeAdapter { get { return default(System.Type); } set { } }
     public System.Type TypeConverter { get { return default(System.Type); } set { } }
-    public string TypeName { get { return default(string); } set { } }
+    public string TypeName { get { return default(string); } private set { } }
     public System.Management.Automation.Runspaces.TypeData Copy (  ) { return default(System.Management.Automation.Runspaces.TypeData); }
 
   }
@@ -8602,11 +8612,26 @@ namespace System.Management.Automation.Runspaces {
 
 }
 namespace System.Management.Automation.Language {
+  internal partial interface IParameterMetadataProvider {
+    System.Management.Automation.Language.ScriptBlockAst Body { get; }
+    System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get; }
+/*
+
+    System.Management.Automation.RuntimeDefinedParameterDictionary GetParameterMetadata ( bool automaticPositions, ref bool usesCmdletBinding );
+    System.Management.Automation.PowerShell GetPowerShell ( System.Management.Automation.ExecutionContext context, System.Collections.Generic.Dictionary<string, object> variables, bool isTrustedInput, bool filterNonUsingVariables, System.Nullable<bool> createLocalScope, object[] args );
+    System.Collections.Generic.IEnumerable<System.Attribute> GetScriptBlockAttributes (  );
+    string GetWithInputHandlingForInvokeCommand (  );
+    System.Tuple<System.String,System.String> GetWithInputHandlingForInvokeCommandWithUsingExpression ( System.Tuple<System.Collections.Generic.List<System.Management.Automation.Language.VariableExpressionAst>, string> usingVariablesTuple );
+    bool HasAnyScriptBlockAttributes (  );
+    bool UsesCmdletBinding (  );
+    */
+  }
+
   public class ArrayExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public ArrayExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.StatementBlockAst statementBlock) : base(extent) { }
 
     public override System.Type StaticType { get { return default(System.Type); } }
-    public System.Management.Automation.Language.StatementBlockAst SubExpression { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst SubExpression { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8614,7 +8639,7 @@ namespace System.Management.Automation.Language {
   public class ArrayLiteralAst : System.Management.Automation.Language.ExpressionAst {
     public ArrayLiteralAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IList<System.Management.Automation.Language.ExpressionAst> elements) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> Elements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> Elements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } private set { } }
     public override System.Type StaticType { get { return default(System.Type); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -8624,13 +8649,13 @@ namespace System.Management.Automation.Language {
     public ArrayTypeName(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ITypeName elementType, int rank) { }
 
     public string AssemblyName { get { return default(string); } }
-    public System.Management.Automation.Language.ITypeName ElementType { get { return default(System.Management.Automation.Language.ITypeName); } set { } }
+    public System.Management.Automation.Language.ITypeName ElementType { get { return default(System.Management.Automation.Language.ITypeName); } private set { } }
     public System.Management.Automation.Language.IScriptExtent Extent { get { return default(System.Management.Automation.Language.IScriptExtent); } }
     public string FullName { get { return default(string); } }
     public bool IsArray { get { return default(bool); } }
     public bool IsGeneric { get { return default(bool); } }
     public string Name { get { return default(string); } }
-    public int Rank { get { return default(int); } set { } }
+    public int Rank { get { return default(int); } private set { } }
     public override bool Equals ( object obj ) { return default(bool); }
     public override int GetHashCode (  ) { return default(int); }
     public System.Type GetReflectionAttributeType (  ) { return default(System.Type); }
@@ -8642,10 +8667,10 @@ namespace System.Management.Automation.Language {
   public class AssignmentStatementAst : System.Management.Automation.Language.PipelineBaseAst {
     public AssignmentStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst left, System.Management.Automation.Language.TokenKind @operator, System.Management.Automation.Language.StatementAst right, System.Management.Automation.Language.IScriptExtent errorPosition) : base(extent) { }
 
-    public System.Management.Automation.Language.IScriptExtent ErrorPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } set { } }
-    public System.Management.Automation.Language.ExpressionAst Left { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.TokenKind Operator { get { return default(System.Management.Automation.Language.TokenKind); } set { } }
-    public System.Management.Automation.Language.StatementAst Right { get { return default(System.Management.Automation.Language.StatementAst); } set { } }
+    public System.Management.Automation.Language.IScriptExtent ErrorPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst Left { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.TokenKind Operator { get { return default(System.Management.Automation.Language.TokenKind); } private set { } }
+    public System.Management.Automation.Language.StatementAst Right { get { return default(System.Management.Automation.Language.StatementAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ExpressionAst> GetAssignmentTargets (  ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ExpressionAst>); }
 
@@ -8654,9 +8679,9 @@ namespace System.Management.Automation.Language {
   public abstract class Ast {
     protected Ast(System.Management.Automation.Language.IScriptExtent extent) { }
 
-    public System.Management.Automation.Language.IScriptExtent Extent { get { return default(System.Management.Automation.Language.IScriptExtent); } }
-    public System.Management.Automation.Language.Ast Parent { get { return default(System.Management.Automation.Language.Ast); } }
-    public virtual System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
+    public System.Management.Automation.Language.IScriptExtent Extent { get { return default(System.Management.Automation.Language.IScriptExtent); } private set { } }
+    public System.Management.Automation.Language.Ast Parent { get { return default(System.Management.Automation.Language.Ast); } private set { } }
+    public abstract System.Management.Automation.Language.Ast Copy (  );
     public System.Management.Automation.Language.Ast Find ( System.Func<System.Management.Automation.Language.Ast, bool> predicate, bool searchNestedScriptBlocks ) { return default(System.Management.Automation.Language.Ast); }
     public System.Collections.Generic.IEnumerable<System.Management.Automation.Language.Ast> FindAll ( System.Func<System.Management.Automation.Language.Ast, bool> predicate, bool searchNestedScriptBlocks ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.Language.Ast>); }
     public object SafeGetValue (  ) { return default(object); }
@@ -8748,8 +8773,8 @@ namespace System.Management.Automation.Language {
   public class AttributeAst : System.Management.Automation.Language.AttributeBaseAst {
     public AttributeAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ITypeName typeName, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ExpressionAst> positionalArguments, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.NamedAttributeArgumentAst> namedArguments) : base(extent, default(System.Management.Automation.Language.ITypeName)) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.NamedAttributeArgumentAst> NamedArguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.NamedAttributeArgumentAst>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> PositionalArguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.NamedAttributeArgumentAst> NamedArguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.NamedAttributeArgumentAst>); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> PositionalArguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8757,14 +8782,14 @@ namespace System.Management.Automation.Language {
   public abstract class AttributeBaseAst : System.Management.Automation.Language.Ast {
     protected AttributeBaseAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ITypeName typeName) : base(extent) { }
 
-    public System.Management.Automation.Language.ITypeName TypeName { get { return default(System.Management.Automation.Language.ITypeName); } }
+    public System.Management.Automation.Language.ITypeName TypeName { get { return default(System.Management.Automation.Language.ITypeName); } private set { } }
   }
 
   public class AttributedExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public AttributedExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.AttributeBaseAst attribute, System.Management.Automation.Language.ExpressionAst child) : base(extent) { }
 
-    public System.Management.Automation.Language.AttributeBaseAst Attribute { get { return default(System.Management.Automation.Language.AttributeBaseAst); } set { } }
-    public System.Management.Automation.Language.ExpressionAst Child { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.AttributeBaseAst Attribute { get { return default(System.Management.Automation.Language.AttributeBaseAst); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst Child { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8777,10 +8802,10 @@ namespace System.Management.Automation.Language {
   public class BinaryExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public BinaryExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst left, System.Management.Automation.Language.TokenKind @operator, System.Management.Automation.Language.ExpressionAst right, System.Management.Automation.Language.IScriptExtent errorPosition) : base(extent) { }
 
-    public System.Management.Automation.Language.IScriptExtent ErrorPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } set { } }
-    public System.Management.Automation.Language.ExpressionAst Left { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.TokenKind Operator { get { return default(System.Management.Automation.Language.TokenKind); } set { } }
-    public System.Management.Automation.Language.ExpressionAst Right { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.IScriptExtent ErrorPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst Left { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.TokenKind Operator { get { return default(System.Management.Automation.Language.TokenKind); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst Right { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Type StaticType { get { return default(System.Type); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -8789,8 +8814,8 @@ namespace System.Management.Automation.Language {
   public class BlockStatementAst : System.Management.Automation.Language.StatementAst {
     public BlockStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.Token kind, System.Management.Automation.Language.StatementBlockAst body) : base(extent) { }
 
-    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
-    public System.Management.Automation.Language.Token Kind { get { return default(System.Management.Automation.Language.Token); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
+    public System.Management.Automation.Language.Token Kind { get { return default(System.Management.Automation.Language.Token); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8798,7 +8823,7 @@ namespace System.Management.Automation.Language {
   public class BreakStatementAst : System.Management.Automation.Language.StatementAst {
     public BreakStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst label) : base(extent) { }
 
-    public System.Management.Automation.Language.ExpressionAst Label { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Label { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8806,8 +8831,8 @@ namespace System.Management.Automation.Language {
   public class CatchClauseAst : System.Management.Automation.Language.Ast {
     public CatchClauseAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.TypeConstraintAst> catchTypes, System.Management.Automation.Language.StatementBlockAst body) : base(extent) { }
 
-    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst> CatchTypes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst>); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst> CatchTypes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst>); } private set { } }
     public bool IsCatchAll { get { return default(bool); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -8824,9 +8849,9 @@ namespace System.Management.Automation.Language {
   public class CommandAst : System.Management.Automation.Language.CommandBaseAst {
     public CommandAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.CommandElementAst> commandElements, System.Management.Automation.Language.TokenKind invocationOperator, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.RedirectionAst> redirections) : base(extent, redirections) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst> CommandElements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst> CommandElements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst>); } private set { } }
     public System.Management.Automation.Language.DynamicKeyword DefiningKeyword { get { return default(System.Management.Automation.Language.DynamicKeyword); } set { } }
-    public System.Management.Automation.Language.TokenKind InvocationOperator { get { return default(System.Management.Automation.Language.TokenKind); } set { } }
+    public System.Management.Automation.Language.TokenKind InvocationOperator { get { return default(System.Management.Automation.Language.TokenKind); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public string GetCommandName (  ) { return default(string); }
 
@@ -8835,7 +8860,7 @@ namespace System.Management.Automation.Language {
   public abstract class CommandBaseAst : System.Management.Automation.Language.StatementAst {
     protected CommandBaseAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.RedirectionAst> redirections) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.RedirectionAst> Redirections { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.RedirectionAst>); } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.RedirectionAst> Redirections { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.RedirectionAst>); } private set { } }
   }
 
   public abstract class CommandElementAst : System.Management.Automation.Language.Ast {
@@ -8846,7 +8871,7 @@ namespace System.Management.Automation.Language {
   public class CommandExpressionAst : System.Management.Automation.Language.CommandBaseAst {
     public CommandExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst expression, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.RedirectionAst> redirections) : base(extent, redirections) { }
 
-    public System.Management.Automation.Language.ExpressionAst Expression { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Expression { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8854,9 +8879,9 @@ namespace System.Management.Automation.Language {
   public class CommandParameterAst : System.Management.Automation.Language.CommandElementAst {
     public CommandParameterAst(System.Management.Automation.Language.IScriptExtent extent, string parameterName, System.Management.Automation.Language.ExpressionAst argument, System.Management.Automation.Language.IScriptExtent errorPosition) : base(extent) { }
 
-    public System.Management.Automation.Language.ExpressionAst Argument { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.IScriptExtent ErrorPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } set { } }
-    public string ParameterName { get { return default(string); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Argument { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.IScriptExtent ErrorPosition { get { return default(System.Management.Automation.Language.IScriptExtent); } private set { } }
+    public string ParameterName { get { return default(string); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8864,21 +8889,21 @@ namespace System.Management.Automation.Language {
   public sealed class CommentHelpInfo {
     public CommentHelpInfo() { }
 
-    public string Component { get { return default(string); } set { } }
-    public string Description { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> Examples { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
-    public string ForwardHelpCategory { get { return default(string); } set { } }
-    public string ForwardHelpTargetName { get { return default(string); } set { } }
-    public string Functionality { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> Inputs { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> Links { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
-    public string MamlHelpFile { get { return default(string); } set { } }
-    public string Notes { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> Outputs { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
-    public System.Collections.Generic.IDictionary<string, string> Parameters { get { return default(System.Collections.Generic.IDictionary<string, string>); } set { } }
-    public string RemoteHelpRunspace { get { return default(string); } set { } }
-    public string Role { get { return default(string); } set { } }
-    public string Synopsis { get { return default(string); } set { } }
+    public string Component { get { return default(string); } internal set { } }
+    public string Description { get { return default(string); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> Examples { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } internal set { } }
+    public string ForwardHelpCategory { get { return default(string); } internal set { } }
+    public string ForwardHelpTargetName { get { return default(string); } internal set { } }
+    public string Functionality { get { return default(string); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> Inputs { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> Links { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } internal set { } }
+    public string MamlHelpFile { get { return default(string); } internal set { } }
+    public string Notes { get { return default(string); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> Outputs { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } internal set { } }
+    public System.Collections.Generic.IDictionary<string, string> Parameters { get { return default(System.Collections.Generic.IDictionary<string, string>); } internal set { } }
+    public string RemoteHelpRunspace { get { return default(string); } internal set { } }
+    public string Role { get { return default(string); } internal set { } }
+    public string Synopsis { get { return default(string); } internal set { } }
     public string GetCommentBlock (  ) { return default(string); }
 
   }
@@ -8886,9 +8911,9 @@ namespace System.Management.Automation.Language {
   public class ConfigurationDefinitionAst : System.Management.Automation.Language.StatementAst {
     public ConfigurationDefinitionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ScriptBlockExpressionAst body, System.Management.Automation.Language.ConfigurationType type, System.Management.Automation.Language.ExpressionAst instanceName) : base(extent) { }
 
-    public System.Management.Automation.Language.ScriptBlockExpressionAst Body { get { return default(System.Management.Automation.Language.ScriptBlockExpressionAst); } set { } }
-    public System.Management.Automation.Language.ConfigurationType ConfigurationType { get { return default(System.Management.Automation.Language.ConfigurationType); } set { } }
-    public System.Management.Automation.Language.ExpressionAst InstanceName { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ScriptBlockExpressionAst Body { get { return default(System.Management.Automation.Language.ScriptBlockExpressionAst); } private set { } }
+    public System.Management.Automation.Language.ConfigurationType ConfigurationType { get { return default(System.Management.Automation.Language.ConfigurationType); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst InstanceName { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8902,7 +8927,7 @@ namespace System.Management.Automation.Language {
     public ConstantExpressionAst(System.Management.Automation.Language.IScriptExtent extent, object value) : base(extent) { }
 
     public override System.Type StaticType { get { return default(System.Type); } }
-    public object Value { get { return default(object); } set { } }
+    public object Value { get { return default(object); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8910,7 +8935,7 @@ namespace System.Management.Automation.Language {
   public class ContinueStatementAst : System.Management.Automation.Language.StatementAst {
     public ContinueStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst label) : base(extent) { }
 
-    public System.Management.Automation.Language.ExpressionAst Label { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Label { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -8926,9 +8951,9 @@ namespace System.Management.Automation.Language {
   public class DataStatementAst : System.Management.Automation.Language.StatementAst {
     public DataStatementAst(System.Management.Automation.Language.IScriptExtent extent, string variableName, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ExpressionAst> commandsAllowed, System.Management.Automation.Language.StatementBlockAst body) : base(extent) { }
 
-    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> CommandsAllowed { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } set { } }
-    public string Variable { get { return default(string); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> CommandsAllowed { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } private set { } }
+    public string Variable { get { return default(string); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9086,25 +9111,25 @@ namespace System.Management.Automation.Language {
   public class DynamicKeywordStatementAst : System.Management.Automation.Language.StatementAst {
     public DynamicKeywordStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.CommandElementAst> commandElements) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst> CommandElements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst> CommandElements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandElementAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
 
   public class ErrorExpressionAst : System.Management.Automation.Language.ExpressionAst {
-    public ErrorExpressionAst(System.Management.Automation.Language.IScriptExtent extent) : base (extent) { }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> NestedAst { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } set { } }
+    internal ErrorExpressionAst(System.Management.Automation.Language.IScriptExtent extent) : base (extent) { }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> NestedAst { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
 
   public class ErrorStatementAst : System.Management.Automation.Language.PipelineBaseAst {
-    public ErrorStatementAst(System.Management.Automation.Language.IScriptExtent extent) : base (extent) { }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> Bodies { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> Conditions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } set { } }
-    public System.Collections.Generic.Dictionary<string, System.Tuple<System.Management.Automation.Language.Token, System.Management.Automation.Language.Ast>> Flags { get { return default(System.Collections.Generic.Dictionary<string, System.Tuple<System.Management.Automation.Language.Token, System.Management.Automation.Language.Ast>>); } set { } }
-    public System.Management.Automation.Language.Token Kind { get { return default(System.Management.Automation.Language.Token); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> NestedAst { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } set { } }
+    internal ErrorStatementAst(System.Management.Automation.Language.IScriptExtent extent) : base (extent) { }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> Bodies { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> Conditions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } private set { } }
+    public System.Collections.Generic.Dictionary<string, System.Tuple<System.Management.Automation.Language.Token, System.Management.Automation.Language.Ast>> Flags { get { return default(System.Collections.Generic.Dictionary<string, System.Tuple<System.Management.Automation.Language.Token, System.Management.Automation.Language.Ast>>); } private set { } }
+    public System.Management.Automation.Language.Token Kind { get { return default(System.Management.Automation.Language.Token); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast> NestedAst { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Ast>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9112,7 +9137,7 @@ namespace System.Management.Automation.Language {
   public class ExitStatementAst : System.Management.Automation.Language.StatementAst {
     public ExitStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.PipelineBaseAst pipeline) : base(extent) { }
 
-    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
+    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9120,10 +9145,10 @@ namespace System.Management.Automation.Language {
   public class ExpandableStringExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public ExpandableStringExpressionAst(System.Management.Automation.Language.IScriptExtent extent, string value, System.Management.Automation.Language.StringConstantType type) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> NestedExpressions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> NestedExpressions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } private set { } }
     public override System.Type StaticType { get { return default(System.Type); } }
-    public System.Management.Automation.Language.StringConstantType StringConstantType { get { return default(System.Management.Automation.Language.StringConstantType); } set { } }
-    public string Value { get { return default(string); } set { } }
+    public System.Management.Automation.Language.StringConstantType StringConstantType { get { return default(System.Management.Automation.Language.StringConstantType); } private set { } }
+    public string Value { get { return default(string); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9137,16 +9162,16 @@ namespace System.Management.Automation.Language {
   public class FileRedirectionAst : System.Management.Automation.Language.RedirectionAst {
     public FileRedirectionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.RedirectionStream stream, System.Management.Automation.Language.ExpressionAst file, bool append) : base(extent, default(System.Management.Automation.Language.RedirectionStream)) { }
 
-    public bool Append { get { return default(bool); } set { } }
-    public System.Management.Automation.Language.ExpressionAst Location { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public bool Append { get { return default(bool); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst Location { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
 
   public class FileRedirectionToken : System.Management.Automation.Language.RedirectionToken {
     internal FileRedirectionToken() { }
-    public bool Append { get { return default(bool); } set { } }
-    public System.Management.Automation.Language.RedirectionStream FromStream { get { return default(System.Management.Automation.Language.RedirectionStream); } set { } }
+    public bool Append { get { return default(bool); } private set { } }
+    public System.Management.Automation.Language.RedirectionStream FromStream { get { return default(System.Management.Automation.Language.RedirectionStream); } private set { } }
   }
 
     [System.FlagsAttribute]
@@ -9159,9 +9184,9 @@ namespace System.Management.Automation.Language {
     public ForEachStatementAst(System.Management.Automation.Language.IScriptExtent extent, string label, System.Management.Automation.Language.ForEachFlags flags, System.Management.Automation.Language.VariableExpressionAst variable, System.Management.Automation.Language.PipelineBaseAst expression, System.Management.Automation.Language.StatementBlockAst body) : base(extent, label, default(System.Management.Automation.Language.PipelineBaseAst), default(System.Management.Automation.Language.StatementBlockAst)) { }
     public ForEachStatementAst(System.Management.Automation.Language.IScriptExtent extent, string label, System.Management.Automation.Language.ForEachFlags flags, System.Management.Automation.Language.ExpressionAst throttleLimit, System.Management.Automation.Language.VariableExpressionAst variable, System.Management.Automation.Language.PipelineBaseAst expression, System.Management.Automation.Language.StatementBlockAst body) : base(extent, label, default(System.Management.Automation.Language.PipelineBaseAst), default(System.Management.Automation.Language.StatementBlockAst)) { }
 
-    public System.Management.Automation.Language.ForEachFlags Flags { get { return default(System.Management.Automation.Language.ForEachFlags); } set { } }
-    public System.Management.Automation.Language.ExpressionAst ThrottleLimit { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.VariableExpressionAst Variable { get { return default(System.Management.Automation.Language.VariableExpressionAst); } set { } }
+    public System.Management.Automation.Language.ForEachFlags Flags { get { return default(System.Management.Automation.Language.ForEachFlags); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst ThrottleLimit { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.VariableExpressionAst Variable { get { return default(System.Management.Automation.Language.VariableExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9169,40 +9194,40 @@ namespace System.Management.Automation.Language {
   public class ForStatementAst : System.Management.Automation.Language.LoopStatementAst {
     public ForStatementAst(System.Management.Automation.Language.IScriptExtent extent, string label, System.Management.Automation.Language.PipelineBaseAst initializer, System.Management.Automation.Language.PipelineBaseAst condition, System.Management.Automation.Language.PipelineBaseAst iterator, System.Management.Automation.Language.StatementBlockAst body) : base(extent,label, condition, body) { }
 
-    public System.Management.Automation.Language.PipelineBaseAst Initializer { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
-    public System.Management.Automation.Language.PipelineBaseAst Iterator { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
+    public System.Management.Automation.Language.PipelineBaseAst Initializer { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
+    public System.Management.Automation.Language.PipelineBaseAst Iterator { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
 
-  public class FunctionDefinitionAst : System.Management.Automation.Language.StatementAst {
+  public class FunctionDefinitionAst : System.Management.Automation.Language.StatementAst, System.Management.Automation.Language.IParameterMetadataProvider {
     public FunctionDefinitionAst(System.Management.Automation.Language.IScriptExtent extent, bool isFilter, bool isWorkflow, string name, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ParameterAst> parameters, System.Management.Automation.Language.ScriptBlockAst body) : base(extent) { }
 
-    public System.Management.Automation.Language.ScriptBlockAst Body { get { return default(System.Management.Automation.Language.ScriptBlockAst); } set { } }
-    public bool IsFilter { get { return default(bool); } set { } }
-    public bool IsWorkflow { get { return default(bool); } set { } }
-    public string Name { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } set { } }
+    public System.Management.Automation.Language.ScriptBlockAst Body { get { return default(System.Management.Automation.Language.ScriptBlockAst); } private set { } }
+    public bool IsFilter { get { return default(bool); } private set { } }
+    public bool IsWorkflow { get { return default(bool); } private set { } }
+    public string Name { get { return default(string); } private set { } }
+    System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> System.Management.Automation.Language.IParameterMetadataProvider.Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent ( System.Collections.Generic.Dictionary<System.Management.Automation.Language.Ast, System.Management.Automation.Language.Token[]> scriptBlockTokenCache ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent (  ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
 
   }
 
-  public class FunctionMemberAst : System.Management.Automation.Language.MemberAst {
+  public class FunctionMemberAst : System.Management.Automation.Language.MemberAst, System.Management.Automation.Language.IParameterMetadataProvider {
     public FunctionMemberAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.FunctionDefinitionAst functionDefinitionAst, System.Management.Automation.Language.TypeConstraintAst returnType, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Management.Automation.Language.MethodAttributes methodAttributes) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } set { } }
-    public System.Management.Automation.Language.ScriptBlockAst Body { get { return default(System.Management.Automation.Language.ScriptBlockAst); } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } private set { } }
+    System.Management.Automation.Language.ScriptBlockAst System.Management.Automation.Language.IParameterMetadataProvider.Body { get { return default(System.Management.Automation.Language.ScriptBlockAst); } }
     public bool IsConstructor { get { return default(bool); } }
     public bool IsHidden { get { return default(bool); } }
     public bool IsPrivate { get { return default(bool); } }
     public bool IsPublic { get { return default(bool); } }
     public bool IsStatic { get { return default(bool); } }
-    public System.Management.Automation.Language.MethodAttributes MethodAttributes { get { return default(System.Management.Automation.Language.MethodAttributes); } set { } }
+    public System.Management.Automation.Language.MethodAttributes MethodAttributes { get { return default(System.Management.Automation.Language.MethodAttributes); } private set { } }
     public override string Name { get { return default(string); } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
-    public System.Management.Automation.Language.TypeConstraintAst ReturnType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } set { } }
+    System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> System.Management.Automation.Language.IParameterMetadataProvider.Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
+    public System.Management.Automation.Language.TypeConstraintAst ReturnType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9213,11 +9238,11 @@ namespace System.Management.Automation.Language {
     public string AssemblyName { get { return default(string); } }
     public System.Management.Automation.Language.IScriptExtent Extent { get { return default(System.Management.Automation.Language.IScriptExtent); } }
     public string FullName { get { return default(string); } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ITypeName> GenericArguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ITypeName>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ITypeName> GenericArguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ITypeName>); } private set { } }
     public bool IsArray { get { return default(bool); } }
     public bool IsGeneric { get { return default(bool); } }
     public string Name { get { return default(string); } }
-    public System.Management.Automation.Language.ITypeName TypeName { get { return default(System.Management.Automation.Language.ITypeName); } set { } }
+    public System.Management.Automation.Language.ITypeName TypeName { get { return default(System.Management.Automation.Language.ITypeName); } private set { } }
     public override bool Equals ( object obj ) { return default(bool); }
     public override int GetHashCode (  ) { return default(int); }
     public System.Type GetReflectionAttributeType (  ) { return default(System.Type); }
@@ -9229,7 +9254,7 @@ namespace System.Management.Automation.Language {
   public class HashtableAst : System.Management.Automation.Language.ExpressionAst {
     public HashtableAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementAst>> keyValuePairs) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementAst>> KeyValuePairs { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementAst>>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementAst>> KeyValuePairs { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementAst>>); } private set { } }
     public override System.Type StaticType { get { return default(System.Type); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -9312,8 +9337,8 @@ namespace System.Management.Automation.Language {
   public class IfStatementAst : System.Management.Automation.Language.StatementAst {
     public IfStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Tuple<System.Management.Automation.Language.PipelineBaseAst, System.Management.Automation.Language.StatementBlockAst>> clauses, System.Management.Automation.Language.StatementBlockAst elseClause) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.PipelineBaseAst, System.Management.Automation.Language.StatementBlockAst>> Clauses { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.PipelineBaseAst, System.Management.Automation.Language.StatementBlockAst>>); } set { } }
-    public System.Management.Automation.Language.StatementBlockAst ElseClause { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.PipelineBaseAst, System.Management.Automation.Language.StatementBlockAst>> Clauses { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.PipelineBaseAst, System.Management.Automation.Language.StatementBlockAst>>); } private set { } }
+    public System.Management.Automation.Language.StatementBlockAst ElseClause { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9321,8 +9346,8 @@ namespace System.Management.Automation.Language {
   public class IndexExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public IndexExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst target, System.Management.Automation.Language.ExpressionAst index) : base(extent) { }
 
-    public System.Management.Automation.Language.ExpressionAst Index { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.ExpressionAst Target { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Index { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst Target { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9334,7 +9359,7 @@ namespace System.Management.Automation.Language {
   public class InvokeMemberExpressionAst : System.Management.Automation.Language.MemberExpressionAst {
     public InvokeMemberExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst expression, System.Management.Automation.Language.CommandElementAst method, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ExpressionAst> arguments, bool @static) : base(extent, expression, default(System.Management.Automation.Language.CommandElementAst), default(bool)) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> Arguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst> Arguments { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ExpressionAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9398,8 +9423,8 @@ namespace System.Management.Automation.Language {
   public abstract class LabeledStatementAst : System.Management.Automation.Language.StatementAst {
     protected LabeledStatementAst(System.Management.Automation.Language.IScriptExtent extent, string label, System.Management.Automation.Language.PipelineBaseAst condition) : base(extent) { }
 
-    public System.Management.Automation.Language.PipelineBaseAst Condition { get { return default(System.Management.Automation.Language.PipelineBaseAst); } }
-    public string Label { get { return default(string); } }
+    public System.Management.Automation.Language.PipelineBaseAst Condition { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
+    public string Label { get { return default(string); } private set { } }
   }
 
   public class LabelToken : System.Management.Automation.Language.Token {
@@ -9410,7 +9435,7 @@ namespace System.Management.Automation.Language {
   public abstract class LoopStatementAst : System.Management.Automation.Language.LabeledStatementAst {
     protected LoopStatementAst(System.Management.Automation.Language.IScriptExtent extent, string label, System.Management.Automation.Language.PipelineBaseAst condition, System.Management.Automation.Language.StatementBlockAst body) : base(extent, label, condition) { }
 
-    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } }
+    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
   }
 
   public abstract class MemberAst : System.Management.Automation.Language.Ast {
@@ -9422,9 +9447,9 @@ namespace System.Management.Automation.Language {
   public class MemberExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public MemberExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst expression, System.Management.Automation.Language.CommandElementAst member, bool @static) : base(extent) { }
 
-    public System.Management.Automation.Language.ExpressionAst Expression { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.CommandElementAst Member { get { return default(System.Management.Automation.Language.CommandElementAst); } set { } }
-    public bool Static { get { return default(bool); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Expression { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.CommandElementAst Member { get { return default(System.Management.Automation.Language.CommandElementAst); } private set { } }
+    public bool Static { get { return default(bool); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9432,15 +9457,15 @@ namespace System.Management.Automation.Language {
   public class MergingRedirectionAst : System.Management.Automation.Language.RedirectionAst {
     public MergingRedirectionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.RedirectionStream from, System.Management.Automation.Language.RedirectionStream to) : base(extent, from) { }
 
-    public System.Management.Automation.Language.RedirectionStream ToStream { get { return default(System.Management.Automation.Language.RedirectionStream); } set { } }
+    public System.Management.Automation.Language.RedirectionStream ToStream { get { return default(System.Management.Automation.Language.RedirectionStream); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
 
   public class MergingRedirectionToken : System.Management.Automation.Language.RedirectionToken {
     internal MergingRedirectionToken() { }
-    public System.Management.Automation.Language.RedirectionStream FromStream { get { return default(System.Management.Automation.Language.RedirectionStream); } set { } }
-    public System.Management.Automation.Language.RedirectionStream ToStream { get { return default(System.Management.Automation.Language.RedirectionStream); } set { } }
+    public System.Management.Automation.Language.RedirectionStream FromStream { get { return default(System.Management.Automation.Language.RedirectionStream); } private set { } }
+    public System.Management.Automation.Language.RedirectionStream ToStream { get { return default(System.Management.Automation.Language.RedirectionStream); } private set { } }
   }
 
     [System.FlagsAttribute]
@@ -9455,9 +9480,9 @@ namespace System.Management.Automation.Language {
   public class NamedAttributeArgumentAst : System.Management.Automation.Language.Ast {
     public NamedAttributeArgumentAst(System.Management.Automation.Language.IScriptExtent extent, string argumentName, System.Management.Automation.Language.ExpressionAst argument, bool expressionOmitted) : base(extent) { }
 
-    public System.Management.Automation.Language.ExpressionAst Argument { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public string ArgumentName { get { return default(string); } set { } }
-    public bool ExpressionOmitted { get { return default(bool); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Argument { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public string ArgumentName { get { return default(string); } private set { } }
+    public bool ExpressionOmitted { get { return default(bool); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9465,10 +9490,10 @@ namespace System.Management.Automation.Language {
   public class NamedBlockAst : System.Management.Automation.Language.Ast {
     public NamedBlockAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.TokenKind blockName, System.Management.Automation.Language.StatementBlockAst statementBlock, bool unnamed) : base(extent) { }
 
-    public System.Management.Automation.Language.TokenKind BlockKind { get { return default(System.Management.Automation.Language.TokenKind); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst> Statements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst> Traps { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst>); } set { } }
-    public bool Unnamed { get { return default(bool); } set { } }
+    public System.Management.Automation.Language.TokenKind BlockKind { get { return default(System.Management.Automation.Language.TokenKind); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst> Statements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst>); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst> Traps { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst>); } private set { } }
+    public bool Unnamed { get { return default(bool); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9488,8 +9513,8 @@ namespace System.Management.Automation.Language {
   public class ParamBlockAst : System.Management.Automation.Language.Ast {
     public ParamBlockAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.ParameterAst> parameters) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9497,9 +9522,9 @@ namespace System.Management.Automation.Language {
   public class ParameterAst : System.Management.Automation.Language.Ast {
     public ParameterAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.VariableExpressionAst name, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeBaseAst> attributes, System.Management.Automation.Language.ExpressionAst defaultValue) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeBaseAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeBaseAst>); } set { } }
-    public System.Management.Automation.Language.ExpressionAst DefaultValue { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
-    public System.Management.Automation.Language.VariableExpressionAst Name { get { return default(System.Management.Automation.Language.VariableExpressionAst); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeBaseAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeBaseAst>); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst DefaultValue { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
+    public System.Management.Automation.Language.VariableExpressionAst Name { get { return default(System.Management.Automation.Language.VariableExpressionAst); } private set { } }
     public System.Type StaticType { get { return default(System.Type); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -9507,9 +9532,9 @@ namespace System.Management.Automation.Language {
 
   public class ParameterBindingResult {
     internal ParameterBindingResult() { }
-    public object ConstantValue { get { return default(object); } set { } }
-    public System.Management.Automation.ParameterMetadata Parameter { get { return default(System.Management.Automation.ParameterMetadata); } set { } }
-    public System.Management.Automation.Language.CommandElementAst Value { get { return default(System.Management.Automation.Language.CommandElementAst); } set { } }
+    public object ConstantValue { get { return default(object); } internal set { } }
+    public System.Management.Automation.ParameterMetadata Parameter { get { return default(System.Management.Automation.ParameterMetadata); } internal set { } }
+    public System.Management.Automation.Language.CommandElementAst Value { get { return default(System.Management.Automation.Language.CommandElementAst); } internal set { } }
   }
 
   public class ParameterToken : System.Management.Automation.Language.Token {
@@ -9521,7 +9546,7 @@ namespace System.Management.Automation.Language {
  public class ParenExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public ParenExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.PipelineBaseAst pipeline) : base(extent) { }
 
-    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
+    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9549,7 +9574,7 @@ namespace System.Management.Automation.Language {
     public PipelineAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.CommandBaseAst> pipelineElements) : base(extent) { }
     public PipelineAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.CommandBaseAst commandAst) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandBaseAst> PipelineElements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandBaseAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandBaseAst> PipelineElements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CommandBaseAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public override System.Management.Automation.Language.ExpressionAst GetPureExpression (  ) { return default(System.Management.Automation.Language.ExpressionAst); }
 
@@ -9575,15 +9600,15 @@ namespace System.Management.Automation.Language {
   public class PropertyMemberAst : System.Management.Automation.Language.MemberAst {
     public PropertyMemberAst(System.Management.Automation.Language.IScriptExtent extent, string name, System.Management.Automation.Language.TypeConstraintAst propertyType, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Management.Automation.Language.PropertyAttributes propertyAttributes, System.Management.Automation.Language.ExpressionAst initialValue) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } set { } }
-    public System.Management.Automation.Language.ExpressionAst InitialValue { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } private set { } }
+    public System.Management.Automation.Language.ExpressionAst InitialValue { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public bool IsHidden { get { return default(bool); } }
     public bool IsPrivate { get { return default(bool); } }
     public bool IsPublic { get { return default(bool); } }
     public bool IsStatic { get { return default(bool); } }
     public override string Name { get { return default(string); } }
-    public System.Management.Automation.Language.PropertyAttributes PropertyAttributes { get { return default(System.Management.Automation.Language.PropertyAttributes); } set { } }
-    public System.Management.Automation.Language.TypeConstraintAst PropertyType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } set { } }
+    public System.Management.Automation.Language.PropertyAttributes PropertyAttributes { get { return default(System.Management.Automation.Language.PropertyAttributes); } private set { } }
+    public System.Management.Automation.Language.TypeConstraintAst PropertyType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9591,7 +9616,7 @@ namespace System.Management.Automation.Language {
   public abstract class RedirectionAst : System.Management.Automation.Language.Ast {
     protected RedirectionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.RedirectionStream from) : base(extent) { }
 
-    public System.Management.Automation.Language.RedirectionStream FromStream { get { return default(System.Management.Automation.Language.RedirectionStream); } }
+    public System.Management.Automation.Language.RedirectionStream FromStream { get { return default(System.Management.Automation.Language.RedirectionStream); } private set { } }
   }
 
   public enum RedirectionStream {
@@ -9628,7 +9653,7 @@ namespace System.Management.Automation.Language {
   public class ReturnStatementAst : System.Management.Automation.Language.StatementAst {
     public ReturnStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.PipelineBaseAst pipeline) : base(extent) { }
 
-    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
+    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9644,14 +9669,14 @@ namespace System.Management.Automation.Language {
     public ScriptBlockAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Management.Automation.Language.ParamBlockAst paramBlock, System.Management.Automation.Language.StatementBlockAst statements, bool isFilter, bool isConfiguration) : base(extent) { }
     public ScriptBlockAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.UsingStatementAst> usingStatements, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Management.Automation.Language.ParamBlockAst paramBlock, System.Management.Automation.Language.StatementBlockAst statements, bool isFilter, bool isConfiguration) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } set { } }
-    public System.Management.Automation.Language.NamedBlockAst BeginBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } set { } }
-    public System.Management.Automation.Language.NamedBlockAst DynamicParamBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } set { } }
-    public System.Management.Automation.Language.NamedBlockAst EndBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } set { } }
-    public System.Management.Automation.Language.ParamBlockAst ParamBlock { get { return default(System.Management.Automation.Language.ParamBlockAst); } set { } }
-    public System.Management.Automation.Language.NamedBlockAst ProcessBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } set { } }
-    public System.Management.Automation.Language.ScriptRequirements ScriptRequirements { get { return default(System.Management.Automation.Language.ScriptRequirements); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.UsingStatementAst> UsingStatements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.UsingStatementAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } private set { } }
+    public System.Management.Automation.Language.NamedBlockAst BeginBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } private set { } }
+    public System.Management.Automation.Language.NamedBlockAst DynamicParamBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } private set { } }
+    public System.Management.Automation.Language.NamedBlockAst EndBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } private set { } }
+    public System.Management.Automation.Language.ParamBlockAst ParamBlock { get { return default(System.Management.Automation.Language.ParamBlockAst); } private set { } }
+    public System.Management.Automation.Language.NamedBlockAst ProcessBlock { get { return default(System.Management.Automation.Language.NamedBlockAst); } private set { } }
+    public System.Management.Automation.Language.ScriptRequirements ScriptRequirements { get { return default(System.Management.Automation.Language.ScriptRequirements); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.UsingStatementAst> UsingStatements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.UsingStatementAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent (  ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
     public System.Management.Automation.ScriptBlock GetScriptBlock (  ) { return default(System.Management.Automation.ScriptBlock); }
@@ -9661,7 +9686,7 @@ namespace System.Management.Automation.Language {
   public class ScriptBlockExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public ScriptBlockExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ScriptBlockAst scriptBlock) : base(extent) { }
 
-    public System.Management.Automation.Language.ScriptBlockAst ScriptBlock { get { return default(System.Management.Automation.Language.ScriptBlockAst); } set { } }
+    public System.Management.Automation.Language.ScriptBlockAst ScriptBlock { get { return default(System.Management.Automation.Language.ScriptBlockAst); } private set { } }
     public override System.Type StaticType { get { return default(System.Type); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -9698,12 +9723,12 @@ namespace System.Management.Automation.Language {
   public class ScriptRequirements {
     public ScriptRequirements() { }
 
-    public bool IsElevationRequired { get { return default(bool); } set { } }
-    public string RequiredApplicationId { get { return default(string); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> RequiredAssemblies { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification> RequiredModules { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<string> RequiredPSEditions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } set { } }
-    public System.Version RequiredPSVersion { get { return default(System.Version); } set { } }
+    public bool IsElevationRequired { get { return default(bool); } internal set { } }
+    public string RequiredApplicationId { get { return default(string); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> RequiredAssemblies { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification> RequiredModules { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<Microsoft.PowerShell.Commands.ModuleSpecification>); } internal set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<string> RequiredPSEditions { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<string>); } internal set { } }
+    public System.Version RequiredPSVersion { get { return default(System.Version); } internal set { } }
   }
 
   public abstract class StatementAst : System.Management.Automation.Language.Ast {
@@ -9714,16 +9739,16 @@ namespace System.Management.Automation.Language {
   public class StatementBlockAst : System.Management.Automation.Language.Ast {
     public StatementBlockAst(System.Management.Automation.Language.IScriptExtent extent, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.StatementAst> statements, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.TrapStatementAst> traps) : base(extent) { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst> Statements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst> Traps { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst> Statements { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.StatementAst>); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst> Traps { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TrapStatementAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
 
   public class StaticBindingError {
     internal StaticBindingError() { }
-    public System.Management.Automation.ParameterBindingException BindingException { get { return default(System.Management.Automation.ParameterBindingException); } set { } }
-    public System.Management.Automation.Language.CommandElementAst CommandElement { get { return default(System.Management.Automation.Language.CommandElementAst); } set { } }
+    public System.Management.Automation.ParameterBindingException BindingException { get { return default(System.Management.Automation.ParameterBindingException); } private set { } }
+    public System.Management.Automation.Language.CommandElementAst CommandElement { get { return default(System.Management.Automation.Language.CommandElementAst); } private set { } }
   }
 
   public class StaticBindingResult {
@@ -9744,7 +9769,7 @@ namespace System.Management.Automation.Language {
 
 
     public override System.Type StaticType { get { return default(System.Type); } }
-    public System.Management.Automation.Language.StringConstantType StringConstantType { get { return default(System.Management.Automation.Language.StringConstantType); } set { } }
+    public System.Management.Automation.Language.StringConstantType StringConstantType { get { return default(System.Management.Automation.Language.StringConstantType); } private set { } }
     public new string Value { get { return default(string); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
@@ -9760,7 +9785,7 @@ namespace System.Management.Automation.Language {
 
   public class StringExpandableToken : System.Management.Automation.Language.StringToken {
     internal StringExpandableToken() { }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Token> NestedTokens { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Token>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Token> NestedTokens { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.Token>); } internal set { } }
   }
 
   public class StringLiteralToken : System.Management.Automation.Language.StringToken {
@@ -9775,7 +9800,7 @@ namespace System.Management.Automation.Language {
   public class SubExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public SubExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.StatementBlockAst statementBlock): base (extent)  { }
 
-    public System.Management.Automation.Language.StatementBlockAst SubExpression { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst SubExpression { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9794,9 +9819,9 @@ namespace System.Management.Automation.Language {
   public class SwitchStatementAst : System.Management.Automation.Language.LabeledStatementAst {
     public SwitchStatementAst(System.Management.Automation.Language.IScriptExtent extent, string label, System.Management.Automation.Language.PipelineBaseAst condition, System.Management.Automation.Language.SwitchFlags flags, System.Collections.Generic.IEnumerable<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementBlockAst>> clauses, System.Management.Automation.Language.StatementBlockAst @default): base (extent, label, condition)  { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementBlockAst>> Clauses { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementBlockAst>>); } set { } }
-    public System.Management.Automation.Language.StatementBlockAst Default { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
-    public System.Management.Automation.Language.SwitchFlags Flags { get { return default(System.Management.Automation.Language.SwitchFlags); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementBlockAst>> Clauses { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Tuple<System.Management.Automation.Language.ExpressionAst, System.Management.Automation.Language.StatementBlockAst>>); } private set { } }
+    public System.Management.Automation.Language.StatementBlockAst Default { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
+    public System.Management.Automation.Language.SwitchFlags Flags { get { return default(System.Management.Automation.Language.SwitchFlags); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9805,7 +9830,7 @@ namespace System.Management.Automation.Language {
     public ThrowStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.PipelineBaseAst pipeline): base (extent)  { }
 
     public bool IsRethrow { get { return default(bool); } }
-    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } set { } }
+    public System.Management.Automation.Language.PipelineBaseAst Pipeline { get { return default(System.Management.Automation.Language.PipelineBaseAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -9816,7 +9841,7 @@ namespace System.Management.Automation.Language {
     public bool HasError { get { return default(bool); } }
     public System.Management.Automation.Language.TokenKind Kind { get { return default(System.Management.Automation.Language.TokenKind); } }
     public string Text { get { return default(string); } }
-    public System.Management.Automation.Language.TokenFlags TokenFlags { get { return default(System.Management.Automation.Language.TokenFlags); } set { } }
+    public System.Management.Automation.Language.TokenFlags TokenFlags { get { return default(System.Management.Automation.Language.TokenFlags); } internal set { } }
     public override string ToString (  ) { return default(string); }
 
   }
@@ -10014,8 +10039,8 @@ namespace System.Management.Automation.Language {
   public class TrapStatementAst : System.Management.Automation.Language.StatementAst {
     public TrapStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.TypeConstraintAst trapType, System.Management.Automation.Language.StatementBlockAst body): base (extent)  { }
 
-    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
-    public System.Management.Automation.Language.TypeConstraintAst TrapType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
+    public System.Management.Automation.Language.TypeConstraintAst TrapType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -10023,9 +10048,9 @@ namespace System.Management.Automation.Language {
   public class TryStatementAst : System.Management.Automation.Language.StatementAst {
     public TryStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.StatementBlockAst body, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.CatchClauseAst> catchClauses, System.Management.Automation.Language.StatementBlockAst @finally): base (extent)  { }
 
-    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CatchClauseAst> CatchClauses { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CatchClauseAst>); } set { } }
-    public System.Management.Automation.Language.StatementBlockAst Finally { get { return default(System.Management.Automation.Language.StatementBlockAst); } set { } }
+    public System.Management.Automation.Language.StatementBlockAst Body { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CatchClauseAst> CatchClauses { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.CatchClauseAst>); } private set { } }
+    public System.Management.Automation.Language.StatementBlockAst Finally { get { return default(System.Management.Automation.Language.StatementBlockAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -10049,14 +10074,14 @@ namespace System.Management.Automation.Language {
   public class TypeDefinitionAst : System.Management.Automation.Language.StatementAst {
     public TypeDefinitionAst(System.Management.Automation.Language.IScriptExtent extent, string name, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.MemberAst> members, System.Management.Automation.Language.TypeAttributes typeAttributes, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.TypeConstraintAst> baseTypes): base (extent)  { }
 
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst> BaseTypes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst>); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } private set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst> BaseTypes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.TypeConstraintAst>); } private set { } }
     public bool IsClass { get { return default(bool); } }
     public bool IsEnum { get { return default(bool); } }
     public bool IsInterface { get { return default(bool); } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.MemberAst> Members { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.MemberAst>); } set { } }
-    public string Name { get { return default(string); } set { } }
-    public System.Management.Automation.Language.TypeAttributes TypeAttributes { get { return default(System.Management.Automation.Language.TypeAttributes); } set { } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.MemberAst> Members { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.MemberAst>); } private set { } }
+    public string Name { get { return default(string); } private set { } }
+    public System.Management.Automation.Language.TypeAttributes TypeAttributes { get { return default(System.Management.Automation.Language.TypeAttributes); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -10065,7 +10090,7 @@ namespace System.Management.Automation.Language {
     public TypeExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ITypeName typeName): base (extent)  { }
 
     public override System.Type StaticType { get { return default(System.Type); } }
-    public System.Management.Automation.Language.ITypeName TypeName { get { return default(System.Management.Automation.Language.ITypeName); } set { } }
+    public System.Management.Automation.Language.ITypeName TypeName { get { return default(System.Management.Automation.Language.ITypeName); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -10074,7 +10099,7 @@ namespace System.Management.Automation.Language {
     public TypeName(System.Management.Automation.Language.IScriptExtent extent, string name) { }
     public TypeName(System.Management.Automation.Language.IScriptExtent extent, string name, string assembly) { }
 
-    public string AssemblyName { get { return default(string); } set { } }
+    public string AssemblyName { get { return default(string); } internal set { } }
     public System.Management.Automation.Language.IScriptExtent Extent { get { return default(System.Management.Automation.Language.IScriptExtent); } }
     public string FullName { get { return default(string); } }
     public bool IsArray { get { return default(bool); } }
@@ -10091,9 +10116,9 @@ namespace System.Management.Automation.Language {
   public class UnaryExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public UnaryExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.TokenKind tokenKind, System.Management.Automation.Language.ExpressionAst child): base (extent)  { }
 
-    public System.Management.Automation.Language.ExpressionAst Child { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ExpressionAst Child { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Type StaticType { get { return default(System.Type); } }
-    public System.Management.Automation.Language.TokenKind TokenKind { get { return default(System.Management.Automation.Language.TokenKind); } set { } }
+    public System.Management.Automation.Language.TokenKind TokenKind { get { return default(System.Management.Automation.Language.TokenKind); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -10101,7 +10126,7 @@ namespace System.Management.Automation.Language {
   public class UsingExpressionAst : System.Management.Automation.Language.ExpressionAst {
     public UsingExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.ExpressionAst expressionAst): base (extent)  { }
 
-    public System.Management.Automation.Language.ExpressionAst SubExpression { get { return default(System.Management.Automation.Language.ExpressionAst); } set { } }
+    public System.Management.Automation.Language.ExpressionAst SubExpression { get { return default(System.Management.Automation.Language.ExpressionAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public static System.Management.Automation.Language.VariableExpressionAst ExtractUsingVariable ( System.Management.Automation.Language.UsingExpressionAst usingExpressionAst ) { return default(System.Management.Automation.Language.VariableExpressionAst); }
 
@@ -10113,10 +10138,10 @@ namespace System.Management.Automation.Language {
     public UsingStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.UsingStatementKind kind, System.Management.Automation.Language.StringConstantExpressionAst aliasName, System.Management.Automation.Language.StringConstantExpressionAst resolvedAliasAst): base (extent)  { }
     public UsingStatementAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.StringConstantExpressionAst aliasName, System.Management.Automation.Language.HashtableAst moduleSpecification): base (extent)  { }
 
-    public System.Management.Automation.Language.StringConstantExpressionAst Alias { get { return default(System.Management.Automation.Language.StringConstantExpressionAst); } set { } }
-    public System.Management.Automation.Language.HashtableAst ModuleSpecification { get { return default(System.Management.Automation.Language.HashtableAst); } set { } }
-    public System.Management.Automation.Language.StringConstantExpressionAst Name { get { return default(System.Management.Automation.Language.StringConstantExpressionAst); } set { } }
-    public System.Management.Automation.Language.UsingStatementKind UsingStatementKind { get { return default(System.Management.Automation.Language.UsingStatementKind); } set { } }
+    public System.Management.Automation.Language.StringConstantExpressionAst Alias { get { return default(System.Management.Automation.Language.StringConstantExpressionAst); } private set { } }
+    public System.Management.Automation.Language.HashtableAst ModuleSpecification { get { return default(System.Management.Automation.Language.HashtableAst); } private set { } }
+    public System.Management.Automation.Language.StringConstantExpressionAst Name { get { return default(System.Management.Automation.Language.StringConstantExpressionAst); } private set { } }
+    public System.Management.Automation.Language.UsingStatementKind UsingStatementKind { get { return default(System.Management.Automation.Language.UsingStatementKind); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
   }
@@ -10133,8 +10158,8 @@ namespace System.Management.Automation.Language {
     public VariableExpressionAst(System.Management.Automation.Language.IScriptExtent extent, string variableName, bool splatted) : base (extent) { }
     public VariableExpressionAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.VariablePath variablePath, bool splatted) : base (extent) { }
 
-    public bool Splatted { get { return default(bool); } set { } }
-    public System.Management.Automation.VariablePath VariablePath { get { return default(System.Management.Automation.VariablePath); } set { } }
+    public bool Splatted { get { return default(bool); } private set { } }
+    public System.Management.Automation.VariablePath VariablePath { get { return default(System.Management.Automation.VariablePath); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public bool IsConstantVariable (  ) { return default(bool); }
 
@@ -10143,7 +10168,7 @@ namespace System.Management.Automation.Language {
   public class VariableToken : System.Management.Automation.Language.Token {
     internal VariableToken() { }
     public string Name { get { return default(string); } }
-    public System.Management.Automation.VariablePath VariablePath { get { return default(System.Management.Automation.VariablePath); } set { } }
+    public System.Management.Automation.VariablePath VariablePath { get { return default(System.Management.Automation.VariablePath); } private set { } }
   }
 
   public class WhileStatementAst : System.Management.Automation.Language.LoopStatementAst {
@@ -10292,15 +10317,15 @@ namespace System.Management.Automation.Internal {
   public sealed class PSEmbeddedMonitorRunspaceInfo : System.Management.Automation.Internal.PSMonitorRunspaceInfo {
     public PSEmbeddedMonitorRunspaceInfo(System.Management.Automation.Runspaces.Runspace runspace, System.Management.Automation.Internal.PSMonitorRunspaceType runspaceType, System.Management.Automation.PowerShell command, System.Guid parentDebuggerId) : base ( runspace, runspaceType) { }
 
-    public System.Management.Automation.PowerShell Command { get { return default(System.Management.Automation.PowerShell); } set { } }
-    public System.Guid ParentDebuggerId { get { return default(System.Guid); } set { } }
+    public System.Management.Automation.PowerShell Command { get { return default(System.Management.Automation.PowerShell); } private set { } }
+    public System.Guid ParentDebuggerId { get { return default(System.Guid); } private set { } }
   }
 
   public abstract class PSMonitorRunspaceInfo {
     protected PSMonitorRunspaceInfo(System.Management.Automation.Runspaces.Runspace runspace, System.Management.Automation.Internal.PSMonitorRunspaceType runspaceType) { }
 
-    public System.Management.Automation.Runspaces.Runspace Runspace { get { return default(System.Management.Automation.Runspaces.Runspace); } }
-    public System.Management.Automation.Internal.PSMonitorRunspaceType RunspaceType { get { return default(System.Management.Automation.Internal.PSMonitorRunspaceType); } }
+    public System.Management.Automation.Runspaces.Runspace Runspace { get { return default(System.Management.Automation.Runspaces.Runspace); } private set { } }
+    public System.Management.Automation.Internal.PSMonitorRunspaceType RunspaceType { get { return default(System.Management.Automation.Internal.PSMonitorRunspaceType); } private set { } }
   }
 
   public enum PSMonitorRunspaceType {
@@ -10411,6 +10436,7 @@ namespace Microsoft.PowerShell.Cmdletization {
 
   }
 
+  /*
   public abstract class SessionBasedCmdletAdapter<TObjectInstance,TSession> : Microsoft.PowerShell.Cmdletization.CmdletAdapter<TObjectInstance>, System.IDisposable
       where TObjectInstance : class
       where TSession : class {
@@ -10430,6 +10456,7 @@ namespace Microsoft.PowerShell.Cmdletization {
     public override void StopProcessing (  ) { }
 
   }
+  */
 
 }
 namespace Microsoft.PowerShell.Cmdletization.Xml {
