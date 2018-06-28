@@ -8555,17 +8555,6 @@ namespace System.Management.Automation.Runspaces {
 
   }
 
-  /*
-  public sealed class VMConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
-    public override System.Management.Automation.Runspaces.AuthenticationMechanism AuthenticationMechanism { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } }
-    public override string CertificateThumbprint { get { return default(string); } }
-    public override string ComputerName { get { return default(string); } }
-    public string ConfigurationName { get { return default(string); } set { } }
-    public override System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } }
-    public System.Guid VMGuid { get { return default(System.Guid); } set { } }
-  }
-  */
-
   public sealed class WSManConnectionInfo : System.Management.Automation.Runspaces.RunspaceConnectionInfo {
     public WSManConnectionInfo(string scheme, string computerName, int port, string appName, string shellUri, System.Management.Automation.PSCredential credential, int openTimeout) { }
     public WSManConnectionInfo(string scheme, string computerName, int port, string appName, string shellUri, System.Management.Automation.PSCredential credential) { }
@@ -8615,16 +8604,7 @@ namespace System.Management.Automation.Language {
   internal partial interface IParameterMetadataProvider {
     System.Management.Automation.Language.ScriptBlockAst Body { get; }
     System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get; }
-/*
-
-    System.Management.Automation.RuntimeDefinedParameterDictionary GetParameterMetadata ( bool automaticPositions, ref bool usesCmdletBinding );
-    System.Management.Automation.PowerShell GetPowerShell ( System.Management.Automation.ExecutionContext context, System.Collections.Generic.Dictionary<string, object> variables, bool isTrustedInput, bool filterNonUsingVariables, System.Nullable<bool> createLocalScope, object[] args );
-    System.Collections.Generic.IEnumerable<System.Attribute> GetScriptBlockAttributes (  );
-    string GetWithInputHandlingForInvokeCommand (  );
-    System.Tuple<System.String,System.String> GetWithInputHandlingForInvokeCommandWithUsingExpression ( System.Tuple<System.Collections.Generic.List<System.Management.Automation.Language.VariableExpressionAst>, string> usingVariablesTuple );
-    bool HasAnyScriptBlockAttributes (  );
-    bool UsesCmdletBinding (  );
-    */
+    // internal methods not included
   }
 
   public class ArrayExpressionAst : System.Management.Automation.Language.ExpressionAst {
@@ -10436,29 +10416,8 @@ namespace Microsoft.PowerShell.Cmdletization {
 
   }
 
-  /*
-  public abstract class SessionBasedCmdletAdapter<TObjectInstance,TSession> : Microsoft.PowerShell.Cmdletization.CmdletAdapter<TObjectInstance>, System.IDisposable
-      where TObjectInstance : class
-      where TSession : class {
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter AsJob { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public virtual int ThrottleLimit { get { return default(int); } set { } }
-    public override void BeginProcessing (  ) { }
-    public virtual void Dispose (  ) { }
-    protected virtual void Dispose ( bool disposing ) { }
-    public override void EndProcessing (  ) { }
-    protected virtual string GenerateParentJobName (  ) { return default(string); }
-    public override void ProcessRecord ( Microsoft.PowerShell.Cmdletization.QueryBuilder query ) { }
-    public override void ProcessRecord ( TObjectInstance objectInstance, Microsoft.PowerShell.Cmdletization.MethodInvocationInfo methodInvocationInfo, bool passThru ) { }
-    public override void ProcessRecord ( Microsoft.PowerShell.Cmdletization.MethodInvocationInfo methodInvocationInfo ) { }
-    public override void ProcessRecord ( Microsoft.PowerShell.Cmdletization.QueryBuilder query, Microsoft.PowerShell.Cmdletization.MethodInvocationInfo methodInvocationInfo, bool passThru ) { }
-    public override void StopProcessing (  ) { }
-
-  }
-  */
-
 }
+
 namespace Microsoft.PowerShell.Cmdletization.Xml {
      [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17929")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace = "http://schemas.microsoft.com/cmdlets-over-objects/2009/11")]
