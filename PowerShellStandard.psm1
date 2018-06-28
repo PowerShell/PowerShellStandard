@@ -34,6 +34,7 @@ function Start-Clean {
             }
         }
     }
+    Remove-Item "${PSScriptRoot}/*.nupkg"
 }
 
 function Invoke-Test {
@@ -66,10 +67,10 @@ function Export-NuGetPackage
             Push-Location $srcDir
             $result = dotnet pack
             if ( $? ) {
-                Copy-Item (Join-Path $srcDir "bin/Debug/PowerShellStandard*.nupkg") $PsScriptRoot
+                Copy-Item -verbose:$true (Join-Path $srcDir "bin/Debug/PowerShellStandard.Library*.nupkg") $PsScriptRoot
             }
             else {
-                Write-Error -Message $result
+                Write-Error -Message "$result"
             }
         }
         finally {
@@ -82,10 +83,10 @@ function Export-NuGetPackage
         Push-Location $templateDir
         $result = dotnet pack
         if ( $? ) {
-            Copy-Item (Join-Path $templateDir "bin/Debug/*.nupkg") $PsScriptRoot
+            Copy-Item -verbose:$true (Join-Path $templateDir "bin/Debug/*.nupkg") $PsScriptRoot
         }
         else {
-            Write-Error -Message $result
+            Write-Error -Message "$result"
         }
     }
     finally {

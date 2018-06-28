@@ -3,15 +3,15 @@
   <metadata>
     <id>PowerShellStandard.Library</id>
     <version>5.1.0-preview-04</version>
-    <title>PowerShellStandard.Library</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
     <projectUrl>https://github.com/PowerShell/PowerShellStandard</projectUrl>
-    <iconUrl>https://secure.gravatar.com/avatar/cfba7016de8e12d5b3017130f75ef8ed</iconUrl>
+    <iconUrl>https://github.com/PowerShell/PowerShell/blob/master/assets/Powershell_64.png</iconUrl>
+    <licenseUrl>https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Contains the reference assemblies for PowerShell Standard 5</description>
-    <copyright>Copyright Microsoft Corporation 2018. All rights reserved.</copyright>
-    <tags>PowerShell, netstandard2, netstandard2.0</tags>
+    <copyright>(c) Microsoft Corporation. All rights reserved.</copyright>
+    <tags>PowerShell, reference, netstandard2, netstandard2.0</tags>
     <references>
       <reference file="System.Management.Automation.dll" />
     </references>
