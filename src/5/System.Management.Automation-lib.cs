@@ -3161,7 +3161,6 @@ namespace System.Management.Automation {
     public bool ShouldProcess ( string verboseDescription, string verboseWarning, string caption ) { return default(bool); }
     protected virtual void StopProcessing (  ) { }
     public void ThrowTerminatingError ( System.Management.Automation.ErrorRecord errorRecord ) { }
-    public bool TransactionAvailable (  ) { return default(bool); }
     public void WriteCommandDetail ( string text ) { }
     public void WriteDebug ( string text ) { }
     public void WriteError ( System.Management.Automation.ErrorRecord errorRecord ) { }
@@ -4104,7 +4103,6 @@ namespace System.Management.Automation {
      bool ShouldProcess ( string target, string action );
      bool ShouldProcess ( string target );
      void ThrowTerminatingError ( System.Management.Automation.ErrorRecord errorRecord );
-     bool TransactionAvailable (  );
      void WriteCommandDetail ( string text );
      void WriteDebug ( string text );
      void WriteError ( System.Management.Automation.ErrorRecord errorRecord );
@@ -7150,7 +7148,6 @@ namespace System.Management.Automation.Provider {
     protected virtual void Stop (  ) { }
     protected internal virtual void StopProcessing (  ) { }
     public void ThrowTerminatingError ( System.Management.Automation.ErrorRecord errorRecord ) { }
-    public bool TransactionAvailable (  ) { return default(bool); }
     public void WriteDebug ( string text ) { }
     public void WriteError ( System.Management.Automation.ErrorRecord errorRecord ) { }
     public void WriteInformation ( System.Management.Automation.InformationRecord record ) { }
