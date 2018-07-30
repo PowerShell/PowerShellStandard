@@ -3161,6 +3161,7 @@ namespace System.Management.Automation {
     public bool ShouldProcess ( string verboseDescription, string verboseWarning, string caption ) { return default(bool); }
     protected virtual void StopProcessing (  ) { }
     public void ThrowTerminatingError ( System.Management.Automation.ErrorRecord errorRecord ) { }
+    public bool TransactionAvailable (  ) { return default(bool); }
     public void WriteCommandDetail ( string text ) { }
     public void WriteDebug ( string text ) { }
     public void WriteError ( System.Management.Automation.ErrorRecord errorRecord ) { }
@@ -4098,6 +4099,8 @@ namespace System.Management.Automation {
 
      bool ShouldContinue ( string query, string caption, ref bool yesToAll, ref bool noToAll );
      bool ShouldContinue ( string query, string caption );
+     bool TransactionAvailable ( );
+     PSTransactionContext CurrentPSTransaction { get; }
      bool ShouldProcess ( string verboseDescription, string verboseWarning, string caption, out System.Management.Automation.ShouldProcessReason shouldProcessReason );
      bool ShouldProcess ( string verboseDescription, string verboseWarning, string caption );
      bool ShouldProcess ( string target, string action );
@@ -6162,6 +6165,12 @@ namespace System.Management.Automation {
     WriteLine = 4096,
   }
 
+  public sealed class PSTransactionContext : System.IDisposable {
+    internal PSTransactionContext() { }
+    public void Dispose() { }
+    ~PSTransactionContext() { }
+  }
+
   public abstract class PSTransportOption : System.ICloneable {
     protected PSTransportOption() { }
 
@@ -7148,6 +7157,8 @@ namespace System.Management.Automation.Provider {
     protected virtual void Stop (  ) { }
     protected internal virtual void StopProcessing (  ) { }
     public void ThrowTerminatingError ( System.Management.Automation.ErrorRecord errorRecord ) { }
+    public bool TransactionAvailable (  ) { return default(bool); }
+    public PSTransactionContext CurrentPSTransaction { get { return default(PSTransactionContext); } }
     public void WriteDebug ( string text ) { }
     public void WriteError ( System.Management.Automation.ErrorRecord errorRecord ) { }
     public void WriteInformation ( System.Management.Automation.InformationRecord record ) { }
