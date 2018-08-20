@@ -9195,7 +9195,7 @@ namespace System.Management.Automation.Language {
     public bool IsFilter { get { return default(bool); } private set { } }
     public bool IsWorkflow { get { return default(bool); } private set { } }
     public string Name { get { return default(string); } private set { } }
-    System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> System.Management.Automation.Language.IParameterMetadataProvider.Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent ( System.Collections.Generic.Dictionary<System.Management.Automation.Language.Ast, System.Management.Automation.Language.Token[]> scriptBlockTokenCache ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent (  ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
@@ -9206,7 +9206,7 @@ namespace System.Management.Automation.Language {
     public FunctionMemberAst(System.Management.Automation.Language.IScriptExtent extent, System.Management.Automation.Language.FunctionDefinitionAst functionDefinitionAst, System.Management.Automation.Language.TypeConstraintAst returnType, System.Collections.Generic.IEnumerable<System.Management.Automation.Language.AttributeAst> attributes, System.Management.Automation.Language.MethodAttributes methodAttributes) : base(extent) { }
 
     public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst> Attributes { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.AttributeAst>); } private set { } }
-    System.Management.Automation.Language.ScriptBlockAst System.Management.Automation.Language.IParameterMetadataProvider.Body { get { return default(System.Management.Automation.Language.ScriptBlockAst); } }
+    public System.Management.Automation.Language.ScriptBlockAst Body { get { return default(System.Management.Automation.Language.ScriptBlockAst); } }
     public bool IsConstructor { get { return default(bool); } }
     public bool IsHidden { get { return default(bool); } }
     public bool IsPrivate { get { return default(bool); } }
@@ -9214,7 +9214,7 @@ namespace System.Management.Automation.Language {
     public bool IsStatic { get { return default(bool); } }
     public System.Management.Automation.Language.MethodAttributes MethodAttributes { get { return default(System.Management.Automation.Language.MethodAttributes); } private set { } }
     public override string Name { get { return default(string); } }
-    System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> System.Management.Automation.Language.IParameterMetadataProvider.Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
     public System.Management.Automation.Language.TypeConstraintAst ReturnType { get { return default(System.Management.Automation.Language.TypeConstraintAst); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
 
