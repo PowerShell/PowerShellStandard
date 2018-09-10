@@ -5524,7 +5524,7 @@ namespace System.Management.Automation {
     public System.Management.Automation.PSEventSubscriber EventSubscriber { get { return default(System.Management.Automation.PSEventSubscriber); } internal set { } }
   }
 
-  public delegate void PSEventUnsubscribedEventHandler(object sender, System.Management.Automation.PSEventArgs e);
+  public delegate void PSEventUnsubscribedEventHandler(object sender, System.Management.Automation.PSEventUnsubscribedEventArgs e);
 
     [System.SerializableAttribute]
    public class PSInvalidCastException : System.InvalidCastException, System.Management.Automation.IContainsErrorRecord {
