@@ -1,5 +1,6 @@
 namespace Microsoft.PowerShell {
   public sealed class DeserializingTypeConverter : System.Management.Automation.PSTypeConverter {
+    static DeserializingTypeConverter() { }
     public DeserializingTypeConverter() { }
 
     public override bool CanConvertFrom ( System.Management.Automation.PSObject sourceValue, System.Type destinationType ) { return default(bool); }
@@ -108,94 +109,6 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-   [System.Management.Automation.CmdletAttribute("Connect", "PSSession", DefaultParameterSetName = "Name", SupportsShouldProcess = true, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=210604", RemotingCapability = (System.Management.Automation.RemotingCapability)3)]
-   [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Management.Automation.Runspaces.PSSession)})]
-   public class ConnectPSSessionCommand : Microsoft.PowerShell.Commands.PSRunspaceCmdlet, System.IDisposable {
-    public ConnectPSSessionCommand() { }
-
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    public System.Management.Automation.SwitchParameter AllowRedirection { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName", ValueFromPipelineByPropertyName=true)]
-    public string ApplicationName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid")]
-    public System.Management.Automation.Runspaces.AuthenticationMechanism Authentication { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid")]
-    public string CertificateThumbprint { get { return default(string); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[] {"Cn"})]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ComputerName", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public override string[] ComputerName { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid", ValueFromPipelineByPropertyName=true)]
-    public string ConfigurationName { get { return default(string); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[] {"URI","CU"})]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ConnectionUriGuid", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ConnectionUri", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Uri[] ConnectionUri { get { return default(System.Uri[]); } set { } }
-    public override string[] ContainerId { get { return default(string[]); } }
-    [System.Management.Automation.CredentialAttribute]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public override System.Guid[] InstanceId { get { return default(System.Guid[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Name", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public override string[] Name { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    [System.Management.Automation.ValidateRangeAttribute(1, 65535)]
-    public int Port { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "Session", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.Runspaces.PSSession[] Session { get { return default(System.Management.Automation.Runspaces.PSSession[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid")]
-    public System.Management.Automation.Remoting.PSSessionOption SessionOption { get { return default(System.Management.Automation.Remoting.PSSessionOption); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Id")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUri")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Name")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId")]
-    public int ThrottleLimit { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerNameGuid")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerName")]
-    public System.Management.Automation.SwitchParameter UseSSL { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    public override System.Guid[] VMId { get { return default(System.Guid[]); } }
-    public override string[] VMName { get { return default(string[]); } }
-
-    protected override void BeginProcessing (  ) { }
-    public void Dispose (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-    protected override void StopProcessing (  ) { }
-
-  }
-
    [System.Management.Automation.CmdletAttribute("Debug", "Job", DefaultParameterSetName = "JobParameterSet", SupportsShouldProcess = true, HelpUri = "https://go.microsoft.com/fwlink/?LinkId=330208")]
    public sealed class DebugJobCommand : System.Management.Automation.PSCmdlet {
     public DebugJobCommand() { }
@@ -208,135 +121,6 @@ namespace Microsoft.PowerShell.Commands {
     public System.Management.Automation.Job Job { get { return default(System.Management.Automation.Job); } set { } }
     [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "JobNameParameterSet", Mandatory=true)]
     public string Name { get { return default(string); } set { } }
-
-    protected override void EndProcessing (  ) { }
-    protected override void StopProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Disable", "PSRemoting", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)2, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144298")]
-   public sealed class DisablePSRemotingCommand : System.Management.Automation.PSCmdlet {
-    public DisablePSRemotingCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Disable", "PSSessionConfiguration", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)1, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144299")]
-   public sealed class DisablePSSessionConfigurationCommand : System.Management.Automation.PSCmdlet {
-    public DisablePSSessionConfigurationCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string[] Name { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoServiceRestart { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-
-  }
-
-  [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Management.Automation.Runspaces.PSSession)})]
-    [System.Management.Automation.CmdletAttribute("Disconnect", "PSSession", DefaultParameterSetName = "Session", SupportsShouldProcess = true, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=210605", RemotingCapability = (System.Management.Automation.RemotingCapability)3)]
-   public class DisconnectPSSessionCommand : Microsoft.PowerShell.Commands.PSRunspaceCmdlet, System.IDisposable {
-    public DisconnectPSSessionCommand() { }
-
-    public override string[] ComputerName { get { return default(string[]); } set { } }
-    public override string[] ContainerId { get { return default(string[]); } }
-
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Id")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Name")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId")]
-    [System.Management.Automation.ValidateRangeAttribute(0, 2147483647)]
-    public int IdleTimeoutSec { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Name")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Id")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId")]
-    public System.Management.Automation.Runspaces.OutputBufferingMode OutputBufferingMode { get { return default(System.Management.Automation.Runspaces.OutputBufferingMode); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "Session", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.Runspaces.PSSession[] Session { get { return default(System.Management.Automation.Runspaces.PSSession[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Id")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Name")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId")]
-    public int ThrottleLimit { get { return default(int); } set { } }
-
-    public override System.Guid[] VMId { get { return default(System.Guid[]); } }
-    public override string[] VMName { get { return default(string[]); } }
-    protected override void BeginProcessing (  ) { }
-    public void Dispose (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-    protected override void StopProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Enable", "PSRemoting", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)2, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144300")]
-   public sealed class EnablePSRemotingCommand : System.Management.Automation.PSCmdlet {
-    public EnablePSRemotingCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter SkipNetworkProfileCheck { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Enable", "PSSessionConfiguration", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)2, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144301")]
-   public sealed class EnablePSSessionConfigurationCommand : System.Management.Automation.PSCmdlet {
-    public EnablePSSessionConfigurationCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string[] Name { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoServiceRestart { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string SecurityDescriptorSddl { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter SkipNetworkProfileCheck { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Enter", "PSHostProcess", DefaultParameterSetName = "ProcessIdParameterSet", HelpUri = "https://go.microsoft.com/fwlink/?LinkId=403736")]
-   public sealed class EnterPSHostProcessCommand : System.Management.Automation.PSCmdlet {
-    public EnterPSHostProcessCommand() { }
-
-    [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "ProcessParameterSet")]
-    [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "ProcessIdParameterSet")]
-    [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "ProcessNameParameterSet")]
-    [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "PSHostProcessInfoParameterSet")]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string AppDomainName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "PSHostProcessInfoParameterSet", Mandatory=true, ValueFromPipeline=true)]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public Microsoft.PowerShell.Commands.PSHostProcessInfo HostProcessInfo { get { return default(Microsoft.PowerShell.Commands.PSHostProcessInfo); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ProcessIdParameterSet", Mandatory=true)]
-    [System.Management.Automation.ValidateRangeAttribute(0, 2147483647)]
-    public int Id { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ProcessNameParameterSet", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string Name { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ProcessParameterSet", Mandatory=true, ValueFromPipeline=true)]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public System.Diagnostics.Process Process { get { return default(System.Diagnostics.Process); } set { } }
 
     protected override void EndProcessing (  ) { }
     protected override void StopProcessing (  ) { }
@@ -410,14 +194,6 @@ namespace Microsoft.PowerShell.Commands {
 
     public const string ProviderName = "Environment";
     protected override System.Collections.ObjectModel.Collection<System.Management.Automation.PSDriveInfo> InitializeDefaultDrives (  ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSDriveInfo>); }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Exit", "PSHostProcess", HelpUri = "https://go.microsoft.com/fwlink/?LinkId=403737")]
-   public sealed class ExitPSHostProcessCommand : System.Management.Automation.PSCmdlet {
-    public ExitPSHostProcessCommand() { }
-
-    protected override void ProcessRecord (  ) { }
 
   }
 
@@ -823,39 +599,6 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-   [System.Management.Automation.CmdletAttribute("Get", "PSHostProcessInfo", DefaultParameterSetName = "ProcessNameParameterSet", HelpUri = "https://go.microsoft.com/fwlink/?LinkId=517012")]
-   [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(Microsoft.PowerShell.Commands.PSHostProcessInfo)})]
-   public sealed class GetPSHostProcessInfoCommand : System.Management.Automation.PSCmdlet {
-    public GetPSHostProcessInfoCommand() { }
-
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ProcessIdParameterSet", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Int32[] Id { get { return default(System.Int32[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ProcessNameParameterSet")]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string[] Name { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ProcessParameterSet", Mandatory=true, ValueFromPipeline=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Diagnostics.Process[] Process { get { return default(System.Diagnostics.Process[]); } set { } }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Get", "PSSessionCapability", HelpUri = "https://go.microsoft.com/fwlink/?LinkId=623709")]
-   [System.Management.Automation.OutputTypeAttribute(new System.Type[2] { typeof(System.Management.Automation.CommandInfo), typeof(System.Management.Automation.Runspaces.InitialSessionState) })]
-   public sealed class GetPSSessionCapabilityCommand : System.Management.Automation.PSCmdlet {
-    public GetPSSessionCapabilityCommand() { }
-
-    [System.Management.Automation.ParameterAttribute(Position = 0, Mandatory=true)]
-    public string ConfigurationName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Full { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 1, Mandatory=true)]
-    public string Username { get { return default(string); } set { } }
-
-    protected override void BeginProcessing (  ) { }
-
-  }
-
   [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Management.Automation.Runspaces.PSSession)})]
     [System.Management.Automation.CmdletAttribute("Get", "PSSession", DefaultParameterSetName = "Name", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=135219", RemotingCapability = (System.Management.Automation.RemotingCapability)3)]
    public class GetPSSessionCommand : Microsoft.PowerShell.Commands.PSRunspaceCmdlet, System.IDisposable {
@@ -954,21 +697,6 @@ namespace Microsoft.PowerShell.Commands {
     protected override void EndProcessing (  ) { }
     protected override void ProcessRecord (  ) { }
     protected override void StopProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Get", "PSSessionConfiguration", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144304")]
-   [System.Management.Automation.OutputTypeAttribute(new string[] { "Microsoft.PowerShell.Commands.PSSessionConfigurationCommands#PSSessionConfiguration"})]
-   public sealed class GetPSSessionConfigurationCommand : System.Management.Automation.PSCmdlet {
-    public GetPSSessionConfigurationCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, Mandatory=false)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string[] Name { get { return default(string[]); } set { } }
-    protected override void BeginProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
 
   }
 
@@ -1596,154 +1324,6 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-   [System.Management.Automation.CmdletAttribute("New", "PSSessionConfigurationFile", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=217036")]
-   public class NewPSSessionConfigurationFileCommand : System.Management.Automation.PSCmdlet {
-    public NewPSSessionConfigurationFileCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Collections.IDictionary[] AliasDefinitions { get { return default(System.Collections.IDictionary[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] AssembliesToLoad { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string Author { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string CompanyName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string Copyright { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string Description { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Collections.IDictionary EnvironmentVariables { get { return default(System.Collections.IDictionary); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public Microsoft.PowerShell.ExecutionPolicy ExecutionPolicy { get { return default(Microsoft.PowerShell.ExecutionPolicy); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] FormatsToProcess { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Full { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Collections.IDictionary[] FunctionDefinitions { get { return default(System.Collections.IDictionary[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string GroupManagedServiceAccount { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Guid Guid { get { return default(System.Guid); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.PSLanguageMode LanguageMode { get { return default(System.Management.Automation.PSLanguageMode); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public object[] ModulesToImport { get { return default(object[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter MountUserDrive { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string Path { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Version PowerShellVersion { get { return default(System.Version); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Collections.IDictionary RequiredGroups { get { return default(System.Collections.IDictionary); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Collections.IDictionary RoleDefinitions { get { return default(System.Collections.IDictionary); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter RunAsVirtualAccount { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] RunAsVirtualAccountGroups { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public System.Version SchemaVersion { get { return default(System.Version); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] ScriptsToProcess { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.Remoting.SessionType SessionType { get { return default(System.Management.Automation.Remoting.SessionType); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string TranscriptDirectory { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] TypesToProcess { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public long UserDriveMaximumSize { get { return default(long); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public object VariableDefinitions { get { return default(object); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] VisibleAliases { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public object[] VisibleCmdlets { get { return default(object[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] VisibleExternalCommands { get { return default(string[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public object[] VisibleFunctions { get { return default(object[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string[] VisibleProviders { get { return default(string[]); } set { } }
-
-    protected override void ProcessRecord (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("New", "PSSessionOption", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144305", RemotingCapability = (System.Management.Automation.RemotingCapability)0)]
-   [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Management.Automation.Remoting.PSSessionOption)})]
-   public sealed class NewPSSessionOptionCommand : System.Management.Automation.PSCmdlet {
-    public NewPSSessionOptionCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public System.Management.Automation.PSPrimitiveDictionary ApplicationArguments { get { return default(System.Management.Automation.PSPrimitiveDictionary); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[1] { "CancelTimeoutMSec" })]
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateRangeAttribute(0, 2147483647)]
-    public int CancelTimeout { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public System.Globalization.CultureInfo Culture { get { return default(System.Globalization.CultureInfo); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[1] { "IdleTimeoutMSec" })]
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateRangeAttribute(-1, 2147483647)]
-    public int IdleTimeout { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter IncludePortInSPN { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateRangeAttribute(0, 2147483647)]
-    public int MaxConnectionRetryCount { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public int MaximumReceivedDataSizePerCommand { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public int MaximumReceivedObjectSize { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public int MaximumRedirection { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoCompression { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoEncryption { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoMachineProfile { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[1] { "OpenTimeoutMSec" })]
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateRangeAttribute(0, 2147483647)]
-    public int OpenTimeout { get { return default(int); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[1] { "OperationTimeoutMSec" })]
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateRangeAttribute(0, 2147483647)]
-    public int OperationTimeout { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.Runspaces.OutputBufferingMode OutputBufferingMode { get { return default(System.Management.Automation.Runspaces.OutputBufferingMode); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.Remoting.ProxyAccessType ProxyAccessType { get { return default(System.Management.Automation.Remoting.ProxyAccessType); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.Runspaces.AuthenticationMechanism ProxyAuthentication { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } set { } }
-    [System.Management.Automation.CredentialAttribute]
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.PSCredential ProxyCredential { get { return default(System.Management.Automation.PSCredential); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter SkipCACheck { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter SkipCNCheck { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter SkipRevocationCheck { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullAttribute]
-    public System.Globalization.CultureInfo UICulture { get { return default(System.Globalization.CultureInfo); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter UseUTF16 { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    protected override void BeginProcessing (  ) { }
-
-  }
 
    [System.Management.Automation.CmdletAttribute("New", "PSTransportOption", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=210608", RemotingCapability = (System.Management.Automation.RemotingCapability)0)]
    [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(Microsoft.PowerShell.Commands.WSManConfigurationOption)})]
@@ -1862,12 +1442,6 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-  public enum OutTarget {
-    Default = 0,
-    Host = 1,
-    Job = 2,
-  }
-
   public class PSEditionArgumentCompleter : System.Management.Automation.IArgumentCompleter {
     public PSEditionArgumentCompleter() { }
 
@@ -1920,13 +1494,6 @@ namespace Microsoft.PowerShell.Commands {
     protected virtual void CreateHelpersForSpecifiedContainerSession (  ) { }
     protected virtual void CreateHelpersForSpecifiedVMSession (  ) { }
 
-  }
-
-  public sealed class PSHostProcessInfo {
-    internal PSHostProcessInfo() { }
-    public string AppDomainName { get { return default(string); } private set { } }
-    public int ProcessId { get { return default(int); } private set { } }
-    public string ProcessName { get { return default(string); } private set { } }
   }
 
   public abstract class PSRemotingBaseCmdlet : Microsoft.PowerShell.Commands.PSRemotingCmdlet {
@@ -2045,64 +1612,6 @@ namespace Microsoft.PowerShell.Commands {
     protected System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession> GetMatchingRunspacesByRunspaceId(bool writeErrorOnNoMatch) { return default(System.Collections.Generic.Dictionary<System.Guid, System.Management.Automation.Runspaces.PSSession>); }
   }
 
-  public class PSSessionConfigurationCommandBase : System.Management.Automation.PSCmdlet {
-    internal PSSessionConfigurationCommandBase() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.Runspaces.PSSessionConfigurationAccessMode AccessMode { get { return default(System.Management.Automation.Runspaces.PSSessionConfigurationAccessMode); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "NameParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "AssemblyNameParameterSet")]
-    public string ApplicationBase { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 1, ParameterSetName = "AssemblyNameParameterSet", Mandatory=true)]
-    public string AssemblyName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 2, ParameterSetName = "AssemblyNameParameterSet", Mandatory=true)]
-    public string ConfigurationTypeName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.AllowNullAttribute]
-    [System.Management.Automation.ParameterAttribute]
-    public System.Nullable<double> MaximumReceivedDataSizePerCommandMB { get { return default(System.Nullable<double>); } set { } }
-    [System.Management.Automation.AllowNullAttribute]
-    [System.Management.Automation.ParameterAttribute]
-    public System.Nullable<double> MaximumReceivedObjectSizeMB { get { return default(System.Nullable<double>); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "NameParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "AssemblyNameParameterSet")]
-    public object[] ModulesToImport { get { return default(object[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "AssemblyNameParameterSet", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "SessionConfigurationFile", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "NameParameterSet", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string Name { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoServiceRestart { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SessionConfigurationFile", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string Path { get { return default(string); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[] {"PowerShellVersion"})]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "AssemblyNameParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "NameParameterSet")]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Version PSVersion { get { return default(System.Version); } set { } }
-    [System.Management.Automation.CredentialAttribute]
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.PSCredential RunAsCredential { get { return default(System.Management.Automation.PSCredential); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string SecurityDescriptorSddl { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "AssemblyNameParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "NameParameterSet")]
-    public System.Management.Automation.PSSessionTypeOption SessionTypeOption { get { return default(System.Management.Automation.PSSessionTypeOption); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter ShowSecurityDescriptorUI { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public string StartupScript { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.Runspaces.PSThreadOptions ThreadOptions { get { return default(System.Management.Automation.Runspaces.PSThreadOptions); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.PSTransportOption TransportOption { get { return default(System.Management.Automation.PSTransportOption); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter UseSharedProcess { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-  }
-
    [System.Management.Automation.CmdletAttribute("Receive", "Job", DefaultParameterSetName = "Location", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=113372", RemotingCapability = (System.Management.Automation.RemotingCapability)2)]
    public class ReceiveJobCommand : Microsoft.PowerShell.Commands.JobCmdletBase, System.IDisposable {
     public ReceiveJobCommand() { }
@@ -2144,117 +1653,6 @@ namespace Microsoft.PowerShell.Commands {
     protected override void EndProcessing (  ) { }
     protected override void ProcessRecord (  ) { }
     protected override void StopProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Receive", "PSSession", DefaultParameterSetName = "Session", SupportsShouldProcess = true, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=217037", RemotingCapability = (System.Management.Automation.RemotingCapability)3)]
-   public class ReceivePSSessionCommand : Microsoft.PowerShell.Commands.PSRemotingCmdlet {
-    public ReceivePSSessionCommand() { }
-
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    public System.Management.Automation.SwitchParameter AllowRedirection { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId", ValueFromPipelineByPropertyName=true)]
-    public string ApplicationName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    public System.Management.Automation.Runspaces.AuthenticationMechanism Authentication { get { return default(System.Management.Automation.Runspaces.AuthenticationMechanism); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    public string CertificateThumbprint { get { return default(string); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[] {"Cn"})]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ComputerSessionName", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ComputerInstanceId", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string ComputerName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName", ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId", ValueFromPipelineByPropertyName=true)]
-    public string ConfigurationName { get { return default(string); } set { } }
-    [System.Management.Automation.AliasAttribute(new string[] {"URI","CU"})]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ConnectionUriInstanceId", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "ConnectionUriSessionName", Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Uri ConnectionUri { get { return default(System.Uri); } set { } }
-    [System.Management.Automation.CredentialAttribute]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    public System.Management.Automation.PSCredential Credential { get { return default(System.Management.Automation.PSCredential); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "Id", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    public int Id { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "InstanceId", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Guid InstanceId { get { return default(System.Guid); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Id")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string JobName { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "SessionName", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName", Mandatory=true)]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName", Mandatory=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string Name { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Id")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "Session")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    public Microsoft.PowerShell.Commands.OutTarget OutTarget { get { return default(Microsoft.PowerShell.Commands.OutTarget); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ValidateRangeAttribute(1, 65535)]
-    public int Port { get { return default(int); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "Session", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.Runspaces.PSSession Session { get { return default(System.Management.Automation.Runspaces.PSSession); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ConnectionUriInstanceId")]
-    public System.Management.Automation.Remoting.PSSessionOption SessionOption { get { return default(System.Management.Automation.Remoting.PSSessionOption); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerSessionName")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "ComputerInstanceId")]
-    public System.Management.Automation.SwitchParameter UseSSL { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-
-    protected override void ProcessRecord (  ) { }
-    protected override void StopProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Register", "PSSessionConfiguration", DefaultParameterSetName = "NameParameterSet", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)2, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144306")]
-   public sealed class RegisterPSSessionConfigurationCommand : Microsoft.PowerShell.Commands.PSSessionConfigurationCommandBase {
-    public RegisterPSSessionConfigurationCommand() { }
-
-    [System.Management.Automation.AliasAttribute(new string[] {"PA"})]
-    [System.Management.Automation.ParameterAttribute]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    [System.Management.Automation.ValidateSetAttribute(new string[] {"x86","amd64"})]
-    public string ProcessorArchitecture { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "NameParameterSet")]
-    public System.Management.Automation.Runspaces.PSSessionType SessionType { get { return default(System.Management.Automation.Runspaces.PSSessionType); } set { } }
-
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
 
   }
 
@@ -2317,24 +1715,6 @@ namespace Microsoft.PowerShell.Commands {
     public override string[] VMName { get { return default(string[]); } set { } }
 
     protected override void ProcessRecord (  ) { }
-
-  }
-
-  [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Management.Automation.Job)})]
-   public class ResumeJobCommand : Microsoft.PowerShell.Commands.JobCmdletBase, System.IDisposable {
-    public ResumeJobCommand() { }
-
-    public override string[] Command { get { return default(string[]); } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "JobParameterSet", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.Job[] Job { get { return default(System.Management.Automation.Job[]); } set { } }
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "__AllParameterSets")]
-    public System.Management.Automation.SwitchParameter Wait { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-
-    public void Dispose (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-    protected override void StopProcessing (  ) { }
 
   }
 
@@ -2420,16 +1800,6 @@ namespace Microsoft.PowerShell.Commands {
     public int Trace { get { return default(int); } set { } }
 
     protected override void BeginProcessing (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Set", "PSSessionConfiguration", DefaultParameterSetName = "NameParameterSet", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)2, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144307")]
-   public sealed class SetPSSessionConfigurationCommand : Microsoft.PowerShell.Commands.PSSessionConfigurationCommandBase {
-    public SetPSSessionConfigurationCommand() { }
-
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
 
   }
 
@@ -2550,31 +1920,6 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-  public class SuspendJobCommand : Microsoft.PowerShell.Commands.JobCmdletBase, System.IDisposable {
-    public SuspendJobCommand() { }
-
-    public override string[] Command { get { return default(string[]); } }
-    [System.Management.Automation.AliasAttribute(new string[] {"F"})]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "FilterParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "JobParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "NameParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "SessionIdParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "InstanceIdParameterSet")]
-    [System.Management.Automation.ParameterAttribute(ParameterSetName = "StateParameterSet")]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, ParameterSetName = "JobParameterSet", Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public System.Management.Automation.Job[] Job { get { return default(System.Management.Automation.Job[]); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Wait { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-
-    public void Dispose (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-    protected override void StopProcessing (  ) { }
-
-  }
-
    [System.Management.Automation.CmdletAttribute("Test", "ModuleManifest", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=141557")]
    [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Management.Automation.PSModuleInfo)})]
    public sealed class TestModuleManifestCommand : Microsoft.PowerShell.Commands.ModuleCmdletBase {
@@ -2587,37 +1932,8 @@ namespace Microsoft.PowerShell.Commands {
 
   }
 
-   [System.Management.Automation.CmdletAttribute("Test", "PSSessionConfigurationFile", HelpUri = "https://go.microsoft.com/fwlink/?LinkID=217039")]
-   [System.Management.Automation.OutputTypeAttribute(new System.Type[] { typeof(System.Boolean)})]
-   public class TestPSSessionConfigurationFileCommand : System.Management.Automation.PSCmdlet {
-    public TestPSSessionConfigurationFileCommand() { }
-
-    [System.Management.Automation.ParameterAttribute(Position = 0, Mandatory=true, ValueFromPipeline=true, ValueFromPipelineByPropertyName=true)]
-    public string Path { get { return default(string); } set { } }
-
-    protected override void ProcessRecord (  ) { }
-
-  }
-
-   [System.Management.Automation.CmdletAttribute("Unregister", "PSSessionConfiguration", SupportsShouldProcess = true, ConfirmImpact = (System.Management.Automation.ConfirmImpact)1, HelpUri = "https://go.microsoft.com/fwlink/?LinkID=144308")]
-   public sealed class UnregisterPSSessionConfigurationCommand : System.Management.Automation.PSCmdlet {
-    public UnregisterPSSessionConfigurationCommand() { }
-
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter Force { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-    [System.Management.Automation.ParameterAttribute(Position = 0, Mandatory=true, ValueFromPipelineByPropertyName=true)]
-    [System.Management.Automation.ValidateNotNullOrEmptyAttribute]
-    public string Name { get { return default(string); } set { } }
-    [System.Management.Automation.ParameterAttribute]
-    public System.Management.Automation.SwitchParameter NoServiceRestart { get { return default(System.Management.Automation.SwitchParameter); } set { } }
-
-    protected override void BeginProcessing (  ) { }
-    protected override void EndProcessing (  ) { }
-    protected override void ProcessRecord (  ) { }
-
-  }
-
   public class UpdatableHelpCommandBase : System.Management.Automation.PSCmdlet {
+    static UpdatableHelpCommandBase() { }
     internal UpdatableHelpCommandBase() { }
 
     [System.Management.Automation.CredentialAttribute]
@@ -2872,13 +2188,7 @@ namespace Microsoft.PowerShell.Commands {
   }
 
 }
-namespace Microsoft.PowerShell.Commands.Internal {
-  public static class RemotingErrorResources {
-    public static string CouldNotResolveRoleDefinitionPrincipal { get { return default(string); } }
-    public static string WinRMRestartWarning { get { return default(string); } }
-  }
 
-}
 namespace Microsoft.PowerShell.Commands.Internal.Format {
   public abstract class FrontEndCommandBase : System.Management.Automation.PSCmdlet, System.IDisposable {
     protected FrontEndCommandBase() { }
@@ -3413,6 +2723,7 @@ namespace System.Management.Automation {
   }
 
   public static class CompletionCompleters {
+    static CompletionCompleters() { }
     public static System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult> CompleteCommand ( string commandName ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult>); }
     public static System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult> CompleteCommand ( string commandName, string moduleName, System.Management.Automation.CommandTypes commandTypes ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult>); }
     public static System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult> CompleteFilename ( string fileName ) { return default(System.Collections.Generic.IEnumerable<System.Management.Automation.CompletionResult>); }
@@ -3630,7 +2941,6 @@ namespace System.Management.Automation {
     public abstract void SetDebuggerAction ( System.Management.Automation.DebuggerResumeAction resumeAction );
     public virtual void SetDebuggerStepMode ( bool enabled ) { }
     public virtual void SetDebugMode ( System.Management.Automation.DebugModes mode ) { }
-    public virtual void SetParent ( System.Management.Automation.Debugger parent, System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakPoints, System.Nullable<System.Management.Automation.DebuggerResumeAction> startAction, System.Management.Automation.Host.PSHost host, System.Management.Automation.PathInfo path, System.Collections.Generic.Dictionary<string, System.Management.Automation.DebugSource> functionSourceMap ) { }
     public virtual void SetParent ( System.Management.Automation.Debugger parent, System.Collections.Generic.IEnumerable<System.Management.Automation.Breakpoint> breakPoints, System.Nullable<System.Management.Automation.DebuggerResumeAction> startAction, System.Management.Automation.Host.PSHost host, System.Management.Automation.PathInfo path ) { }
     public abstract void StopProcessCommand (  );
 
@@ -3681,14 +2991,6 @@ namespace System.Management.Automation {
     public DebugRecord(string message) { }
     public DebugRecord(System.Management.Automation.PSObject record) { }
 
-  }
-
-  public sealed class DebugSource {
-    public DebugSource(string script, string scriptFile, string xamlDefinition) { }
-
-    public string Script { get { return default(string); } private set { } }
-    public string ScriptFile { get { return default(string); } private set { } }
-    public string XamlDefinition { get { return default(string); } private set { } }
   }
 
    public sealed class DefaultParameterDictionary : System.Collections.Hashtable {
@@ -4505,6 +3807,7 @@ namespace System.Management.Automation {
   }
 
   public static class LanguagePrimitives {
+    static LanguagePrimitives() { }
     public static int Compare ( object first, object second ) { return default(int); }
     public static int Compare ( object first, object second, bool ignoreCase ) { return default(int); }
     public static int Compare ( object first, object second, bool ignoreCase, System.IFormatProvider formatProvider ) { return default(int); }
@@ -4524,6 +3827,17 @@ namespace System.Management.Automation {
     public static bool TryConvertTo ( object valueToConvert, System.Type resultType, out object result ) {result = default(object);  return default(bool); }
     public static bool TryConvertTo<T> ( object valueToConvert, System.IFormatProvider formatProvider, out T result ) { result = default(T); return default(bool); }
     public static bool TryConvertTo<T> ( object valueToConvert, out T result ) { result = default(T); return default(bool); }
+
+    internal class EnumMultipleTypeConverter : EnumSingleTypeConverter {
+        public override object ConvertFrom(object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase) { return default(object); }
+    }
+
+    internal class EnumSingleTypeConverter : System.Management.Automation.PSTypeConverter {
+        public override bool CanConvertFrom(object sourceValue, System.Type destinationType) { return default(bool); }
+        public override object ConvertFrom(object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase) { return default(object); }
+        public override bool CanConvertTo(object sourceValue, System.Type destinationType)  { return default(bool); }
+        public override object ConvertTo(object sourceValue, System.Type destinationType, System.IFormatProvider formatProvider, bool ignoreCase) { return default(object); }
+    }
 
   }
 
@@ -5710,6 +5024,7 @@ namespace System.Management.Automation {
   }
 
  [System.FlagsAttribute]
+ [System.ComponentModel.TypeConverterAttribute(typeof(System.Management.Automation.LanguagePrimitives.EnumMultipleTypeConverter))]
    public enum PSMemberTypes {
     AliasProperty = 1,
     All = 8191,
@@ -5730,6 +5045,7 @@ namespace System.Management.Automation {
   }
 
  [System.FlagsAttribute]
+ [System.ComponentModel.TypeConverterAttribute(typeof(System.Management.Automation.LanguagePrimitives.EnumMultipleTypeConverter))]
    public enum PSMemberViewTypes {
     Adapted = 2,
     All = 7,
@@ -5865,6 +5181,7 @@ namespace System.Management.Automation {
   }
 
     [System.SerializableAttribute]
+    [System.ComponentModel.TypeDescriptionProvider(typeof(System.Management.Automation.PSObjectTypeDescriptionProvider))]
    public class PSObject : System.IFormattable, System.IComparable, System.Runtime.Serialization.ISerializable, System.Dynamic.IDynamicMetaObjectProvider {
     public PSObject() { }
     public PSObject(object obj) { }
@@ -6776,7 +6093,7 @@ namespace System.Management.Automation {
    public abstract class ValidateArgumentsAttribute : System.Management.Automation.Internal.CmdletMetadataAttribute {
     protected ValidateArgumentsAttribute() { }
 
-    protected virtual void Validate ( object arguments, System.Management.Automation.EngineIntrinsics engineIntrinsics ) { }
+    protected abstract void Validate ( object arguments, System.Management.Automation.EngineIntrinsics engineIntrinsics );
 
   }
 
@@ -8141,6 +7458,7 @@ namespace System.Management.Automation.Runspaces {
   }
 
   public abstract class Runspace : System.IDisposable {
+    static Runspace() { }
     internal Runspace() { }
     public abstract event System.EventHandler<System.Management.Automation.Runspaces.RunspaceAvailabilityEventArgs> AvailabilityChanged;
     public abstract event System.EventHandler<System.Management.Automation.Runspaces.RunspaceStateEventArgs> StateChanged;
@@ -8224,6 +7542,7 @@ namespace System.Management.Automation.Runspaces {
   }
 
   public static class RunspaceFactory {
+    static RunspaceFactory() { }
     public static System.Management.Automation.Runspaces.Runspace CreateOutOfProcessRunspace ( System.Management.Automation.Runspaces.TypeTable typeTable ) { return default(System.Management.Automation.Runspaces.Runspace); }
     public static System.Management.Automation.Runspaces.Runspace CreateRunspace ( System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo ) { return default(System.Management.Automation.Runspaces.Runspace); }
     public static System.Management.Automation.Runspaces.Runspace CreateRunspace ( System.Management.Automation.Host.PSHost host, System.Management.Automation.Runspaces.RunspaceConnectionInfo connectionInfo ) { return default(System.Management.Automation.Runspaces.Runspace); }
@@ -8541,6 +7860,7 @@ namespace System.Management.Automation.Runspaces {
   }
 
   public sealed class TypeTable {
+    static TypeTable() { }
     public TypeTable(System.Collections.Generic.IEnumerable<string> typeFiles) { }
 
     public void AddType ( System.Management.Automation.Runspaces.TypeData typeData ) { }
@@ -8609,7 +7929,7 @@ namespace System.Management.Automation.Runspaces {
 
 }
 namespace System.Management.Automation.Language {
-  internal partial interface IParameterMetadataProvider {
+  internal interface IParameterMetadataProvider {
     System.Management.Automation.Language.ScriptBlockAst Body { get; }
     System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get; }
     // internal methods not included
@@ -9195,7 +8515,7 @@ namespace System.Management.Automation.Language {
     public bool IsFilter { get { return default(bool); } private set { } }
     public bool IsWorkflow { get { return default(bool); } private set { } }
     public string Name { get { return default(string); } private set { } }
-    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default(System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } }
+    public System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst> Parameters { get { return default (System.Collections.ObjectModel.ReadOnlyCollection<System.Management.Automation.Language.ParameterAst>); } private set { } }
     public override System.Management.Automation.Language.Ast Copy (  ) { return default(System.Management.Automation.Language.Ast); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent ( System.Collections.Generic.Dictionary<System.Management.Automation.Language.Ast, System.Management.Automation.Language.Token[]> scriptBlockTokenCache ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
     public System.Management.Automation.Language.CommentHelpInfo GetHelpContent (  ) { return default(System.Management.Automation.Language.CommentHelpInfo); }
@@ -10229,6 +9549,7 @@ namespace System.Management.Automation.Internal {
     public string WarningVariable { get { return default(string); } set { } }
     internal class ValidateVariableName : System.Management.Automation.ValidateArgumentsAttribute {
       internal ValidateVariableName() { }
+      protected override void Validate (object arguments, System.Management.Automation.EngineIntrinsics engineIntrinsics) { }
     }
   }
 
