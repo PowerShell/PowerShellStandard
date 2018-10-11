@@ -5770,7 +5770,7 @@ namespace System.Management.Automation {
     public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, params object[] args ) { return default(System.Management.Automation.PowerShell); }
     public System.Management.Automation.PowerShell GetPowerShell ( System.Collections.Generic.Dictionary<string, object> variables, out System.Collections.Generic.Dictionary<string,object>usingVariables, params object[] args ) { usingVariables = default(System.Collections.Generic.Dictionary<string,object>); return default(System.Management.Automation.PowerShell); }
     public System.Management.Automation.SteppablePipeline GetSteppablePipeline ( System.Management.Automation.CommandOrigin commandOrigin ) { return default(System.Management.Automation.SteppablePipeline); }
-    public System.Management.Automation.SteppablePipeline GetSteppablePipeline ( System.Management.Automation.CommandOrigin commandOrigin, params object[] args ) { return default(System.Management.Automation.SteppablePipeline); }
+    public System.Management.Automation.SteppablePipeline GetSteppablePipeline ( System.Management.Automation.CommandOrigin commandOrigin, object[] args ) { return default(System.Management.Automation.SteppablePipeline); }
     public System.Management.Automation.SteppablePipeline GetSteppablePipeline (  ) { return default(System.Management.Automation.SteppablePipeline); }
     public System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject> Invoke ( params object[] args ) { return default(System.Collections.ObjectModel.Collection<System.Management.Automation.PSObject>); }
     public object InvokeReturnAsIs ( params object[] args ) { return default(object); }
@@ -9494,9 +9494,9 @@ namespace System.Management.Automation.Internal {
   }
 
   public static class ClassOps {
-    public static void CallBaseCtor ( object target, System.Reflection.ConstructorInfo ci, params object[] args ) { }
-    public static object CallMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, params object[] args ) { return default(object); }
-    public static void CallVoidMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, params object[] args ) { }
+    public static void CallBaseCtor ( object target, System.Reflection.ConstructorInfo ci, object[] args ) { }
+    public static object CallMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, object[] args ) { return default(object); }
+    public static void CallVoidMethodNonVirtually ( object target, System.Reflection.MethodInfo mi, object[] args ) { }
     public static void ValidateSetProperty ( System.Type type, string propertyName, object value ) { }
 
   }
