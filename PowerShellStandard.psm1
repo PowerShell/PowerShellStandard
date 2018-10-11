@@ -6,7 +6,7 @@ function Start-Build {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
             dotnet restore
-            dotnet build
+            dotnet build --configuration Release
         }
         finally {
             Pop-Location
@@ -43,7 +43,7 @@ function Invoke-Test {
         try {
             $testBase = Join-Path $PsScriptRoot "test/${version}"
             Push-Location $testBase
-            dotnet build
+            dotnet build --configuration Release
             Invoke-Pester
         }
         finally {
@@ -51,8 +51,13 @@ function Invoke-Test {
         }
     }
 
-    Push-Location (Join-Path $PsScriptRoot "test/dotnetTemplate")
-    Invoke-Pester
+    try {
+        Push-Location (Join-Path $PsScriptRoot "test/dotnetTemplate")
+        Invoke-Pester
+    }
+    finally {
+        Pop-Location
+    }
 }
 
 function Export-NuGetPackage
