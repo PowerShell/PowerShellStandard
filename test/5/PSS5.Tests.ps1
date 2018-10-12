@@ -19,7 +19,7 @@ Describe 'PowerShell Standard 5' {
             try {
                 Push-Location $PSScriptRoot
                 dotnet restore
-                dotnet build
+                dotnet build --configuration Release
                 $assemblyPath | Should -Exist
             }
             finally {

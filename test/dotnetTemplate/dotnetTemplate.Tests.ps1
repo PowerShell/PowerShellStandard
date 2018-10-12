@@ -2,7 +2,7 @@ Describe "PowerShell Standard C# Module Template" {
     Context "Targeting PowerShell Standard 5.1" {
         BeforeAll {
             $testFolder = "./foo"
-            $publishDir = "./bin/Debug/netstandard2.0/publish/"
+            $publishDir = "./bin/Release/netstandard2.0/publish/"
             $PSBin = (Get-Process -id $PID).MainModule.FileName
 
             $FavoriteNumber = 4
@@ -15,7 +15,7 @@ Describe "PowerShell Standard C# Module Template" {
             dotnet new psmodule
         }
         It "Can package the module that was created" {
-            dotnet publish
+            dotnet publish --configuration Release
             $LASTEXITCODE | Should -Be 0
             Test-Path $publishDir | Should -BeTrue
             Test-Path foo.csproj | Should -BeTrue
@@ -41,7 +41,7 @@ Describe "PowerShell Standard C# Module Template" {
     Context "Targeting PowerShell Standard 3" {
         BeforeAll {
             $testFolder = "./foo"
-            $publishDir = "./bin/Debug/netstandard2.0/publish/"
+            $publishDir = "./bin/Release/netstandard2.0/publish/"
             $PSBin = (Get-Process -id $PID).MainModule.FileName
 
             $FavoriteNumber = 4
@@ -54,7 +54,7 @@ Describe "PowerShell Standard C# Module Template" {
             dotnet new psmodule -v 3.0.0-preview-02
         }
         It "Can package the module that was created" {
-            dotnet publish
+            dotnet publish --configuration Release
             $LASTEXITCODE | Should -Be 0
             Test-Path $publishDir | Should -BeTrue
             Test-Path foo.csproj | Should -BeTrue

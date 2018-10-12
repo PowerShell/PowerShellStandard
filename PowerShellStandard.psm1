@@ -12,6 +12,17 @@ function Start-Build {
             Pop-Location
         }
     }
+
+    # push into dotnetTemplate and build
+    try {
+        $templateBase = Join-Path $srcBase dotnetTemplate
+        Push-Location $templateBase
+        dotnet restore
+        dotnet build --configuration Release
+    }
+    finally {
+        Pop-Location
+    }
 }
 
 function Start-Clean {
