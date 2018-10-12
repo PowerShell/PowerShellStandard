@@ -70,9 +70,9 @@ function Export-NuGetPackage
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            $result = dotnet pack
+            $result = dotnet pack --configuration Release
             if ( $? ) {
-                Copy-Item -verbose:$true (Join-Path $srcDir "bin/Debug/PowerShellStandard.Library*.nupkg") $PsScriptRoot
+                Copy-Item -verbose:$true (Join-Path $srcDir "bin/Release/PowerShellStandard.Library*.nupkg") $PsScriptRoot
             }
             else {
                 Write-Error -Message "$result"
@@ -86,9 +86,9 @@ function Export-NuGetPackage
     try {
         $templateDir = Join-Path $PsScriptRoot src/dotnetTemplate
         Push-Location $templateDir
-        $result = dotnet pack
+        $result = dotnet pack --configuration Release
         if ( $? ) {
-            Copy-Item -verbose:$true (Join-Path $templateDir "bin/Debug/*.nupkg") $PsScriptRoot
+            Copy-Item -verbose:$true (Join-Path $templateDir "bin/Release/*.nupkg") $PsScriptRoot
         }
         else {
             Write-Error -Message "$result"
