@@ -10,7 +10,7 @@
     <licenseUrl>https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Contains the reference assemblies for PowerShell Standard 5</description>
-    <copyright>(c) Microsoft Corporation. All rights reserved.</copyright>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <tags>PowerShell, reference, netstandard2, netstandard2.0</tags>
     <references>
       <reference file="System.Management.Automation.dll" />
