@@ -1,12 +1,12 @@
 Describe "PowerShell Standard 3" {
     BeforeAll {
-        $cmdletAssembly = "bin/Debug/netstandard2.0/Demo.Cmdlet.dll" 
+        $cmdletAssembly = "bin/Release/netstandard2.0/Demo.Cmdlet.dll" 
         $assemblyPath = Join-Path "$PSScriptRoot" $cmdletAssembly
         $PSBin = (Get-Process -id $PID).MainModule.FileName
     }
     It "Can build a reference assembly" {
         dotnet restore
-        dotnet build
+        dotnet build --configuration Release
         $assemblyPath | Should Exist
     }
     It "Can execute the compiled cmdlet" {

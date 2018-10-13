@@ -6,11 +6,22 @@ function Start-Build {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
             dotnet restore
-            dotnet build
+            dotnet build --configuration Release
         }
         finally {
             Pop-Location
         }
+    }
+
+    # push into dotnetTemplate and build
+    try {
+        $templateBase = Join-Path $srcBase dotnetTemplate
+        Push-Location $templateBase
+        dotnet restore
+        dotnet build --configuration Release
+    }
+    finally {
+        Pop-Location
     }
 }
 
@@ -43,7 +54,7 @@ function Invoke-Test {
         try {
             $testBase = Join-Path $PsScriptRoot "test/${version}"
             Push-Location $testBase
-            dotnet build
+            dotnet build --configuration Release
             Invoke-Pester
         }
         finally {
@@ -51,8 +62,13 @@ function Invoke-Test {
         }
     }
 
-    Push-Location (Join-Path $PsScriptRoot "test/dotnetTemplate")
-    Invoke-Pester
+    try {
+        Push-Location (Join-Path $PsScriptRoot "test/dotnetTemplate")
+        Invoke-Pester
+    }
+    finally {
+        Pop-Location
+    }
 }
 
 function Export-NuGetPackage
@@ -65,9 +81,9 @@ function Export-NuGetPackage
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            $result = dotnet pack
+            $result = dotnet pack --configuration Release
             if ( $? ) {
-                Copy-Item -verbose:$true (Join-Path $srcDir "bin/Debug/PowerShellStandard.Library*.nupkg") $PsScriptRoot
+                Copy-Item -verbose:$true (Join-Path $srcDir "bin/Release/PowerShellStandard.Library*.nupkg") $PsScriptRoot
             }
             else {
                 Write-Error -Message "$result"
@@ -81,9 +97,9 @@ function Export-NuGetPackage
     try {
         $templateDir = Join-Path $PsScriptRoot src/dotnetTemplate
         Push-Location $templateDir
-        $result = dotnet pack
+        $result = dotnet pack --configuration Release
         if ( $? ) {
-            Copy-Item -verbose:$true (Join-Path $templateDir "bin/Debug/*.nupkg") $PsScriptRoot
+            Copy-Item -verbose:$true (Join-Path $templateDir "bin/Release/*.nupkg") $PsScriptRoot
         }
         else {
             Write-Error -Message "$result"
