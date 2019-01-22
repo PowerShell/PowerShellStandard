@@ -9,7 +9,7 @@
     <iconUrl>https://github.com/PowerShell/PowerShell/blob/master/assets/Powershell_64.png</iconUrl>
     <licenseUrl>https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Contains the reference assemblies for PowerShell Standard 3</description>
+    <description>Common APIs available to both Windows PowerShell 3.0 (and newer) and PowerShell Core 6 to enable the same C# module to work in both environments.</description>
     <copyright>(c) Microsoft Corporation. All rights reserved.</copyright>
     <tags>PowerShell, reference, netstandard2, netstandard2.0</tags>
     <references>

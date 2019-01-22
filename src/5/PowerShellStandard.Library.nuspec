@@ -9,7 +9,7 @@
     <iconUrl>https://github.com/PowerShell/PowerShell/blob/master/assets/Powershell_64.png</iconUrl>
     <licenseUrl>https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Contains the reference assemblies for PowerShell Standard 5</description>
+    <description>Common APIs available to both Windows PowerShell 5.1 and PowerShell Core 6 to enable the same C# module to work in both environments.</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <tags>PowerShell, reference, netstandard2, netstandard2.0</tags>
     <references>
