@@ -1,6 +1,6 @@
 # escape=`
 #0.3.6 (no powershell 6)
-FROM microsoft/dotnet-framework:4.7.1
+FROM microsoft/dotnet-framework:4.7.2-sdk
 LABEL maintainer='PowerShell Team <powershellteam@hotmail.com>'
 LABEL description="This Dockerfile for Windows Server Core with git installed via chocolatey."
 
@@ -24,9 +24,9 @@ RUN Import-Module PackageManagement; `
 #     Install-ChocolateyPackage -PackageName dotnet4.5;
 
 #     Install-ChocolateyPackage -PackageName netfx-4.5.1-devpack;
-RUN Import-Module ./containerFiles/dockerInstall.psm1; `
-    Install-ChocolateyPackage -PackageName netfx-4.7.2-devpack; `
-    Install-ChocolateyPackage -PackageName dotnetfx;
+#RUN Import-Module ./containerFiles/dockerInstall.psm1; `
+#    Install-ChocolateyPackage -PackageName netfx-4.7.2-devpack; `
+#    Install-ChocolateyPackage -PackageName dotnetfx;
 
 COPY buildStandard.ps1 containerFiles/buildStandard.ps1
 
