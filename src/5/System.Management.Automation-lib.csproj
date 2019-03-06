@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net452</TargetFrameworks>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>..\signing\visualstudiopublic.snk</AssemblyOriginatorKeyFile>
     <AssemblyName>System.Management.Automation</AssemblyName>
@@ -10,7 +10,7 @@
     <DefineConstants>RUNTIME_SERIALIZATION</DefineConstants>
     <NuspecFile>./PowershellStandard.Library.nuspec</NuspecFile>
   </PropertyGroup>
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'" >
     <PackageReference Include="System.IO.FileSystem.AccessControl" Version="4.5.0" />
     <PackageReference Include="System.Security.AccessControl" Version="4.5.0" />
     <PackageReference Include="System.Security.Permissions" Version="4.5.0" />

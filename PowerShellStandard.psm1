@@ -1,4 +1,5 @@
 function Start-Build {
+    param ( [switch]$CoreOnly )
     $versions = 3,5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
@@ -6,7 +7,12 @@ function Start-Build {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
             dotnet restore
-            dotnet build --configuration Release
+            if ( $CoreOnly ) {
+                dotnet build --configuration Release --framework netstandard2.0
+            }
+            else {
+                dotnet build --configuration Release
+            }
         }
         finally {
             Pop-Location
@@ -49,13 +55,31 @@ function Start-Clean {
 }
 
 function Invoke-Test {
+    param ( [switch]$CoreOnly )
     $versions = 3,5
     foreach ( $version in $versions ) {
         try {
             $testBase = Join-Path $PsScriptRoot "test/${version}"
             Push-Location $testBase
-            dotnet build --configuration Release
-            Invoke-Pester
+            foreach ( $framework in "core","full" ) {
+                if ( $CoreOnly -and $framework -eq "full" ) {
+                    continue
+                }
+                try {
+                    Push-Location $framework
+                    if ( $CoreOnly ) {
+                        dotnet build --configuration Release --framework netstandard2.0
+                        Invoke-Pester
+                    }
+                    else {
+                        dotnet build --configuration Release
+                        Invoke-Pester
+                    }
+                }
+                finally {
+                    pop-location
+                }
+            }
         }
         finally {
             Pop-Location

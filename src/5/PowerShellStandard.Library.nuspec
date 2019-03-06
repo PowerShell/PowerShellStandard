@@ -2,7 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>PowerShellStandard.Library</id>
-    <version>5.1.0-RC1</version>
+    <version>5.1.0</version>
+    <title>PowerShellStandard.Library</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
     <projectUrl>https://github.com/PowerShell/PowerShellStandard</projectUrl>
@@ -11,13 +12,16 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Contains the reference assemblies for PowerShell Standard 5</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
-    <tags>PowerShell, reference, netstandard2, netstandard2.0</tags>
+    <tags>PowerShell, reference, net452, netstandard2, netstandard2.0</tags>
     <references>
-      <reference file="System.Management.Automation.dll" />
+      <reference file="System.Management.Automation.dll" >
+        <private>False</private>
+      </reference>
     </references>
   </metadata>
   <files>
     <file src="obj/Release/netstandard2.0/System.Management.Automation.dll" target="lib/netstandard2.0" />
+    <file src="obj/Release/net452/System.Management.Automation.dll" target="lib/net452" />
   </files>
 </package>
 
