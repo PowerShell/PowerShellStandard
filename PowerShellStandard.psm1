@@ -56,6 +56,15 @@ function Start-Clean {
 
 function Invoke-Test {
     param ( [switch]$CoreOnly )
+    # first, run the package tests and validate that the signing.xml file is correct
+    try {
+        $testBase = Join-Path $PsScriptRoot test
+        Push-Location $testBase
+        Invoke-Pester -Path ./Build.Tests.ps1
+    }
+    finally {
+        Pop-Location
+    }
     $versions = 3,5
     foreach ( $version in $versions ) {
         try {
