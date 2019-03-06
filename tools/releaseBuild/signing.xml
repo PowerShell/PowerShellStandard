@@ -6,7 +6,7 @@
          dest="__OUTPATHROOT__\release\out\Microsoft.PowerShell.Standard.Module.Template.0.1.3.nupkg" />
     <file  src="__INPATHROOT__\release\out\PowerShellStandard.Library.3.0.0-preview-02.nupkg" signType="CP-401405" 
          dest="__OUTPATHROOT__\release\out\PowerShellStandard.Library.3.0.0-preview-02.nupkg" />
-    <file  src="__INPATHROOT__\release\out\PowerShellStandard.Library.5.1.0-RC1.nupkg" signType="CP-401405" 
-         dest="__OUTPATHROOT__\release\out\PowerShellStandard.Library.5.1.0-RC1.nupkg" />
+    <file  src="__INPATHROOT__\release\out\PowerShellStandard.Library.5.1.0.nupkg" signType="CP-401405" 
+         dest="__OUTPATHROOT__\release\out\PowerShellStandard.Library.5.1.0.nupkg" />
  </job>
 </SignConfigXML>
