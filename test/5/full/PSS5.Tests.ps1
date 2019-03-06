@@ -1,8 +1,8 @@
-Describe 'PowerShell Standard 5' {
+Describe 'PowerShell Standard 5 - Full CLR' {
 
     BeforeAll {
         $repoRoot = git rev-parse --show-toplevel
-        $libraryPath = "${repoRoot}/src/5/bin/Release/netstandard2.0/System.Management.Automation.dll"
+        $libraryPath = "${repoRoot}/src/5/bin/Release/net452/System.Management.Automation.dll"
         $assemblyExists = test-path $libraryPath
         if ( $assemblyExists ) {
             $standardAssembly = [System.Reflection.Assembly]::LoadFile($libraryPath)
@@ -11,7 +11,7 @@ Describe 'PowerShell Standard 5' {
 
     Context 'Creating a cmdlet' {
         BeforeAll {
-            $cmdletAssembly = 'bin/Release/netstandard2.0/Demo.Cmdlet.dll'
+            $cmdletAssembly = 'bin/Release/net452/Demo.Cmdlet.dll'
             $assemblyPath = Join-Path "$PSScriptRoot" $cmdletAssembly
             $PSBin = (Get-Process -id $PID).MainModule.FileName
         }

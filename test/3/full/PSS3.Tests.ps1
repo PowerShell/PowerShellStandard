@@ -1,6 +1,6 @@
 Describe "PowerShell Standard 3" {
     BeforeAll {
-        $cmdletAssembly = "bin/Release/netstandard2.0/Demo.Cmdlet.dll" 
+        $cmdletAssembly = "bin/Release/net452/Demo.Cmdlet.dll" 
         $assemblyPath = Join-Path "$PSScriptRoot" $cmdletAssembly
         $PSBin = (Get-Process -id $PID).MainModule.FileName
     }
