@@ -5,7 +5,7 @@
     <AssemblyOriginatorKeyFile>..\signing\visualstudiopublic.snk</AssemblyOriginatorKeyFile>
     <AssemblyName>System.Management.Automation</AssemblyName>
     <AssemblyVersion>3.0.0</AssemblyVersion>
-    <FileVersion>5.1.0</FileVersion>
+    <FileVersion>5.1.1</FileVersion>
     <DelaySign>True</DelaySign>
     <DefineConstants>RUNTIME_SERIALIZATION</DefineConstants>
     <NuspecFile>./PowershellStandard.Library.nuspec</NuspecFile>
