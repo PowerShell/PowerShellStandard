@@ -10,6 +10,10 @@ Windows PowerShell includes an interactive prompt and a scripting environment th
 
 The PowerShell Standard has been created to assist developers create modules and PowerShell hosts which will run on PowerShell and which will use only APIs that exist across different versions of PowerShell.
 
+> NOTE: You should not use PowerShell Standard for standalone applications that leverage PowerShell.
+For that, you should use the [PowerShell SDK](https://www.nuget.org/packages/Microsoft.PowerShell.SDK).
+PowerShell Standard's main scenario is for running within a PowerShell session.
+
 ## PowerShell Standard Libraries
 
 Two PowerShell Standard `.nupkg` versions are available:
