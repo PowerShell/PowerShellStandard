@@ -2,7 +2,7 @@
 
 A `dotnet new` template that creates an example PowerShell C# module that uses PowerShellStandard.
 
-```
+```powershell
 dotnet new psmodule
 ```
 
@@ -12,7 +12,7 @@ To use the template, you must first install it so that it is recognized in `dotn
 
 ### From nuget.org
 
-```
+```powershell
 dotnet new -i Microsoft.PowerShell.Standard.Module.Template
 ```
 
@@ -33,7 +33,7 @@ Now checkout the [usage](#usage).
 
 Once the template is installed, you will see it in your template list:
 
-```
+```text
 PS> dotnet new -l
 
 Usage: new [options]
@@ -75,7 +75,7 @@ MVC ViewStart                                     viewstart                     
 
 To get more details, add the `-h` flag:
 
-```
+```text
 PS > dotnet new psmodule -h
 Usage: new [options]
 
@@ -106,7 +106,7 @@ Options:
 
 To create a template using the defaults:
 
-```
+```text
 > dotnet new psmodule
 The template "PowerShell Standard Module" was created successfully.
 
@@ -124,7 +124,7 @@ Notice that it restores automatically.
 
 You can optionally specify PowerShell Standard V3 by running:
 
-```
+```text
 dotnet new psmodule --powershell-standard-version 3.0.0-preview-02
 ```
 
