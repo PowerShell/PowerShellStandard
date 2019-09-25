@@ -23,7 +23,7 @@ Author = 'Unknown'
 CompanyName = 'Unknown'
 
 # Copyright statement for this module
-Copyright = '(c) 2018 Unknown. All rights reserved.'
+Copyright = '(c) 2019 Unknown. All rights reserved.'
 
 # Description of the functionality provided by this module
 # Description = ''
