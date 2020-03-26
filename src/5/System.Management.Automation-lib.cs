@@ -1,3 +1,4 @@
+
 namespace Microsoft.PowerShell {
   public sealed class DeserializingTypeConverter : System.Management.Automation.PSTypeConverter {
     static DeserializingTypeConverter() { }
@@ -9338,9 +9339,9 @@ namespace System.Management.Automation.Language {
   }
 
    public static class TokenTraits {
-    public static System.Management.Automation.Language.TokenFlags GetTraits ( System.Management.Automation.Language.TokenKind kind ) { return default(System.Management.Automation.Language.TokenFlags); }
-    public static bool HasTrait ( System.Management.Automation.Language.TokenKind kind, System.Management.Automation.Language.TokenFlags flag ) { return default(bool); }
-    public static string Text ( System.Management.Automation.Language.TokenKind kind ) { return default(string); }
+    public static System.Management.Automation.Language.TokenFlags GetTraits ( this System.Management.Automation.Language.TokenKind kind ) { return default(System.Management.Automation.Language.TokenFlags); }
+    public static bool HasTrait ( this System.Management.Automation.Language.TokenKind kind, System.Management.Automation.Language.TokenFlags flag ) { return default(bool); }
+    public static string Text ( this System.Management.Automation.Language.TokenKind kind ) { return default(string); }
 
   }
 
