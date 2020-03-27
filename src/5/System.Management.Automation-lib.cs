@@ -2184,7 +2184,7 @@ namespace Microsoft.PowerShell.Commands {
     public System.Nullable<int> MaxSessionsPerUser { get { return default(System.Nullable<int>); } internal set { } }
     public System.Nullable<System.Management.Automation.Runspaces.OutputBufferingMode> OutputBufferingMode { get { return default(System.Nullable<System.Management.Automation.Runspaces.OutputBufferingMode>); } internal set { } }
     public System.Nullable<int> ProcessIdleTimeoutSec { get { return default(System.Nullable<int>); } internal set { } }
-    protected internal override void LoadFromDefaults ( System.Management.Automation.Runspaces.PSSessionType sessionType, bool keepAssigned ) { }
+    // protected internal override void LoadFromDefaults ( System.Management.Automation.Runspaces.PSSessionType sessionType, bool keepAssigned ) { }
 
   }
 
@@ -3668,12 +3668,14 @@ namespace System.Management.Automation {
 
   }
 
+  /*
   public sealed class JobDataAddedEventArgs : System.EventArgs {
     internal JobDataAddedEventArgs() { }
     public System.Management.Automation.PowerShellStreamType DataType { get { return default(System.Management.Automation.PowerShellStreamType); } }
     public int Index { get { return default(int); } }
     public System.Management.Automation.Job SourceJob { get { return default(System.Management.Automation.Job); } }
   }
+  */
 
     [System.SerializableAttribute]
    public class JobDefinition : System.Runtime.Serialization.ISerializable {
@@ -4165,7 +4167,7 @@ namespace System.Management.Automation {
     public System.Management.Automation.PowerShell AddScript ( string script, bool useLocalScope ) { return default(System.Management.Automation.PowerShell); }
     public System.Management.Automation.PowerShell AddScript ( string script ) { return default(System.Management.Automation.PowerShell); }
     public System.Management.Automation.PowerShell AddStatement (  ) { return default(System.Management.Automation.PowerShell); }
-    public System.Management.Automation.PSJobProxy AsJobProxy (  ) { return default(System.Management.Automation.PSJobProxy); }
+    // public System.Management.Automation.PSJobProxy AsJobProxy (  ) { return default(System.Management.Automation.PSJobProxy); }
     public System.IAsyncResult BeginInvoke (  ) { return default(System.IAsyncResult); }
     public System.IAsyncResult BeginInvoke<T> ( System.Management.Automation.PSDataCollection<T> input, System.Management.Automation.PSInvocationSettings settings, System.AsyncCallback callback, object state ) { return default(System.IAsyncResult); }
     public System.IAsyncResult BeginInvoke<TInput, TOutput> ( System.Management.Automation.PSDataCollection<TInput> input, System.Management.Automation.PSDataCollection<TOutput> output ) { return default(System.IAsyncResult); }
@@ -4451,6 +4453,7 @@ namespace System.Management.Automation {
 
   }
 
+  /*
   public sealed class PSChildJobProxy : System.Management.Automation.Job2, System.IDisposable {
     internal PSChildJobProxy() { }
     public event System.EventHandler<System.Management.Automation.JobDataAddedEventArgs> JobDataAdded { add { } remove { } }
@@ -4475,6 +4478,7 @@ namespace System.Management.Automation {
     public override void UnblockJobAsync (  ) { }
 
   }
+  */
 
   public sealed class PSClassInfo {
     internal PSClassInfo(string name) { }
@@ -4897,6 +4901,7 @@ namespace System.Management.Automation {
     public System.Management.Automation.PSInvocationState State { get { return default(System.Management.Automation.PSInvocationState); } }
   }
 
+  /*
   public sealed class PSJobProxy : System.Management.Automation.Job2, System.IDisposable {
     internal PSJobProxy() { }
     public event System.EventHandler<System.ComponentModel.AsyncCompletedEventArgs> RemoveJobCompleted { add { } remove { } }
@@ -4943,6 +4948,7 @@ namespace System.Management.Automation {
     public override void UnblockJobAsync (  ) { }
 
   }
+  */
 
   public sealed class PSJobStartEventArgs : System.EventArgs {
     public PSJobStartEventArgs(System.Management.Automation.Job job, System.Management.Automation.Debugger debugger, bool isAsync) { }
@@ -5493,7 +5499,7 @@ namespace System.Management.Automation {
     protected PSTransportOption() { }
 
     public object Clone (  ) { return default(object); }
-    protected internal virtual void LoadFromDefaults ( System.Management.Automation.Runspaces.PSSessionType sessionType, bool keepAssigned ) { }
+    // protected internal virtual void LoadFromDefaults ( System.Management.Automation.Runspaces.PSSessionType sessionType, bool keepAssigned ) { }
 
   }
 
@@ -7400,10 +7406,12 @@ namespace System.Management.Automation.Runspaces {
     Remote = 2,
   }
 
+  /*
   public enum PSSessionType {
     DefaultRemoteShell = 0,
     Workflow = 1,
   }
+  */
 
 
   public enum PSThreadOptions {
@@ -7893,7 +7901,7 @@ namespace System.Management.Automation.Runspaces {
     public WSManConnectionInfo(System.Uri uri, string shellUri, System.Management.Automation.PSCredential credential) { }
     public WSManConnectionInfo(System.Uri uri, string shellUri, string certificateThumbprint) { }
     public WSManConnectionInfo(System.Uri uri) { }
-    public WSManConnectionInfo(System.Management.Automation.Runspaces.PSSessionType configurationType) { }
+    // public WSManConnectionInfo(System.Management.Automation.Runspaces.PSSessionType configurationType) { }
 
     public const string HttpScheme = "http";
     public const string HttpsScheme = "https";
