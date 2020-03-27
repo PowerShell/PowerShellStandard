@@ -6,12 +6,18 @@ function Start-Build {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            dotnet restore
+            Write-Progress -Activity "restoring in $srcDir"
+            $result = dotnet restore
+            if ( ! $? ) { throw "$result" }
             if ( $CoreOnly ) {
-                dotnet build --configuration Release --framework netstandard2.0
+                Write-Progress -Activity "building netstandard in $srcDir"
+                $result = dotnet build --configuration Release --framework netstandard2.0
+                if ( ! $? ) { throw "$result" }
             }
             else {
-                dotnet build --configuration Release
+                Write-Progress -Activity "building default in $srcDir"
+                $result = dotnet build --configuration Release
+                if ( ! $? ) { throw "$result" }
             }
         }
         finally {
@@ -23,8 +29,12 @@ function Start-Build {
     try {
         $templateBase = Join-Path $srcBase dotnetTemplate
         Push-Location $templateBase
-        dotnet restore
-        dotnet build --configuration Release
+        Write-Progress -Activity "restoring in $templateBase"
+        $result = dotnet restore
+        if ( ! $? ) { throw "$result" }
+        Write-Progress -Activity "building in $templateBase"
+        $result = dotnet build --configuration Release
+        if ( ! $? ) { throw "$result" }
     }
     finally {
         Pop-Location
@@ -41,7 +51,9 @@ function Start-Clean {
             try {
                 $fileDir = Join-Path $baseDir $version
                 Push-Location $fileDir
-                dotnet clean
+                "Cleaning in $fileDir"
+                $result = dotnet clean
+                if ( ! $? ) { write-error "$result" }
                 if ( test-path obj ) { remove-item -recurse -force obj }
                 if ( test-path bin ) { remove-item -recurse -force bin }
                 remove-item "PowerShellStandard.Library.${version}*.nupkg" -ErrorAction SilentlyContinue
@@ -77,11 +89,13 @@ function Invoke-Test {
                 try {
                     Push-Location $framework
                     if ( $CoreOnly ) {
-                        dotnet build --configuration Release --framework netstandard2.0
+                        $result = dotnet build --configuration Release --framework netstandard2.0
+                        if ( ! $? ) { throw "$result" }
                         Invoke-Pester
                     }
                     else {
-                        dotnet build --configuration Release
+                        $result = dotnet build --configuration Release
+                        if ( ! $? ) { throw "$result" }
                         Invoke-Pester
                     }
                 }
@@ -114,6 +128,7 @@ function Export-NuGetPackage
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
+            Write-Progress "Creating nupkg for $version"
             $result = dotnet pack --configuration Release
             if ( $? ) {
                 Copy-Item -verbose:$true (Join-Path $srcDir "bin/Release/PowerShellStandard.Library*.nupkg") $PsScriptRoot
@@ -130,6 +145,7 @@ function Export-NuGetPackage
     try {
         $templateDir = Join-Path $PsScriptRoot src/dotnetTemplate
         Push-Location $templateDir
+        Write-Progress -Activity "creating nupkg in $templateDir"
         $result = dotnet pack --configuration Release
         if ( $? ) {
             Copy-Item -verbose:$true (Join-Path $templateDir "bin/Release/*.nupkg") $PsScriptRoot
