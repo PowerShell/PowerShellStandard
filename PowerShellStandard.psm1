@@ -1,23 +1,24 @@
 function Start-Build {
     param ( [switch]$CoreOnly )
-    $versions = 3,5
+    # $versions = 3,5
+    $versions = 5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            Write-Progress -Activity "restoring in $srcDir"
+            Write-Verbose -Verbose "restoring in $srcDir"
             $result = dotnet restore
             if ( ! $? ) { throw "$result" }
             if ( $CoreOnly ) {
-                Write-Progress -Activity "building netstandard in $srcDir"
+                Write-Verbose -Verbose "building netstandard in $srcDir"
                 $result = dotnet build --configuration Release --framework netstandard2.0
                 if ( ! $? ) { throw "$result" }
             }
             else {
-                Write-Progress -Activity "building default in $srcDir"
+                Write-Verbose -Verbose "building default in $srcDir"
                 $result = dotnet build --configuration Release
-                if ( ! $? ) { throw "$result" }
+                if ( ! $? ) { throw "$result" } else { Write-Verbose -Verbose "$result" }
             }
         }
         finally {
@@ -29,12 +30,12 @@ function Start-Build {
     try {
         $templateBase = Join-Path $srcBase dotnetTemplate
         Push-Location $templateBase
-        Write-Progress -Activity "restoring in $templateBase"
+        Write-Verbose -Verbose "restoring in $templateBase"
         $result = dotnet restore
         if ( ! $? ) { throw "$result" }
-        Write-Progress -Activity "building in $templateBase"
+        Write-Verbose -Verbose "building in $templateBase"
         $result = dotnet build --configuration Release
-        if ( ! $? ) { throw "$result" }
+        if ( ! $? ) { throw "$result" } else { Write-Verbose -Verbose "$result" }
     }
     finally {
         Pop-Location
@@ -122,13 +123,14 @@ function Export-NuGetPackage
 {
     # create the package
     # it will automatically build
-    $versions = 3,5
+   # $versions = 3,5
+    $versions = 5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            Write-Progress "Creating nupkg for $version"
+            Write-Verbose -Verbose "Creating nupkg for $version"
             $result = dotnet pack --configuration Release
             if ( $? ) {
                 Copy-Item -verbose:$true (Join-Path $srcDir "bin/Release/PowerShellStandard.Library*.nupkg") $PsScriptRoot
@@ -145,7 +147,7 @@ function Export-NuGetPackage
     try {
         $templateDir = Join-Path $PsScriptRoot src/dotnetTemplate
         Push-Location $templateDir
-        Write-Progress -Activity "creating nupkg in $templateDir"
+        Write-Verbose -Verbose "creating nupkg in $templateDir"
         $result = dotnet pack --configuration Release
         if ( $? ) {
             Copy-Item -verbose:$true (Join-Path $templateDir "bin/Release/*.nupkg") $PsScriptRoot
