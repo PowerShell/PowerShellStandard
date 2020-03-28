@@ -1,6 +1,7 @@
 function Start-Build {
     param ( [switch]$CoreOnly )
-    $versions = 3,5
+    # $versions = 3,5
+    $versions = 5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
@@ -122,7 +123,8 @@ function Export-NuGetPackage
 {
     # create the package
     # it will automatically build
-    $versions = 3,5
+   # $versions = 3,5
+    $versions = 5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
