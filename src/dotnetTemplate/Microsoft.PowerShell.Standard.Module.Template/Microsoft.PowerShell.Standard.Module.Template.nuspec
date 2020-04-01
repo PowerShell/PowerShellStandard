@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Microsoft.PowerShell.Standard.Module.Template</id>
-    <version>0.2.0</version>
+    <version>7.0.0</version>
     <title>PowerShell Standard module</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
@@ -11,7 +11,7 @@
     <licenseUrl>https://github.com/PowerShell/PowerShellStandard/blob/master/LICENSE.txt</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
-      Creates a PowerShell Standard based C# module.
+      Creates a PowerShell Standard 7 based C# module.
     </description>
     <copyright>(c) Microsoft Corporation. All rights reserved.</copyright>
     <packageTypes>
