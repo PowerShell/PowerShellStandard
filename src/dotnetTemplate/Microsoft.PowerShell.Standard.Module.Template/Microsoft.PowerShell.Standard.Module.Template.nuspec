@@ -19,4 +19,7 @@
       <packageType name="Template" />
     </packageTypes>
   </metadata>
+  <files>
+    <file src="images\PowerShell_64.png" target="images\" />
+  </files>
 </package>
