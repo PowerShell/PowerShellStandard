@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Microsoft.PowerShell.Standard.Module.Template</id>
-    <version>7.0.0</version>
+    <version>7.0.0-preview.1</version>
     <title>PowerShell Standard module</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
