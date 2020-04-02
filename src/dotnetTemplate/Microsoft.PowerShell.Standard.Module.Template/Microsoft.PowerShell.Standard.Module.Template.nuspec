@@ -8,7 +8,8 @@
     <owners>Microsoft,PowerShellTeam</owners>
     <projectUrl>https://github.com/PowerShell/PowerShellStandard</projectUrl>
     <iconUrl>https://secure.gravatar.com/avatar/cfba7016de8e12d5b3017130f75ef8ed</iconUrl>
-    <licenseUrl>https://github.com/PowerShell/PowerShellStandard/blob/master/LICENSE.txt</licenseUrl>
+    <icon>images/PowerShell_64.png</icon>
+    <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
       Creates a PowerShell Standard 7 based C# module.
