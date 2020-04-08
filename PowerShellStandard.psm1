@@ -1,17 +1,24 @@
 function Start-Build {
     param ( [switch]$CoreOnly )
-    $versions = 3,5
+    # $versions = 3,5
+    $versions = 5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
-            dotnet restore
+            Write-Verbose -Verbose "restoring in $srcDir"
+            $result = dotnet restore
+            if ( ! $? ) { throw "$result" }
             if ( $CoreOnly ) {
-                dotnet build --configuration Release --framework netstandard2.0
+                Write-Verbose -Verbose "building netstandard in $srcDir"
+                $result = dotnet build --configuration Release --framework netstandard2.0
+                if ( ! $? ) { throw "$result" }
             }
             else {
-                dotnet build --configuration Release
+                Write-Verbose -Verbose "building default in $srcDir"
+                $result = dotnet build --configuration Release
+                if ( ! $? ) { throw "$result" } else { Write-Verbose -Verbose "$result" }
             }
         }
         finally {
@@ -23,8 +30,12 @@ function Start-Build {
     try {
         $templateBase = Join-Path $srcBase dotnetTemplate
         Push-Location $templateBase
-        dotnet restore
-        dotnet build --configuration Release
+        Write-Verbose -Verbose "restoring in $templateBase"
+        $result = dotnet restore
+        if ( ! $? ) { throw "$result" }
+        Write-Verbose -Verbose "building in $templateBase"
+        $result = dotnet build --configuration Release
+        if ( ! $? ) { throw "$result" } else { Write-Verbose -Verbose "$result" }
     }
     finally {
         Pop-Location
@@ -41,7 +52,9 @@ function Start-Clean {
             try {
                 $fileDir = Join-Path $baseDir $version
                 Push-Location $fileDir
-                dotnet clean
+                "Cleaning in $fileDir"
+                $result = dotnet clean
+                if ( ! $? ) { write-error "$result" }
                 if ( test-path obj ) { remove-item -recurse -force obj }
                 if ( test-path bin ) { remove-item -recurse -force bin }
                 remove-item "PowerShellStandard.Library.${version}*.nupkg" -ErrorAction SilentlyContinue
@@ -77,11 +90,13 @@ function Invoke-Test {
                 try {
                     Push-Location $framework
                     if ( $CoreOnly ) {
-                        dotnet build --configuration Release --framework netstandard2.0
+                        $result = dotnet build --configuration Release --framework netstandard2.0
+                        if ( ! $? ) { throw "$result" }
                         Invoke-Pester
                     }
                     else {
-                        dotnet build --configuration Release
+                        $result = dotnet build --configuration Release
+                        if ( ! $? ) { throw "$result" }
                         Invoke-Pester
                     }
                 }
@@ -108,12 +123,14 @@ function Export-NuGetPackage
 {
     # create the package
     # it will automatically build
-    $versions = 3,5
+   # $versions = 3,5
+    $versions = 5
     $srcBase = Join-Path $PsScriptRoot src
     foreach ( $version in $versions ) {
         try {
             $srcDir = Join-Path $srcBase $version
             Push-Location $srcDir
+            Write-Verbose -Verbose "Creating nupkg for $version"
             $result = dotnet pack --configuration Release
             if ( $? ) {
                 Copy-Item -verbose:$true (Join-Path $srcDir "bin/Release/PowerShellStandard.Library*.nupkg") $PsScriptRoot
@@ -130,6 +147,7 @@ function Export-NuGetPackage
     try {
         $templateDir = Join-Path $PsScriptRoot src/dotnetTemplate
         Push-Location $templateDir
+        Write-Verbose -Verbose "creating nupkg in $templateDir"
         $result = dotnet pack --configuration Release
         if ( $? ) {
             Copy-Item -verbose:$true (Join-Path $templateDir "bin/Release/*.nupkg") $PsScriptRoot

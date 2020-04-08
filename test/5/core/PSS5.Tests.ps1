@@ -227,7 +227,12 @@ Describe 'PowerShell Standard 5' {
                 @{ Name = 'System.Management.Automation.Tracing.Tracer' },
                 @{ Name = 'System.Management.Automation.Tracing.PowerShellTraceSource' },
                 @{ Name = 'System.Management.Automation.Tracing.PowerShellTraceSourceFactory' },
-                @{ Name = 'System.Management.Automation.Internal.TransactionParameters' }
+                @{ Name = 'System.Management.Automation.Internal.TransactionParameters' },
+                # Removed in 7
+                @{ Name = 'System.Management.Automation.JobDataAddedEventArgs' },
+                @{ Name = 'System.Management.Automation.PSChildJobProxy' },
+                @{ Name = 'System.Management.Automation.PSJobProxy' },
+                @{ Name = 'System.Management.Automation.Runspaces.PSSessionType' }
             }
 
         It "There should be no types in standard which are not in the product" -skip:(! $assemblyExists) {

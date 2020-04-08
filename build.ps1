@@ -6,6 +6,7 @@ param (
     [Parameter(HelpMessage="Build only for netstandard2.0")][switch]$CoreOnly
 )
 
+Write-Progress -Activity "Importing module"
 import-module $PSScriptRoot/PowerShellStandard.psm1 -force
 
 if ( $Clean ) {
@@ -20,6 +21,7 @@ if ( $IsLinux -or $IsMacOS ) {
     $CoreOnly = $true
 }
 
+Write-Progress -Activity "Starting Build"
 if ( $Pack ) {
     if ( $CoreOnly ) {
         Write-Warning "Must build both netstandard2.0 and net452 to build package"
@@ -32,6 +34,9 @@ else {
 }
 
 if ( $Test ) {
+    if ( $psversiontable.psversion.major -lt 6 ) {
+        throw "Must run tests on PowerShell Core 6 or above"
+    }
     Invoke-Test -CoreOnly:$CoreOnly
 }
 

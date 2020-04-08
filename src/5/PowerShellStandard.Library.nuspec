@@ -2,26 +2,27 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>PowerShellStandard.Library</id>
-    <version>5.1.0</version>
+    <version>7.0.0-preview.1</version>
     <title>PowerShellStandard.Library</title>
     <authors>Microsoft</authors>
     <owners>Microsoft,PowerShellTeam</owners>
     <projectUrl>https://github.com/PowerShell/PowerShellStandard</projectUrl>
-    <iconUrl>https://github.com/PowerShell/PowerShell/blob/master/assets/Powershell_64.png</iconUrl>
-    <licenseUrl>https://github.com/PowerShell/PowerShell/blob/master/LICENSE.txt</licenseUrl>
+    <icon>images\PowerShell_64.png</icon>
+    <license type="expression">MIT</license>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Common APIs available to both Windows PowerShell 5.1 and PowerShell Core 6 to enable the same C# module to work in both environments.</description>
+    <description>Common APIs available to both Windows PowerShell 5.1 and PowerShell 7 to enable the same C# module to work in both environments.</description>
     <copyright>© Microsoft Corporation. All rights reserved.</copyright>
     <tags>PowerShell, reference, net452, netstandard2, netstandard2.0</tags>
     <references>
-      <reference file="System.Management.Automation.dll" >
-        <private>False</private>
-      </reference>
+      <group>
+        <reference file="System.Management.Automation.dll" />
+      </group>
     </references>
   </metadata>
   <files>
-    <file src="obj/Release/netstandard2.0/System.Management.Automation.dll" target="lib/netstandard2.0" />
-    <file src="obj/Release/net452/System.Management.Automation.dll" target="lib/net452" />
+    <file src="images\PowerShell_64.png" target="images\" />
+    <file src="netstandard2.0/System.Management.Automation.dll" target="lib/netstandard2.0" />
+    <file src="net452/System.Management.Automation.dll" target="lib/net452" />
   </files>
 </package>
 

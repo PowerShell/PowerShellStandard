@@ -95,9 +95,9 @@ PowerShell Standard Module (C#)
 Author: Microsoft Corporation
 Options:
   -v|--powershell-standard-version
-                                        5.1.0               - PowerShell Standard 5.1.0
+                                        7.0.0-preview.1     - PowerShell Standard 7.0.0-preview.1
                                         3.0.0-preview-02    - PowerShell Standard 3.0
-                                    Default: 5.1.0
+                                    Default: 7.0.0-preview.1
 
   --no-restore                      If specified, skips the automatic restore of the project on create.
                                     bool - Optional
