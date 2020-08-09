@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 /*
 
 First cut at removing apis that we might want to deprecate or not support

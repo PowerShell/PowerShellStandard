@@ -1,3 +1,5 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 namespace Microsoft.PowerShell {
   public sealed class DeserializingTypeConverter : System.Management.Automation.PSTypeConverter {

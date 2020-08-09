@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 class CommonType {
     [string]$Fullname
     [bool]$PowerShell51

@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 function Start-Build {
     param ( [switch]$CoreOnly )
     # $versions = 3,5
