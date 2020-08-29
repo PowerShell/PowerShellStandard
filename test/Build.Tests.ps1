@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 Describe "Ensure that the created file versions match what is in the Signing.xml file" {
     BeforeAll {
         $baseDir = Resolve-Path (Join-Path $PsScriptRoot "..")

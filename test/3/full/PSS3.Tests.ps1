@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 Describe "PowerShell Standard 3" {
     BeforeAll {
         $cmdletAssembly = "bin/Release/net452/Demo.Cmdlet.dll" 

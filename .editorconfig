@@ -3,3 +3,6 @@ root = true
 [*]
 charset = utf-8
 insert_final_newline = true
+
+[*.{cs,ps1,psm1}]
+file_header_template = Copyright (c) Microsoft Corporation.\nLicensed under the MIT License.

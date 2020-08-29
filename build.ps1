@@ -1,4 +1,7 @@
 #!/usr/bin/env pwsh
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 param ( 
     [Parameter(HelpMessage="Remove earlier built versions")][switch]$Clean,
     [Parameter(HelpMessage="Run the tests")][switch]$Test,

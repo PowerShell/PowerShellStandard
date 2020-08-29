@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 Describe "PowerShell Standard C# Module Template" {
     Context "Targeting PowerShell Standard 5.1" {
         BeforeAll {

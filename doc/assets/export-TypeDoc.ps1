@@ -1,3 +1,6 @@
+# Copyright (c) Microsoft Corporation.
+# Licensed under the MIT License.
+
 $tlist = Import-CSV TypeComparison.csv
 @'
 # PowerShell Standard Library 5
