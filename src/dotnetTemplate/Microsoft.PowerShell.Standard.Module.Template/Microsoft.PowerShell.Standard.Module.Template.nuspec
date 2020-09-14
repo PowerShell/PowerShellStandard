@@ -20,6 +20,7 @@
     </packageTypes>
   </metadata>
   <files>
+    <file src="Microsoft.PowerShell.Standard.Module.Template\" target="Microsoft.PowerShell.Standard.Module.Template\" />
     <file src="images\PowerShell_64.png" target="images\" />
   </files>
 </package>
