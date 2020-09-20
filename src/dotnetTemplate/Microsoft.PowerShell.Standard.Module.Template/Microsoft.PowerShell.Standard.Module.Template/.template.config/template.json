@@ -16,18 +16,18 @@
     "PowerShellStandardVersion":{
       "type": "parameter",
       "datatype":"choice",
-      "defaultValue": "5.1.0",
+      "defaultValue": "7.0.0-preview.1",
       "choices": [
         {
-          "choice": "5.1.0",
-          "description": "PowerShell Standard 5.1"
+          "choice": "7.0.0-preview.1",
+          "description": "PowerShell Standard 7.0.0-preview.1"
         },
         {
           "choice": "3.0.0-preview-02",
           "description": "PowerShell Standard 3.0"
         }
       ],
-      "replaces": "5.1.0"
+      "replaces": "7.0.0-preview.1"
     },
     "skipRestore": {
       "type": "parameter",
